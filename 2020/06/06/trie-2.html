@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trie 2</title>
+  <meta name="description" content="data structure for autocomplete">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
+  <link rel="canonical" href="/2020/06/06/trie-2.html">
+<link rel="shortcut icon" type ="image/x-icon" href="/images/favicon.ico">
+
+
+
+</head>
+
+
+  <body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+	<div class="navbar-header">
+	
+    <a class="navbar-brand" href="/">Chary Lab @ Weill Cornell Medical College</a>
+	</div>
+	<div class="collapse navbar-collapse" id="navbar-collapse-1">
+	  <ul class="nav navbar-nav navbar-right">
+		<li><a href="/">Home</a></li>
+		<li><a href="/team">Team</a></li>
+		<li><a href="/vacancies">Available Positions</a></li>
+		<li><a href="/publications">Publications</a></li>
+		<li><a href="/research">Research</a></li>
+		<li><a href="/notebooks">Notebooks</a></li>
+	  </ul>
+	</div>
+  </div>
+</div>
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <h3 id="trie-data-structure">Trie Data Structure.</h3>
+
+<p><strong>Context</strong> 
+FlashText (<a href="https://github.com/vi3k6i5/flashtext">GitHub</a>, <a href="https://arxiv.org/pdf/1711.00046.pdf">algorithm</a>) uses tries to identify strings faster than regular expressions. The authors of FlashText chose a trie over regular expressions so that the time needed for to locate or replace a keyword did not increase with the size of the document. I think FlashText could be useful for keyword retrieval in Psychic Llama, the identification of KOLs, or my investigation of DNP doses mentioned online.</p>
+
+<p><strong>Introduction</strong></p>
+
+<p>A trie is a tree whose nodes store letters. One can re_trie_ve tokens from the <em>trie</em> by traversing a certain path. A word made of <em>n</em> letters is represented by a trie of depth <em>n</em>. Each level has all the letters needed to represent the tokens of interest. This, as an aside, makes tries a natural source for text for autocompletes.</p>
+
+<p>(I first thought each node would need 26 children, but I then realized that not all letter combinations are possible.) The user, moreover, is likely to be intereted in a subset of all possible combinations of letters.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class TrieNode(object):
+   def __init__(self, symbol=None, alphabet_length=26):
+      self.symbol= symbol
+      self.children = [None]*alphabet_length
+      //Implicit coding of {0:A, 1:B,...}
+</code></pre></div></div>
+
+<p>We can also add a counter to identify frequently used nodes.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>self.counter = 0
+</code></pre></div></div>
+
+<p>The root of a trie contains references to its chlidren. It is otherwise empty.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root = TrieNode(value = "")
+</code></pre></div></div>
+
+<p>We add a node to a trie by starting at the root, and successively adding characters that do not appear in a branch.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   def add(root, token):
+      node = root // set current node to root 
+   	   for symbol in token:
+   	       found = False //Cannot find anything in root. It has empty value.
+   	       for child in node.children:
+   	           while not found:
+	   	           if child.symbol == symbol:
+   		           	child.counter += 1
+   	   		        	node = child
+   	   		//Sequence does not exist in trie
+   	   		if not found:
+   	   			  new_node = TrieNode(symbol=symbol)
+   	   		     node.children.append(new_node)
+   	   		     node = new_node
+   	           
+</code></pre></div></div>
+
+<p>We traverse the trie (retrieve a string) by:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def find(root, prefix):
+    node = root
+    if not root.children: #Cannot traverse an empty trie
+    	return (False,0)
+    for symbol in prefix:
+    	found = False
+    	for child in node.children:
+    		while not found:
+	    		if child.symbol == symbol:
+   			 		found = True
+    				node = child
+    	if not found:
+    		return (False,0)
+    			
+</code></pre></div></div>
+
+<p><strong>Production Notes</strong></p>
+
+<ol>
+  <li>Link to (description of?) Psychic Llama</li>
+  <li>Link to (description of?) creation of KOL software</li>
+  <li>Link to DNP project</li>
+</ol>
+
+      </div>
+    </div>
+
+    <div id="footer" class="panel">
+  <div class="panel-footer">
+	<div class="container-fluid">
+	  <div class="row">
+		<div class="col-sm-4">
+			
+		  <p>&copy 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="/aboutwebsite.html">copy and  modify it for your own research group.</a></p>
+              <p>We are part of the <a href="https://emed.weill.cornell.edu/">Department of Emergency Medicine</a> at <a href="https://weill.cornell.edu/">Weill Cornell Medical College</a>.</p>
+		   <p>  </p><p>
+            		  
+            
+		</div>
+		<div class="col-sm-4">
+		  Funding:<br />
+		  - Loan Repayment Program from National Institute of Drug abuse <br/>
+		</div>
+		<div class="col-sm-4">
+		  Contact:<br />
+		  Oort building, Leiden University<br />
+		  Niels Bohrweg 2<br />
+		  2333 CA Leiden<br />
+		  Netherlands <br />
+            (<a href="https://goo.gl/maps/H2RjutkyoUH2">Maps</a>, <a href="http://www.physics.leidenuniv.nl/travel-directions">Directions</a>)
+		</div>
+	  </div>
+	</div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+  </body>
+
+</html>
