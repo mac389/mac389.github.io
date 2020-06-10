@@ -9,7 +9,7 @@
   <meta name="description" content="Spatial Statistics">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
-  <link rel="canonical" href="/2020/06/09/spatial-statistics.html">
+  <link rel="canonical" href="/2020/06/10/spatial-statistics.html">
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <link rel="shortcut icon" type ="image/x-icon" href="/images/favicon.ico">
 
@@ -53,7 +53,7 @@
   <meta name="description" content="Spatial Statistics">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
-  <link rel="canonical" href="/2020/06/09/spatial-statistics.html">
+  <link rel="canonical" href="/2020/06/10/spatial-statistics.html">
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <link rel="shortcut icon" type ="image/x-icon" href="/images/favicon.ico">
 
@@ -86,10 +86,22 @@
 
 <section class="post--content">
   
-  <p class="post--date">09 Jun 2020</p>
+  <p class="post--date">10 Jun 2020</p>
     
   <p></p>
-   <h3 id="to-read">To Read</h3>
+   <p>Spatial statistics is concerned with, as you might expect, how statistics vary over space.</p>
+
+<p>At an abstract level, a striking difference between spatial statistics and the more comon types (t-tests, Z-scores) is that <em>everything</em> , in general, is correlated in space.  For example, the health effects of living in Colorado or New York City might reflect the geography or the demographics of the people who live there, or <strong>maddeningly</strong> the people who migrated out of an area. You can’t compare 20 year-olds in one place to 40-year olds in another place and attribute the difference to spatial variation.</p>
+
+<p>At a less abstract level, the software and analytic approaches for dealing with spatial data only minimally overlap with the software and analytic approaches for the other type of statistics. (I struggle with what to call the other statistics, because spatial statistics is, argulably, older than “classical” statistics.)</p>
+
+<h3 id="spatiotemporal-variation">Spatiotemporal Variation</h3>
+
+<p>Things often vary in space and time simultaneously. One physics inspired approach is, essentially. \(f(x,t) = g(x)h(t)\).</p>
+
+<p><a href="https://geods.geography.wisc.edu/song/papers/2016GIScience_paper_150_STAutoCorrelation.pdf">Link to Taxicab article</a></p>
+
+<h3 id="to-read">To Read</h3>
 <ul>
   <li><a href="https://www.economicmodeling.com/2011/10/14/understanding-location-quotient-2/">Good write-up on location quotient</a></li>
   <li><a href="https://www.youtube.com/watch?v=h5sy0z2BUTo">Intro to Spatial Analysis with Geopandas</a>, Don’t forget <a href="http://pysal.org/notebooks/explore/segregation/intro.html">PySAL</a></li>
