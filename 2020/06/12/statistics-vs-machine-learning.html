@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Statistics vs Machine Learning</title>
+  <meta name="description" content="Statistics draws population inference from a sample. Machine Learning finds generalizable predictive patterns">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
+  <link rel="canonical" href="/2020/06/12/statistics-vs-machine-learning.html">
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link rel="shortcut icon" type ="image/x-icon" href="/images/favicon.ico">
+
+
+
+{% seo %} 
+
+</head>
+
+
+  <body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+	     <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="navbar-brand" href="/">Chary Lab @ Weill Cornell Medical College</a>
+	<div class="nav navbar-collapse collapse" id="navbar-collapse-1">
+	  <ul class="nav navbar-nav navbar-right">
+		<li><a href="/">Home</a></li>
+		<li><a href="/team">Team</a></li>
+		<li><a href="/vacancies">Available Positions</a></li>
+		<li><a href="/publications">Publications</a></li>
+		<li><a href="/research">Research</a></li>
+		<li><a href="/notebooks">Notebooks</a></li>
+	  </ul>
+	</div>
+  </div>
+</div>
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Statistics vs Machine Learning</title>
+  <meta name="description" content="Statistics draws population inference from a sample. Machine Learning finds generalizable predictive patterns">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
+  <link rel="canonical" href="/2020/06/12/statistics-vs-machine-learning.html">
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link rel="shortcut icon" type ="image/x-icon" href="/images/favicon.ico">
+
+
+
+{% seo %} 
+
+</head>
+ 
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+	     <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="navbar-brand" href="/">Chary Lab @ Weill Cornell Medical College</a>
+	<div class="nav navbar-collapse collapse" id="navbar-collapse-1">
+	  <ul class="nav navbar-nav navbar-right">
+		<li><a href="/">Home</a></li>
+		<li><a href="/team">Team</a></li>
+		<li><a href="/vacancies">Available Positions</a></li>
+		<li><a href="/publications">Publications</a></li>
+		<li><a href="/research">Research</a></li>
+		<li><a href="/notebooks">Notebooks</a></li>
+	  </ul>
+	</div>
+  </div>
+</div>
+
+
+<section class="post--content">
+  <br><br><br>
+  <p class="post--date">12 Jun 2020</p><br>
+    
+  <p><h2>Statistics vs Machine Learning</h2></p>
+   <p><a href="https://www.nature.com/articles/nmeth.4642">Bzdok et al (2018)</a> used simulated gene expression and RNA-seq counts to illustrates the difference between how classical statistics and machine learning rank the relevance of gene epxression to a phenotype, that is to discover a correlation structure. Their point is that both approaches yield similar results, but the machine learning approach is more scaleable because it makes no assumptions about the process that generates gene expression levels.</p>
+
+<p>The authors suggest that scalability comes at the expense of model interpretability. As <a href="https://arxiv.org/pdf/2004.14480.pdf">Thiagarajan et al. (2020)</a> demonstrate <a href="./2020-06-06-Explainable-AI.md">related notebook</a> there are ways to visualize the latent space the model constructs. One can relate that model structure to biological knowledge. Here is an early example of principal components analysis to identify <a href="https://www.pnas.org/content/97/6/2680/tab-figures-data">different pathways for sensitivity or resistance to apoptosis</a>.</p>
+
+<p>With a latent space analysis, or some way to introspect the model, the main difference to me between classical statistics and machine learning is one of scale. Classical statistics work well on groups that are to small to even train a neural network on.</p>
+
+<h4 id="to-read">To Read</h4>
+
+<h4 id="related-notebooks">Related Notebooks</h4>
+
+</section>
+
+
+      </div>
+    </div>
+
+    <div id="footer" class="panel">
+  <div class="panel-footer">
+	<div class="container-fluid">
+	  <div class="row">
+		<div class="col-sm-4">
+			
+		  <p>&copy 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="/aboutwebsite.html">copy and  modify it for your own research group.</a></p>
+              <p>We are part of the <a href="https://emed.weill.cornell.edu/">Department of Emergency Medicine</a> at <a href="https://weill.cornell.edu/">Weill Cornell Medical College</a>.</p>
+		   <p>  </p><p>
+            		  
+            
+		</div>
+		<div class="col-sm-4">
+		  Funding:<br />
+		  - Loan Repayment Program from National Institute of Drug abuse <br/>
+		</div>
+		<!-- <div class="col-sm-4"> put contact information here  -->
+		</div> 
+	  </div>
+	</div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+  </body>
+
+</html>
