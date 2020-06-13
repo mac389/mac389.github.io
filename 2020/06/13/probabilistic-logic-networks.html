@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Probabilistic Logic Networks</title>
+  <title>Probabilistic Logic Networks &amp; Medical Decision Making</title>
   <meta name="description" content="PLNs">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
@@ -52,7 +52,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Probabilistic Logic Networks</title>
+  <title>Probabilistic Logic Networks &amp; Medical Decision Making</title>
   <meta name="description" content="PLNs">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
@@ -94,17 +94,25 @@
   <br><br><br>
   <p class="post--date">13 Jun 2020</p><br>
     
-  <p><h2>Probabilistic Logic Networks</h2></p>
-   <p>I think the solutions to developing explainable artificial intelligence and adding expert knowledge to neural networks over lap. In the former case we want to identify a transformation from the space in which the neural network works to one in which the expert thinks. The former case resembles the inverse transformation.</p>
+  <p><h2>Probabilistic Logic Networks & Medical Decision Making</h2></p>
+   <!-- still editing -->
+
+<p>I think the solutions to developing explainable artificial intelligence and adding expert knowledge to neural networks over lap. In the former case we want to identify a transformation from the space in which the neural network works to one in which the expert thinks. The former case resembles the inverse transformation.</p>
 
 <p>It would be nice if the optimum representation the neural network uncovered was the latent space in which the domain expert thinks, but the two are probably not, in general, using the same optimization function.</p>
 
 <p>I discuss latent space analysis more (<a href="./2020-06-11-analysis-of-latent-spaces">here</a> and <a href="./2020-06-06-Explainable-AI.md">here</a>). In this notebook I’ll trace a thread from ontologies to probabilistic reasoning. It would be nice for the two threads to converge some day.</p>
 
+<h4 id="mathematical-preliminaries">Mathematical Preliminaries</h4>
 <p>The central representation in Probabilistic Logic Networks is 
 \(w \quad \mathbb{P}\left(\vec{x}\right) \Rightarrow \mathbb{Q}\left(\vec{x}\right)\)</p>
 
 <p>This states, roughly, that in \(w\) possible worlds, given no other information, the conditional holds.</p>
+
+<h4 id="medical-decision-making">Medical Decision Making</h4>
+<p>A central component of medical decision making is the generation and updating of a differential diagnosis. The differential diagnosis (usually shortened to <em>the differential</em>) is an list of causes of the patients complaint ordered by the likelihood of each disease occurring. This classical description misses a few crucial points that provide one way to understand a difference in thinking between Emergency Physicians and Internists, Pediatricians, and Intensivists. A refinement is to say that the differential is represents the most likely causes at time \(t\) given the appreciated manifestations of the patient’s pathology.</p>
+
+<p>In the Emergency Department the sorting is two-dimensional, considering both acuity and probability.</p>
 
 <h4 id="to-read">To Read</h4>
 
