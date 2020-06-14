@@ -1,1 +1,1 @@
-Sitemap: /sitemap.xml
+Sitemap: mac389.github.io/sitemap.xml
