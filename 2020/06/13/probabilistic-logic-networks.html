@@ -2,6 +2,7 @@
 <html>
 
   <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,11 +11,10 @@
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
   <link rel="canonical" href="mac389.github.io/2020/06/13/probabilistic-logic-networks.html">
-  <script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-<meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs" />
-<link rel="shortcut icon" type ="image/x-icon" href="/images/favicon.ico">
+<meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
@@ -31,6 +31,7 @@
 </script>
 
 
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 
@@ -64,7 +65,7 @@
       <div class="row">
         <style>ol.bibliography li { list-style: none }</style>
 
-<head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -73,11 +74,10 @@
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
   <link rel="canonical" href="mac389.github.io/2020/06/13/probabilistic-logic-networks.html">
-  <script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-<meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs" />
-<link rel="shortcut icon" type ="image/x-icon" href="/images/favicon.ico">
+<meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
@@ -94,7 +94,7 @@
 </script>
 
 
-</head>
+
  
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
@@ -122,9 +122,11 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">13 Jun 2020</p><br>
+  <p class="post--date">13 Jun 2020</p>
+<br>
     
-  <p><h2>Probabilistic Logic Networks & Medical Decision Making</h2></p>
+  <p></p>
+<h2>Probabilistic Logic Networks &amp; Medical Decision Making</h2>
    
 <p>I think the solutions to developing explainable artificial intelligence and adding expert knowledge to neural networks over lap. In the former case we want to identify a transformation from the space in which the neural network works to one in which the expert thinks. The former case resembles the inverse transformation.</p>
 
@@ -136,10 +138,10 @@
 <p>The central representation in Probabilistic Logic Networks is 
 \(w \quad \mathbb{P}\left(\vec{x}\right) \Rightarrow \mathbb{Q}\left(\vec{x}\right)\)</p>
 
-<p>This states, roughly, that in \(w\) possible worlds, given no other information, the conditional holds.</p>
+<p>This states, roughly, that in $$ w $$ possible worlds, given no other information, the conditional holds.</p>
 
 <h4 id="medical-decision-making">Medical Decision Making</h4>
-<p>A central component of medical decision making is the generation and updating of a differential diagnosis. The differential diagnosis (usually shortened to <em>the differential</em>) is an list of causes of the patients complaint ordered by the likelihood of each disease occurring. This classical description misses a few crucial points that provide one way to understand a difference in thinking between Emergency Physicians and Internists, Pediatricians, and Intensivists. A refinement is to say that the differential is represents the most likely causes at time \(t\) given the appreciated manifestations of the patient’s pathology.</p>
+<p>A central component of medical decision making is the generation and updating of a differential diagnosis. The differential diagnosis (usually shortened to <em>the differential</em>) is an list of causes of the patients complaint ordered by the likelihood of each disease occurring. This classical description misses a few crucial points that provide one way to understand a difference in thinking between Emergency Physicians and Internists, Pediatricians, and Intensivists. A refinement is to say that the differential is represents the most likely causes at time $$ t $$ given the appreciated manifestations of the patient’s pathology.</p>
 
 <p>In the Emergency Department the sorting is two-dimensional, considering both acuity and probability.</p>
 
@@ -164,22 +166,24 @@
 	  <div class="row">
 		<div class="col-sm-4">
 			
-		  <p>&copy 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="mac389.github.io/aboutwebsite.html">copy and  modify it for your own research group.</a></p>
+		  <p>&amp;copy 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="mac389.github.io/aboutwebsite.html">copy and  modify it for your own research group.</a></p>
               <p>We are part of the <a href="https://emed.weill.cornell.edu/">Department of Emergency Medicine</a> at <a href="https://weill.cornell.edu/">Weill Cornell Medical College</a>.</p>
-		   <p>  </p><p>
+		   <p>  </p>
+<p>
             		  
             
-		</div>
+		</p>
+</div>
 		<div class="col-sm-4">
-		  Funding:<br />
-		  - Loan Repayment Program from National Institute of Drug abuse <br/>
+		  Funding:<br>
+		  - Loan Repayment Program from National Institute of Drug abuse <br>
 		</div>
 		<!-- <div class="col-sm-4"> put contact information here  -->
 		</div> 
 	  </div>
 	</div>
   </div>
-</div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="mac389.github.io/js/bootstrap.min.js"></script>

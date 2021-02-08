@@ -2,6 +2,7 @@
 <html>
 
   <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,11 +11,10 @@
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
   <link rel="canonical" href="mac389.github.io/2020/06/08/spatial-statistics.html">
-  <script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-<meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs" />
-<link rel="shortcut icon" type ="image/x-icon" href="/images/favicon.ico">
+<meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
@@ -31,6 +31,7 @@
 </script>
 
 
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 
@@ -64,7 +65,7 @@
       <div class="row">
         <style>ol.bibliography li { list-style: none }</style>
 
-<head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -73,11 +74,10 @@
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
   <link rel="canonical" href="mac389.github.io/2020/06/08/spatial-statistics.html">
-  <script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-<meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs" />
-<link rel="shortcut icon" type ="image/x-icon" href="/images/favicon.ico">
+<meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
@@ -94,7 +94,7 @@
 </script>
 
 
-</head>
+
  
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
@@ -122,9 +122,11 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">08 Jun 2020</p><br>
+  <p class="post--date">08 Jun 2020</p>
+<br>
     
-  <p><h2>Spatial Statistics</h2></p>
+  <p></p>
+<h2>Spatial Statistics</h2>
    <p>Spatial statistics is concerned with, as you might expect, how statistics vary over space.</p>
 
 <p>At an abstract level, a striking difference between spatial statistics and the more comon types (t-tests, Z-scores) is that <em>everything</em> , in general, is correlated in space.  For example, the health effects of living in Colorado or New York City might reflect the geography or the demographics of the people who live there, or <strong>maddeningly</strong> the people who migrated out of an area. You can’t compare 20 year-olds in one place to 40-year olds in another place and attribute the difference to spatial variation.</p>
@@ -133,7 +135,7 @@
 
 <h3 id="spatiotemporal-variation">Spatiotemporal Variation</h3>
 
-<p>Things often vary in space and time simultaneously. One physics inspired approach is, essentially. \(f\left(\vec{x},t\right) = g\left(\vec{x}\right)h\left(t\right)\). This decomposition assumes that the variations in space, \(g\left(\vec{x}\right)\), and time, \(h\left(t\right)\) are independent enough. Assuming independence leads to elegant linear algebra, but is not valid for variation on the theme of of: “What happens to individuals moving through space if they pick up and lose members?” Even if the decomposition is unrealistic, it is a useful starting point to define the modeling approach. The temporal and spatial dynamics may be on disparate enough scales to be considered separately.</p>
+<p>Things often vary in space and time simultaneously. One physics inspired approach is, essentially. $$f\left(\vec{x},t\right) = g\left(\vec{x}\right)h\left(t\right) $$. This decomposition assumes that the variations in space, $$g\left(\vec{x}\right)$$, and time, $$h\left(t\right)$$ are independent enough. Assuming independence leads to elegant linear algebra, but is not valid for variation on the theme of of: “What happens to individuals moving through space if they pick up and lose members?” Even if the decomposition is unrealistic, it is a useful starting point to define the modeling approach. The temporal and spatial dynamics may be on disparate enough scales to be considered separately.</p>
 
 <p><a href="https://geods.geography.wisc.edu/song/papers/2016GIScience_paper_150_STAutoCorrelation.pdf">Gao et al.</a> extended the Getis-Ord G* (Eq \ref{eq:getis-ord} )
 \(G = \frac{w_{ij}x_ix_j}{x_ix_j}\label{eq:getis-ord}\)</p>
@@ -141,7 +143,9 @@
 <h3 id="to-read">To Read</h3>
 <ul>
   <li><a href="https://www.economicmodeling.com/2011/10/14/understanding-location-quotient-2/">Good write-up on location quotient</a></li>
-  <li><a href="https://www.youtube.com/watch?v=h5sy0z2BUTo">Intro to Spatial Analysis with Geopandas</a>, Don’t forget <a href="http://pysal.org/notebooks/explore/segregation/intro.html">PySAL</a></li>
+  <li>
+<a href="https://www.youtube.com/watch?v=h5sy0z2BUTo">Intro to Spatial Analysis with Geopandas</a>, Don’t forget <a href="http://pysal.org/notebooks/explore/segregation/intro.html">PySAL</a>
+</li>
   <li><a href="https://ocw.mit.edu/resources/res-str-001-geographic-information-system-gis-tutorial-january-iap-2016/spatial-statistics/MITRES_STR_001IAP16_spati.pdf">MIT OCW Geocoding 101</a></li>
   <li><a href="https://en.wikipedia.org/wiki/Indicators_of_spatial_association">Wikipedia: Indicators of Spatial Association</a></li>
 </ul>
@@ -158,22 +162,24 @@
 	  <div class="row">
 		<div class="col-sm-4">
 			
-		  <p>&copy 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="mac389.github.io/aboutwebsite.html">copy and  modify it for your own research group.</a></p>
+		  <p>&amp;copy 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="mac389.github.io/aboutwebsite.html">copy and  modify it for your own research group.</a></p>
               <p>We are part of the <a href="https://emed.weill.cornell.edu/">Department of Emergency Medicine</a> at <a href="https://weill.cornell.edu/">Weill Cornell Medical College</a>.</p>
-		   <p>  </p><p>
+		   <p>  </p>
+<p>
             		  
             
-		</div>
+		</p>
+</div>
 		<div class="col-sm-4">
-		  Funding:<br />
-		  - Loan Repayment Program from National Institute of Drug abuse <br/>
+		  Funding:<br>
+		  - Loan Repayment Program from National Institute of Drug abuse <br>
 		</div>
 		<!-- <div class="col-sm-4"> put contact information here  -->
 		</div> 
 	  </div>
 	</div>
   </div>
-</div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="mac389.github.io/js/bootstrap.min.js"></script>

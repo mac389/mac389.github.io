@@ -2,6 +2,7 @@
 <html>
 
   <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,11 +11,10 @@
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
   <link rel="canonical" href="mac389.github.io/2020/06/08/nlp-of-some.html">
-  <script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-<meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs" />
-<link rel="shortcut icon" type ="image/x-icon" href="/images/favicon.ico">
+<meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
@@ -64,7 +64,7 @@
       <div class="row">
         <style>ol.bibliography li { list-style: none }</style>
 
-<head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -73,11 +73,10 @@
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
   <link rel="canonical" href="mac389.github.io/2020/06/08/nlp-of-some.html">
-  <script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-<meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs" />
-<link rel="shortcut icon" type ="image/x-icon" href="/images/favicon.ico">
+<meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
@@ -94,7 +93,7 @@
 </script>
 
 
-</head>
+
  
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
@@ -122,9 +121,11 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">08 Jun 2020</p><br>
+  <p class="post--date">08 Jun 2020</p>
+<br>
     
-  <p><h2>Natural Language Processing of Social Media</h2></p>
+  <p></p>
+<h2>Natural Language Processing of Social Media</h2>
    <p>Natural Language Processing To Extract Health Information from Social Media</p>
 
 <p>The analysis of text from Social Media may overcome the limitations of traditional means of public health epidemiology. Surveys are slow and so may not provide timely information. They are also expensive, which limits their scope introducing sampling bias.</p>
@@ -134,8 +135,10 @@
 <p>Spanish Language</p>
 
 <ol>
-  <li><a href="https://preprints.jmir.org/preprint/14199">Leis et al (2019)</a> noted that those who explicitly stated they had depression tweeted more at night than those who did not explicitly state (or didn’t have) and preferred verbs to nouns.</li>
-  <li><a href="https://www.pnas.org/content/115/44/11203.short">Eichstaedt et al (2018)</a> found that a topic analysis of Facebook posts could predict depression 3 months before those users sought care and were formally diagnosed.</li>
+  <li>
+<a href="https://preprints.jmir.org/preprint/14199">Leis et al (2019)</a> noted that those who explicitly stated they had depression tweeted more at night than those who did not explicitly state (or didn’t have) and preferred verbs to nouns.</li>
+  <li>
+<a href="https://www.pnas.org/content/115/44/11203.short">Eichstaedt et al (2018)</a> found that a topic analysis of Facebook posts could predict depression 3 months before those users sought care and were formally diagnosed.</li>
 </ol>
 
 <p>Both of these papers inferred semantics from frequency. The ubiquity of polysemy and slang online make it hard for me to believe that the model in (1) could be applied to other data without re-tuning. In fact, (2) could not replicate the importance of diurnal variation that (1) found. The topics that (2) uncovered had make medical sense, referring to depressed mood, feelings of agitation or desolation, somatic complaints, and medical discussions. But, I feel the authors of (2) got lucky. LDA rarely gives such nice topics.</p>
@@ -145,13 +148,14 @@
 <p>Word emeddings provide an alternative topic modeling or deriving semantics from syntax.</p>
 
 <ol>
-  <li><a href="https://aaai.org/ocs/index.php/WS/AAAIW18/paper/viewPDFInterstitial/17178/15617">Feng et al. (2018)</a> used a combination RNN/CNN to identify features from Twitter text that related to personal health experiences. They compared three common methods of word embedding (word2vec, fastText, WordRank). Adding RNNs allowed them to identify <em>sequenctial semantics</em>, that is to consider phrases instead of isolated token.</li>
+  <li>
+<a href="https://aaai.org/ocs/index.php/WS/AAAIW18/paper/viewPDFInterstitial/17178/15617">Feng et al. (2018)</a> used a combination RNN/CNN to identify features from Twitter text that related to personal health experiences. They compared three common methods of word embedding (word2vec, fastText, WordRank). Adding RNNs allowed them to identify <em>sequenctial semantics</em>, that is to consider phrases instead of isolated token.</li>
 </ol>
 
 <h3 id="to-read">To Read</h3>
 <ul>
   <li><a href="https://medium.com/@aneesha/beyond-bag-of-words-using-pytextrank-to-find-phrases-and-summarize-text-f736fa3773c5">Beyond bag of words: Using PyTextRank to find Phrases and Summarize text</a></li>
-  <li><a href="https://kavita-ganesan.com/easily-access-pre-trained-word-embeddings-with-gensim/?relatedposts_hit=1&amp;relatedposts_origin=1229&amp;relatedposts_position=0#.XYlqBJNKjxW">Pre-trained Word Embeddings with Gensim</a></li>
+  <li><a href="https://kavita-ganesan.com/easily-access-pre-trained-word-embeddings-with-gensim/?relatedposts_hit=1&relatedposts_origin=1229&relatedposts_position=0#.XYlqBJNKjxW">Pre-trained Word Embeddings with Gensim</a></li>
   <li><a href="https://pdfs.semanticscholar.org/24c2/3289b487fed733d1f2f49b78cbc091f5d253.pdf">Tracking temporal evolution in word meaning</a></li>
   <li><a href="https://markroxor.github.io/gensim/static/notebooks/online_w2v_tutorial.html">Word2Vec tutorial</a></li>
   <li><a href="https://machinelearningmastery.com/develop-word-embeddings-python-gensim/">How to Develop Word Embeddings with Gensim</a></li>
@@ -172,22 +176,24 @@
 	  <div class="row">
 		<div class="col-sm-4">
 			
-		  <p>&copy 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="mac389.github.io/aboutwebsite.html">copy and  modify it for your own research group.</a></p>
+		  <p>&amp;copy 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="mac389.github.io/aboutwebsite.html">copy and  modify it for your own research group.</a></p>
               <p>We are part of the <a href="https://emed.weill.cornell.edu/">Department of Emergency Medicine</a> at <a href="https://weill.cornell.edu/">Weill Cornell Medical College</a>.</p>
-		   <p>  </p><p>
+		   <p>  </p>
+<p>
             		  
             
-		</div>
+		</p>
+</div>
 		<div class="col-sm-4">
-		  Funding:<br />
-		  - Loan Repayment Program from National Institute of Drug abuse <br/>
+		  Funding:<br>
+		  - Loan Repayment Program from National Institute of Drug abuse <br>
 		</div>
 		<!-- <div class="col-sm-4"> put contact information here  -->
 		</div> 
 	  </div>
 	</div>
   </div>
-</div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="mac389.github.io/js/bootstrap.min.js"></script>
