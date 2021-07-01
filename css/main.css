@@ -2597,7 +2597,7 @@ nav li { line-height: 30px; }
 
 nav a { text-decoration: none; }
 
-nav li.active a { color: #ffffff; }
+nav li.active a { border-bottom: black solid 1px; }
 
 /* Top navigation bar */
 p.byline { text-align: center; font-size: 18px; line-height: 36px; margin-top: -24px; margin-bottom: 48px; }
