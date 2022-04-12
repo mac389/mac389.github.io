@@ -105,6 +105,12 @@
                                 </li>
                             
                         
+                            
+                                <li>
+                                    <a href="/ann_latent_reps_drugs">Latent Representations of Chemical Activity</a>
+                                </li>
+                            
+                        
                     </ul>
                 </li>
             
@@ -228,6 +234,12 @@
                                 </li>
                             
                         
+                            
+                                <li>
+                                    <a href="/ann_latent_reps_drugs">Latent Representations of Chemical Activity</a>
+                                </li>
+                            
+                        
                     </ul>
                 </li>
             
@@ -254,14 +266,16 @@
     
   <p></p>
 <h2>Class Activation Maps</h2>
-   <h3 id="class-activation-maps">Class Activation Maps</h3>
+   <h3 id="introduction">Introduction</h3>
 
 <p>In neuroscience, a <em>receptive field</em> is the portion of sensory space to which a neuron fires if an appropriate stimulus is presented. Each neuron, for example, in (layer 5 of) the primary visual cortex responds to the orientation of a bar. By mapping the responses across layer 5 to a stimulus and mapping the responses to one layeer 5 neuron across all stimuli, we can understand the relationship between input and neural activity.</p>
 
-<p>In computational neural networks there is an analogous concept, termed <em>class activation maps</em>. Computational neural networks have a related term, <em>discirminative regions</em>, that they borrowed from machine learning, which corresponds to the <em>just noticeable difference</em> in neuroscience.</p>
+<p>The analogous concept in computational neural networks is a <em>class activation map</em>. Computational neural networks have a related term, <em>discriminative regions</em>, that they borrowed from machine learning, which corresponds to the <em>just noticeable difference</em> in neuroscience.</p>
 
+<h3 id="prior-work">Prior Work</h3>
 <p>There are posts and articles on how to visualize class activation maps for images. In this post I discuss how to visualize the class activation maps for molecules represented by a SMILES string.</p>
 
+<h3 id="visualization">Visualization</h3>
 
 </section>
 
@@ -297,6 +311,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="mac389.github.io/js/bootstrap.min.js"></script>
 
+
+  <script src="https://unpkg.com/mermaid@8.9.3/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(function () {
+    mermaid.initialize({
+      startOnLoad:true,
+      theme: "default",
+    });
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
+</script>
 
   </body>
 

@@ -105,6 +105,12 @@
                                 </li>
                             
                         
+                            
+                                <li>
+                                    <a href="/ann_latent_reps_drugs">Latent Representations of Chemical Activity</a>
+                                </li>
+                            
+                        
                     </ul>
                 </li>
             
@@ -128,30 +134,44 @@
       <div class="row">
         <div id="textid" class="col-sm-12">
   <h3 id="overall-goal">Overall Goal</h3>
-<p>Understand the sublethal toxicity of 2,4-dinitrophenol (DNP) using social media.</p>
+<p>Understand the sublethal toxicity of 2,4-dinitrophenol (DNP) using social media. Leading to the <strong>specific aims</strong></p>
+<ol>
+  <li>Determine pattern of effects at sublethal dosages.</li>
+  <li>Develop tools to automatically update this knowledge.</li>
+</ol>
 
-<h4 id="scientific-output-to-date">Scientific Output (to Date)</h4>
+<h4 id="scientific-output">Scientific Output</h4>
+<ol>
+  <li>Sublethal Patterns of 2,4-Dinitrophenol Use as Discussed on Social Media <em>(manuscript in preparation)</em>
+</li>
+</ol>
 
 <h4 id="background">Background</h4>
 <p>Previous research focused on <em>lethal</em> toxicity. This reflects the selection bias of case reports and calls to Poison Control Centers (PCC). There is, thus, a gap in our understanding of sublethal toxicity. DNP use appears to have increased. Of calls to PCCs, X/Y of them occurred since 2000 <strong>(citation needed)</strong>.</p>
 
 <h4 id="related-notebooks">Related Notebooks</h4>
+<!-- Later filter this by tags -->
 
 <ul>
- 	<li><a href="">A test</a></li>
- </ul>
-
-<h4 id="why-use-social-media">Why Use Social Media</h4>
-<p>The FDA has prohibited DNP for human consumption since X <strong>(citation needed)</strong>. It is unethical to conduct human trials to determine toxicity even if the FDA approved DNP for human consumption. There is no equipoise. We know that some doses of DNP are lethal and are not certain their is any safe dose. We can, ethically, use information that people who consumed DNP of their own accord freely provide. Social media provide just such a data stream.</p>
-
-<h4 id="dose-response-relationships-and-causality">Dose-Response Relationships and Causality</h4>
-
-<ul>
-	<li> Review of Bradford-Hill Criteria </li>
+  <li>
+<a href="/2020/06/20/2,4-dinitrophenol.html">2,4-dinitrophenol</a> <strong>TODO: Add Content to Link</strong>
+</li>
+  <li>
+<a href="/2022/04/10/bradford-hill-criteria.html">Determining Causality</a> <strong>TODO: Add Content to Link</strong>
+</li>
+  <li>
+<a href="/2020/04/10/social-media-for-drug-discovery.html">Social Media for Drug Development</a>  <strong>TODO: Add Content to Link</strong>
+</li>
 </ul>
+
+<h4 id="why-use-social-media-for-dnp">Why Use Social Media for DNP</h4>
+<p>The FDA has prohibited DNP for human consumption since 1938<a class="citation" href="#yen2012toxicity"><span style="vertical-align: super">1</span></a>.  Even if the FDA approved DNP for human consumption, it would still be unethical to conduct human trials We know that some doses of DNP are lethal and are not certain there is any safe dose. We can, ethically, use information that people who consumed DNP of their own accord freely provide. Social media provide just such a data stream.</p>
 
 <h4 id="methods">Methods</h4>
 <p>From social media we aggregate reports of DNP usage</p>
+
+<h3 id="references">References</h3>
+<ol class="bibliography"><li><span id="yen2012toxicity">1.Yen, M. &amp; Ewald, M. B. Toxicity of weight loss agents. <i>Journal of medical toxicology</i> <b>8</b>, 145–152 (2012).</span></li></ol>
 
 
 </div>
@@ -187,6 +207,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="mac389.github.io/js/bootstrap.min.js"></script>
 
+
+  <script src="https://unpkg.com/mermaid@8.9.3/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(function () {
+    mermaid.initialize({
+      startOnLoad:true,
+      theme: "default",
+    });
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
+</script>
 
   </body>
 

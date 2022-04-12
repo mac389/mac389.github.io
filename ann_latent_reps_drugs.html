@@ -6,11 +6,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trie</title>
-  <meta name="description" content="data structure for autocomplete">
+  <title>Latent Representations of Chemical Activity</title>
+  <meta name="description" content="Latent Representations of Chemical Activity">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
-  <link rel="canonical" href="mac389.github.io/2020/06/06/trie.html">
+  <link rel="canonical" href="mac389.github.io/ann_latent_reps_drugs">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
@@ -132,78 +132,61 @@
 
     <div class="container-fluid">
       <div class="row">
-        <h3 id="trie-data-structure">Trie Data Structure.</h3>
+        <div id="textid" class="col-sm-12">
+  <h4 id="overall-goal">Overall Goal</h4>
+<p>Determine whether the intermediate representations of convolutional neural networks identify properties of molecules that were previously unappreciated or whose functional importance was unappreciated.</p>
 
-<p><strong>Context</strong> 
-FlashText (<a href="https://github.com/vi3k6i5/flashtext">GitHub</a>, <a href="https://arxiv.org/pdf/1711.00046.pdf">algorithm</a>) uses tries to identify strings faster than regular expressions. The authors of FlashText chose a trie over regular expressions so that the time needed for to locate or replace a keyword did not increase with the size of the document. I think FlashText could be useful for keyword retrieval in Psychic Llama, the identification of KOLs, or my investigation of DNP doses mentioned online.</p>
+<h4 id="background">Background.</h4>
 
-<p><strong>Introduction</strong></p>
+<p>Hirohara <em>(citation)</em> demonstrated that a convolutional neural network trained on the SMILES <em>(link)</em> representation of a molecule could classify that molecule as toxic or not and that molecules their classifier labeled as toxic shared patterns of activation in the intermediate levels of their convoluational network.</p>
 
-<p>A trie is a tree whose nodes store letters. One can re_trie_ve tokens from the <em>trie</em> by traversing a certain path. A word made of <em>n</em> letters is represented by a trie of depth <em>n</em>. Each level has all the letters needed to represent the tokens of interest. This, as an aside, makes tries a natural source for text for autocompletes.</p>
+<ul>
+  <li>Neural Networks</li>
+  <li>Latent representaions.</li>
+  <li>Social Media as a Data Source.</li>
+</ul>
 
-<p>(I first thought each node would need 26 children, but I then realized that not all letter combinations are possible.) The user, moreover, is likely to be intereted in a subset of all possible combinations of letters.</p>
+<h4 id="prior-work">Prior Work.</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class TrieNode(object):
-   def __init__(self, symbol=None, alphabet_length=26):
-      self.symbol= symbol
-      self.children = [None]*alphabet_length
-      //Implicit coding of {0:A, 1:B,...}
-</code></pre></div></div>
-
-<p>We can also add a counter to identify frequently used nodes.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>self.counter = 0
-</code></pre></div></div>
-
-<p>The root of a trie contains references to its chlidren. It is otherwise empty.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root = TrieNode(value = "")
-</code></pre></div></div>
-
-<p>We add a node to a trie by starting at the root, and successively adding characters that do not appear in a branch.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   def add(root, token):
-      node = root // set current node to root 
-   	   for symbol in token:
-   	       found = False //Cannot find anything in root. It has empty value.
-   	       for child in node.children:
-   	           while not found:
-	   	           if child.symbol == symbol:
-   		           	child.counter += 1
-   	   		        	node = child
-   	   		//Sequence does not exist in trie
-   	   		if not found:
-   	   			  new_node = TrieNode(symbol=symbol)
-   	   		     node.children.append(new_node)
-   	   		     node = new_node
-   	           
-</code></pre></div></div>
-
-<p>We traverse the trie (retrieve a string) by:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def find(root, prefix):
-    node = root
-    if not root.children: #Cannot traverse an empty trie
-    	return (False,0)
-    for symbol in prefix:
-    	found = False
-    	for child in node.children:
-    		while not found:
-	    		if child.symbol == symbol:
-   			 		found = True
-    				node = child
-    	if not found:
-    		return (False,0)
-    			
-</code></pre></div></div>
-
-<p><strong>Production Notes</strong></p>
+<h4 id="approach">Approach</h4>
 
 <ol>
-  <li>Link to (description of?) Psychic Llama</li>
-  <li>Link to (description of?) creation of KOL software</li>
-  <li>Link to DNP project</li>
+  <li><a href="#specific-aim-1"><strong>Specific Aim 1: Extract Names, 2-Dimensional Structures, and Effects from Social Media of Novel Psychoactive Substances</strong></a></li>
+  <li><a href="specific-aim-2"><strong>Specific Aim 2: Train a Convoluational Neural Network to Classify Substancts as Belonging to 1 of 5 Classes of Novel Psychoactive Substances</strong></a></li>
+  <li><a href="specific-aim-3"><strong>Specific AIm 3: Assess how (2) classifies and represents (1)</strong></a></li>
 </ol>
+
+<h4 id="specific-aim-1">Specific Aim 1</h4>
+
+<ul>
+  <li>We developed a custom named entity recognizer using the Python plugin SpaCy.  <strong>How train, test, validate it?</strong>
+</li>
+</ul>
+
+<h4 id="specific-aim-2">Specific Aim 2</h4>
+
+<ul>
+  <li>We extended Hirohara et al. <strong>How test and validate it? How introspect latent representations?</strong>
+    <ul class="task-list">
+      <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled checked>Ported from Chainer (name?) to Keras.</li>
+      <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled>Developed visualization module</li>
+      <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled>Reproduced their published results</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="specific-aim-3">Specific Aim 3</h4>
+
+<ul>
+  <li>We did this. <strong>How validate it?</strong>
+</li>
+</ul>
+
+
+</div>
 
       </div>
     </div>
