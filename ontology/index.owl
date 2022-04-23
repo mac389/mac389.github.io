@@ -10,9 +10,7 @@
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:terms="http://purl.org/dc/terms/">
-    <owl:Ontology rdf:about="http://purl.org/net/opioid">
-        <owl:versionIRI rdf:resource="http://purl.org/net/opioid"/>
-    </owl:Ontology>
+    <owl:Ontology rdf:about="https://mac389.github.io/ontology"/>
     
 
 
@@ -2657,6 +2655,7 @@
 
     <owl:Class rdf:about="https://mac389.github.io/ontology#akathisia">
         <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#biological_effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">akathisia</rdfs:label>
     </owl:Class>
     
 
@@ -4150,6 +4149,7 @@ The piperidine portion is unscathed.</rdfs:comment>
 
     <owl:Class rdf:about="https://mac389.github.io/ontology#euphoria">
         <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#biological_effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">euphoria</rdfs:label>
     </owl:Class>
     
 
@@ -4459,6 +4459,7 @@ The piperidine portion is unscathed.</rdfs:comment>
 
     <owl:Class rdf:about="https://mac389.github.io/ontology#glorb">
         <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#biological_effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">glorb</rdfs:label>
     </owl:Class>
     
 
@@ -4866,6 +4867,7 @@ The piperidine portion is unscathed.</rdfs:comment>
 
     <owl:Class rdf:about="https://mac389.github.io/ontology#hyperalgesia">
         <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#biological_effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hyperalgesia</rdfs:label>
     </owl:Class>
     
 
@@ -4874,6 +4876,7 @@ The piperidine portion is unscathed.</rdfs:comment>
 
     <owl:Class rdf:about="https://mac389.github.io/ontology#hypertension">
         <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#biological_effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hypertension</rdfs:label>
     </owl:Class>
     
 
@@ -4950,6 +4953,26 @@ The piperidine portion is unscathed.</rdfs:comment>
                 <owl:someValuesFrom rdf:resource="https://mac389.github.io/ontology#indole"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://mac389.github.io/ontology#inferred_benzamide_derivatives -->
+
+    <owl:Class rdf:about="https://mac389.github.io/ontology#inferred_benzamide_derivatives">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://mac389.github.io/ontology#has_part"/>
+                <owl:someValuesFrom rdf:resource="https://mac389.github.io/ontology#benzamide"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#chemical_entity"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This set is the output of the DL Query &quot;has part some benzamide&quot;. 
+
+I created it because it was not clear to me how to replicate this query in SPARQL. 
+
+I intend for this class to be used to populate the list of subtances used in the frontend.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inferred Benzamide Derviatives</rdfs:label>
     </owl:Class>
     
 
@@ -5109,6 +5132,7 @@ The piperidine portion is unscathed.</rdfs:comment>
 
     <owl:Class rdf:about="https://mac389.github.io/ontology#itching">
         <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#biological_effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">itching</rdfs:label>
     </owl:Class>
     
 
@@ -5605,6 +5629,7 @@ The piperidine portion is unscathed.</rdfs:comment>
 
     <owl:Class rdf:about="https://mac389.github.io/ontology#miosis">
         <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#biological_effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">miosis</rdfs:label>
     </owl:Class>
     
 
@@ -5914,6 +5939,7 @@ The piperidine portion is unscathed.</rdfs:comment>
 
     <owl:Class rdf:about="https://mac389.github.io/ontology#myoclonus">
         <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#biological_effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">myoclonus</rdfs:label>
     </owl:Class>
     
 
@@ -5922,6 +5948,7 @@ The piperidine portion is unscathed.</rdfs:comment>
 
     <owl:Class rdf:about="https://mac389.github.io/ontology#nausea">
         <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#biological_effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nausea</rdfs:label>
     </owl:Class>
     
 
@@ -7093,6 +7120,7 @@ The piperidine portion is unscathed.</rdfs:comment>
 
     <owl:Class rdf:about="https://mac389.github.io/ontology#seizures">
         <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#biological_effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">seizures</rdfs:label>
     </owl:Class>
     
 
@@ -7119,6 +7147,7 @@ The piperidine portion is unscathed.</rdfs:comment>
 
     <owl:Class rdf:about="https://mac389.github.io/ontology#somnolence">
         <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#biological_effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">somnolence</rdfs:label>
     </owl:Class>
     
 
@@ -7310,6 +7339,7 @@ The piperidine portion is unscathed.</rdfs:comment>
 
     <owl:Class rdf:about="https://mac389.github.io/ontology#tachycardia">
         <rdfs:subClassOf rdf:resource="https://mac389.github.io/ontology#biological_effect"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tachycardia</rdfs:label>
     </owl:Class>
     
 
