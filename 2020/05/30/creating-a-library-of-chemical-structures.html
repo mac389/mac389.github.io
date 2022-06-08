@@ -6,11 +6,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2,4-dinitrophenol</title>
-  <meta name="description" content="DNP">
+  <title>Creating A Library of Chemical Structures</title>
+  <meta name="description" content="Creating a Library">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
-  <link rel="canonical" href="mac389.github.io/2020/06/20/2,4-dinitrophenol.html">
+  <link rel="canonical" href="mac389.github.io/2020/05/30/creating-a-library-of-chemical-structures.html">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
@@ -138,11 +138,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2,4-dinitrophenol</title>
-  <meta name="description" content="DNP">
+  <title>Creating A Library of Chemical Structures</title>
+  <meta name="description" content="Creating a Library">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
   <link rel="stylesheet" href="/css/main.css"> <!-- This makes style show up on GitHub Pages -->
-  <link rel="canonical" href="mac389.github.io/2020/06/20/2,4-dinitrophenol.html">
+  <link rel="canonical" href="mac389.github.io/2020/05/30/creating-a-library-of-chemical-structures.html">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
@@ -261,17 +261,105 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">20 Jun 2020 (Last Modified 20 Jun 2020)</p>
+  <p class="post--date">30 May 2020 (Last Modified 01 Jun 2022)</p>
 <br>
     
   <p></p>
-<h2>2,4-dinitrophenol</h2>
-   
-<p>2,4 Dinitrophenol is an effective but toxic fat burner not license for human consumption.</p>
+<h2>Creating A Library of Chemical Structures</h2>
+   <h5 id="outstanding-questions">Outstanding Questions.</h5>
+<ol>
+  <li>How to quantify the structural heterogeneity of each field?</li>
+  <li>How to distinguish between agonists and antagonists?</li>
+</ol>
+
+<h4 id="goal">Goal.</h4>
+
+<p>For my <a href="/ann_latent_reps_drugs">Analysis of Latent Spaces</a> I created a convolutional neural network (<em>link</em>) to classify compounds as belonging to drug categories. To obtain the drug categories and their labels.</p>
+
+<p>The divide between the everyday terminology clinicians use and the formal language of the NDCs can effect observational studies <a class="citation" href="#defalco2013applying">(DeFalco et al., 2013)</a>, but our input here is SMILES strings.</p>
+
+<h4 id="creating-a-representative-training-set">Creating a Representative Training Set.</h4>
+<p>One consideration when creating the training data sets was to have enough samples of novel psychoactive substances so that the relative magnitudes of the fractional classifications would be meaningful.</p>
+
+<p>Training Set Should Have</p>
+<ol>
+  <li>Comparable Numbers of Compounds from Each Class</li>
+  <li>Comparable Subclasses of Compounds within Each Class (<em>e.g.</em>, opiates, semisynthetic opioids, opioids, novel opioids)</li>
+</ol>
+
+<p>Classes (Is there a pre-existing classification I could use?). Links to CSV only work if you are a known collaborator for this project.</p>
+<ol>
+  <li>Opioid (<a href="https://github.com/mac389/molecular-cnn/blob/main/data/external/opioids/phase1_oxcatop.csv">CSV one</a> and <a href="https://github.com/mac389/molecular-cnn/blob/main/data/external/opioids/phase2_oxcatop.csv">two</a>)</li>
+  <li>Tryptamine (<a href="https://github.com/mac389/molecular-cnn/blob/main/data/psychoactive-tryptamines-substances-list.csv">CSV</a>)</li>
+  <li>Phenethylamine (<a href="https://github.com/mac389/molecular-cnn/blob/main/data/substituted-and-historic-phenethylamines.tsv">CSV</a>)</li>
+  <li>Benzodiazepine(<a href="https://github.com/mac389/molecular-cnn/blob/main/data/benzodiazepine_list.tsv">CSV</a>)</li>
+  <li>Beta-blocker (<a href="https://github.com/mac389/molecular-cnn/blob/main/data/beta_receptor_blockers.tsv">CSV</a>)</li>
+  <li>Calcium Channel Blocker (<a href="https://github.com/mac389/molecular-cnn/blob/main/data/calcium_channel_blockers_training_list.tsv">CSV</a>)</li>
+  <li>Cannabinoids (<a href="https://github.com/mac389/molecular-cnn/blob/main/data/cannabinoids_training_list.tsv">CSV</a>)</li>
+</ol>
+
+<ul>
+  <li><a href="/2020/06/03/details-on-database-of-molecular-structures.html">Extended Discussion on DB Creation</a></li>
+</ul>
+
+<p>Testing sets:</p>
+<ol>
+  <li>Ergolines (<a href="https://github.com/mac389/molecular-cnn/blob/main/data/ergoline-validation-substances-list.csv">CSV</a>)</li>
+</ol>
+
+<p>I used <a href="http://projects.scbdd.com/pybiomed.html">PyBioMed</a> (<a href="https://github.com/gadsbyfly/PyBioMed">Git Hub Repo</a>, <a href="https://pybiomed.readthedocs.io/en/latest/application.html#application-3-prediction-of-drugtarget-interaction-from-the-integration-of-chemical-and-protein-spaces">Tutorial</a>) and <a href="https://chemspipy.readthedocs.io/en/latest/guide/intro.html#obtaining-an-api-key">ChemSiPy</a>. Here is a good <a href="https://www.altexsoft.com/blog/drug-data-openfda-dailymed-rxnorm-goodrx/">overview</a> of the databases describing apporved sustances (<em>NB</em> openFDA might be useful)</p>
+
+<h4 id="code-narration">Code Narration.</h4>
+
+<p>I used <code class="language-plaintext highlighter-rouge">requests</code> to query RxNorm.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">URL</span> <span class="o">=</span> <span class="s">"https://rxnav.nlm.nih.gov/REST/rxclass/classMembers.json"</span>
+<span class="n">query</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">classId</span><span class="p">:</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"classId"</span><span class="p">:</span> <span class="n">classId</span><span class="p">,</span><span class="s">"relaSource"</span><span class="p">:</span><span class="s">"ATC"</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>The keyword <code class="language-plaintext highlighter-rouge">relaSource</code> refers to the relationship that must hold between the drug and class for a drug to be considered a member of the class. I’m not sure why, but while the source of the relationship has to be specified, the object of the relationship is optional. The <a href="https://lhncbc.nlm.nih.gov/RxNav/APIs/api-RxClass.getClassMembers.html">documentation</a> does not explain this design choice.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Compound Class</th>
+      <th>Data Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Opioids</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="opioids">Opioids.</h5>
+<p>I used the following Resources.</p>
+<ol>
+  <li>Oxford’s <a href="https://www.catalogueofopioids.net/">Catalogue of Opioids</a> <a class="citation" href="#richards2021oxford">(Richards et al., 2021)</a>
+</li>
+</ol>
+
+<p>The Wikipedia page, <a href="https://en.wikipedia.org/wiki/List_of_psychedelic_drugs">List of Pyschoactive Substances</a> detailed serotonergic agonists and cannabinoid receptor agonists, which I extracted as</p>
+
+<p>I didn’t include the benzofuran derivatives, dimemebfe, also known as 5-MeO-BFE and 5-MeO-DiBF because nither is, structurally, a tryptamine.</p>
+
+<h5 id="tryptamines">Tryptamines.</h5>
+<p>I began with the Wikipedia page. I excluded LSD derivatives because they contain phenethylamine. The <em>D</em> stands for diethylamide. I saved them in [filename] because I think they are a good test for the CNN. I expect them to classify LSD and LSD derivatives as partly tryptamine and partly phenethylamine.</p>
+
+<h4 id="cannabinoids">Cannabinoids</h4>
+<p>I excluded HU-211 because it binds to NMDA as well as CB receptors. (<a href="https://en.wikipedia.org/wiki/Dexanabinol">Wikipedia</a> suggests it has therapeutic uses.) HU-211 is the enantiomer of HU-210. The structural diversity of cannabinoids could be a second paper.</p>
 
 <h4 id="bibliography">Bibliography</h4>
-
-<ol class="bibliography"></ol>
+<ol class="bibliography">
+<li><span id="richards2021oxford">1.Richards, G. C., Sitkowski, K., Heneghan, C. &amp; Aronson, J. K. The Oxford Catalogue of Opioids: A systematic synthesis of opioid drug names and their pharmacology. <i>British journal of clinical pharmacology</i> <b>87</b>, 3790–3812 (2021).</span></li>
+<li><span id="defalco2013applying">2.DeFalco, F. J., Ryan, P. B. &amp; Soledad Cepeda, M. Applying standardized drug terminologies to observational healthcare databases: a case study on opioid exposure. <i>Health Services and Outcomes Research Methodology</i> <b>13</b>, 58–67 (2013).</span></li>
+</ol>
 
 </section>
 
