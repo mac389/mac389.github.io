@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
 <!-- <link rel="stylesheet" href="./css/main.css">  -->  <!-- This makes style show up on GitHub Pages --> 
 <link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" type="text/css" href="/css/kekule.css%20">
 <link rel="canonical" href="mac389.github.io/onboarding/">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -134,11 +135,10 @@
     <div class="container-fluid">
       <div class="row">
         <div id="textid" class="col-sm-12">
-  <p>I write this page to describe for those joining my lab the tools and approaches I think one needs to be proficient in to be productive in my lab. My choices reflect my current focuses (computational linguistics and applied mathematics) and training (PhD in computational neuroscience and MD specializing in toxicology). You don’t have to know everything here. Someone focusing on linguistics doesn’t need to know about <a href="https://en.wikipedia.org/wiki/Hilbert_space">Hilbert</a> or <a href="https://en.wikipedia.org/wiki/Banach_space">Banach</a>. <strong>Mastery comes from directed learning and focused practice</strong>.</p>
+  <p>This page outlines the background I think one needs to be productive in my lab. My choices reflect my research focus (computational linguistics and applied mathematics) and training (PhD in computational neuroscience and MD specializing in toxicology). You don’t have to know everything here. Someone focusing on linguistics doesn’t need to know about <a href="https://en.wikipedia.org/wiki/Hilbert_space">Hilbert</a> or <a href="https://en.wikipedia.org/wiki/Banach_space">Banach</a> spaces. <strong>Mastery comes from directed learning and focused practice</strong>.</p>
 
-<p>Beyond domain-specific knowledge, I also provide resource on getting grants. For better or worse, academic institutions approximate young academics as a function for converting knowledge into money. More established academics may bring other things (patents, patient base, prestige). Few institutions (and departments within those institutions) invest meaningfully in their junior faculty. Having found one that does, I think its important for students to learn about these nontechnical aspects as well.</p>
-
-<p>There are many ways to skin a cat. This document is dynamic and I am open to suggestions.</p>
+<p>In my opinion, background also includes a working knowledge of funding agencies. 
+There are many ways to skin a cat. This document is dynamic and I am open to suggestions.</p>
 
 <h4 id="table-of-contents">Table of Contents</h4>
 <ul id="markdown-toc">
@@ -151,12 +151,14 @@
 <h4 id="fundamentals-everyone-should-know">Fundamentals Everyone Should Know</h4>
 <ol>
   <li>
-<a href="https://github.com/">GitHub</a>. I use GitHub to organize and share code with lab members and collaborators. In the future I hope to release code packages and encourage lab members to use the issue and discussion function.</li>
+<a href="https://github.com/">GitHub</a>. I use GitHub to organize and share code. In the future I hope to release code packages and use the issue and discussion functions more.</li>
   <li>
-<a href="https://missing.csail.mit.edu/">Missing Semester</a>. This MIT course is invaluable for providing the tools one needs to put computational knowledge to practice. It helps make you more efficient and explicit in your workflows and is a <em>de factor</em> introduction to systems analysis and architecture.</li>
+<a href="https://missing.csail.mit.edu/">Missing Semester</a>. This MIT course teaches you the day-to-day tools you need to do computational science, for example how to move and rename masses of files, quickly edit files with vim, or make a build system.</li>
   <li>
-<a href="https://www.google.com/search?q=Latex+tutorials+Overlea&amp;oq=Latex+tutorials+Overlea&amp;aqs=chrome..69i57j0i22i30l3.7276j0j4&amp;sourceid=chrome&amp;ie=UTF-8">LaTeX</a>. LaTeX makes beautiful preprints and technical papers. I use Beamer for almost all presentations. I write as many of my grants in LaTeX as possible, yes even to the NIH. IEEE conferences accept TeX submissions. Biomedical journals claim to accept TeX submissions. Unfortunately I use Word for most journal submissions. Every time I submit a TeX file to a biomedical journal that claims to accept TeX submissions, the editorial staff ask for a Word document, no matter what the “Instructions to Authors” page says.</li>
+<a href="https://www.google.com/search?q=Latex+tutorials+Overlea&amp;oq=Latex+tutorials+Overlea&amp;aqs=chrome..69i57j0i22i30l3.7276j0j4&amp;sourceid=chrome&amp;ie=UTF-8">LaTeX</a>. LaTeX makes beautiful preprints and technical papers. I use Beamer for almost all my presentations. I write as many of my grants in LaTeX as possible. IEEE conferences accept TeX submissions. Biomedical journals sometimes do.</li>
   <li>Facility with Python, Prolog, LiSP, Julia, or Haskell.</li>
+  <li>
+<a href="https://www.biosciencewriters.com/NIH-Grant-Applications-The-Anatomy-of-a-Specific-Aims-Page.aspx">Anatomy of a Specific Aims Page</a>. The Specific Aims page is the crystallization of your proposal, similar to but far more detailed and precise than an executive summary. All grant applications, whether to private foundations or the NIH, DoD, or NSF, hinge on the Specific Aims page.</li>
 </ol>
 
 <h4 id="things-for-the-computational-linguistics-people">Things for the Computational Linguistics People</h4>
@@ -168,6 +170,8 @@
 <a href="https://raw.githubusercontent.com/BFO-ontology/BFO/v2.0/BFO2-Reference.docx">Basic Formal Ontology</a>. BFO is a framework for creating first order logic predicates that, when taken together, express a consistent picture about a “portion of reality”. It’s a commonly used standard.</li>
   <li>
 <a href="https://homes.cs.washington.edu/~pedrod/papers/mlj05.pdf">Markov Logic Networks</a>. MLNs express uncertainty and are thus more expressive than BFO. It is an <strong>area of ongoing interest to join a BFO-compliant ontology and MLN schema</strong>.</li>
+  <li>
+<a href="https://spacy.io/">SpaCy</a>. We use SpaCy for our NLP backbone.</li>
 </ol>
 
 <h4 id="things-for-the-applied-mathematics-people">Things for the Applied Mathematics People</h4>
@@ -204,6 +208,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+
 
 
   <script src="https://unpkg.com/mermaid@8.9.3/dist/mermaid.min.js"></script>
