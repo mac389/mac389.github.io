@@ -6,13 +6,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bradford Hill Criteria</title>
-  <meta name="description" content="Bradford-Hill Criteria">
+  <title>Creating a Knowledge Graph to Link Substances and Effects</title>
+  <meta name="description" content="NEL in Python">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
 <!-- <link rel="stylesheet" href="./css/main.css">  -->  <!-- This makes style show up on GitHub Pages --> 
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" type="text/css" href="/css/kekule.css%20">
-<link rel="canonical" href="mac389.github.io/2022/04/10/bradford-hill-criteria.html">
+<link rel="canonical" href="mac389.github.io/2022/06/25/knowledge-graph-for-subs-fx.html">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
@@ -33,7 +33,6 @@
 </script>
 
 
-<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 
@@ -141,13 +140,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bradford Hill Criteria</title>
-  <meta name="description" content="Bradford-Hill Criteria">
+  <title>Creating a Knowledge Graph to Link Substances and Effects</title>
+  <meta name="description" content="NEL in Python">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
 <!-- <link rel="stylesheet" href="./css/main.css">  -->  <!-- This makes style show up on GitHub Pages --> 
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" type="text/css" href="/css/kekule.css%20">
-<link rel="canonical" href="mac389.github.io/2022/04/10/bradford-hill-criteria.html">
+<link rel="canonical" href="mac389.github.io/2022/06/25/knowledge-graph-for-subs-fx.html">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
@@ -266,36 +265,100 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">10 Apr 2022 (Last Modified 27 Jun 2022)</p>
+  <p class="post--date">25 Jun 2022 (Last Modified 27 Jun 2022)</p>
 <br>
     
   <p></p>
-<h2>Bradford Hill Criteria</h2>
-   <p>Determing causality is difficult, in part because the word <em>causality</em> has multiple meanings.</p>
-<ol>
-  <li>Prediction (aka Sufficiency). X causes Y to happen in the sense that if I do X Y happens more than I would expect by chance.</li>
-  <li>Explanation (aka Necessity). X causes Y to happen in the sense that Y cannot happen without X. This suggests that X is integral to Y’s realization.</li>
-</ol>
+<h2>Creating a Knowledge Graph to Link Substances and Effects</h2>
+   <p>I think one way to compute plausibility is as path length on a knowledge graph. Let’s consider the following example of ranking a set of substance-effect associations by plausibility.</p>
 
-<p>In graduate school, I remember being taught that one can say that one thing causes another only if both things are true. Requiring (1) and (2) to both be true is equivalent to enforcing a biconditional.</p>
+<p>The goal is to create a graph like the following</p>
 
-<p>$$ 
-\begin{aligned}
-	X &amp;\rightarrow Y\\ 
-   \neg X &amp;\rightarrow \neg Y \quad \textrm{by contrapositive } Y \rightarrow X<br>
-   &amp; \therefore X \leftrightarrow Y
-\end{aligned}
-$$</p>
+<pre><code class="language-mermaid">
+	graph 
+	subgraph Path Length = 3
+	A[Substance] --&gt; B --&gt; C --&gt; D[Effect]
+	end 
 
-<p>The notation brings out a limitation of this reasoning. It is first-order logic and brooks no conditionality.</p>
+	subgraph Path Length = 2
+	AA[Substance] --&gt; BB[B] --&gt; DD[Effect]
+	end 
 
-<h4 id="bradford-hill-criteria">Bradford-Hill Criteria</h4>
-<p>The Bradford-Hill Criteria are guidelines that approximate a second-order logic generalization of the above formalism.</p>
+</code></pre>
 
-<h4 id="to-read">To Read:</h4>
-<ul>
-  <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4589117/">Applying Bradford-Hill in the Modern Era</a></li>
-</ul>
+<p>We infer that a path with a shorter length is more biologically plausible than a path with a longer length because the shorter path involves fewer intermediaries and so fewer dependencies on other signal transduction cascades or cellular processes. Biological plausibility is one of the <a href="/2022/04/10/bradford-hill-criteria.html" target="_blank">Bradford-Hill Criteria</a>. (<strong>TODO: Read <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4589117/">Applying Bradford-Hill in the Modern Era</a></strong>)</p>
+
+<p>Our corpus lists substance and effects. We assemble a graph by linking (substance, target), (target, target), and (target, effect) pairs. Here <em>target</em> means any biochemical intermediary, such as the target receptor or a carrier protein.</p>
+
+<p>We start with the following resources:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Role</th>
+      <th>(n)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://www.genome.jp/kegg/">KEGG</a></td>
+      <td>Map Substance to Signal Transduction Cascade</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://go.drugbank.com/">DrugBank</a></td>
+      <td>Maps Substances to Biochemical Targets</td>
+      <td>14,594</td>
+    </tr>
+    <tr>
+      <td><a href="http://geneontology.org/">GO</a></td>
+      <td>Map Biocheimcal Intermediary to Effect</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://www.disgenet.org/home/">DisGeNet</a></td>
+      <td>Maps Gene Target to Clinical Phenotype</td>
+      <td>441 (for OUD or PTSD)</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>I obtained the XML dump of DrugBank (current as of March 2022) from the maintainers od DrugBank, licensed for academic use. I converted the XML to a JSON array using <a href="https://pypi.org/project/xmltodict/">xmltodict</a> and then imported the array into a MongoDB server. Even though I had the DrugBank XSD, I found MongoDB faster and more intuitive for the data set.</p>
+
+<p>I obtained the genes that were targets of the drugs with the following query (example is for methadone):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> db.drugs.aggregate<span class="o">([{</span><span class="nv">$match</span>:<span class="o">{</span><span class="s2">"name"</span>:<span class="s2">"Methadone"</span><span class="o">}}</span>,<span class="o">{</span><span class="nv">$project</span>:<span class="o">{</span>_id:0,<span class="s2">"name"</span>:<span class="s2">"</span><span class="nv">$targets</span><span class="s2">.target.name"</span>,<span class="s2">"gene-name"</span>:<span class="s2">"</span><span class="nv">$targets</span><span class="s2">.target.polypeptide.gene-name"</span><span class="o">}}])</span>
+
+
+ <span class="s2">"{"</span>name<span class="s2">" : [ "</span>Mu-type opioid receptor<span class="s2">", "</span>NMDA receptor<span class="s2">", "</span>Delta-type opioid receptor<span class="s2">", "</span>5-hydroxytryptamine receptor 3A<span class="s2">", "</span>Neuronal acetylcholine receptor subunit alpha-7<span class="s2">", "</span>Neuronal acetylcholine receptor subunit alpha-3<span class="s2">", "</span>Neuronal acetylcholine receptor subunit alpha-4<span class="s2">", "</span>Neuronal acetylcholine receptor subunit beta-2<span class="s2">" ], "</span>gene-name<span class="s2">" : [ "</span>OPRM1<span class="s2">", [ "</span>GRIN1<span class="s2">", "</span>GRIN2A<span class="s2">", "</span>GRIN2B<span class="s2">", "</span>GRIN2C<span class="s2">", "</span>GRIN2D<span class="s2">", "</span>GRIN3A<span class="s2">", "</span>GRIN3B<span class="s2">" ], "</span>OPRD1<span class="s2">", "</span>HTR3A<span class="s2">", "</span>CHRNA7<span class="s2">", "</span>CHRNA3<span class="s2">", "</span>CHRNA4<span class="s2">", "</span>CHRNB2<span class="s2">" ] }
+</span></code></pre></div></div>
+
+<p>DisGeNet provides a <a href="https://www.disgenet.org/api/">REST API</a>. I queried the API for PTSD (CUI:C0038436) and OUD (CUI:C4324621), which returned 441 genes.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#import requests
+</span><span class="n">PTSD</span> <span class="o">=</span> <span class="s">"C0038436"</span>
+<span class="n">OUD</span> <span class="o">=</span> <span class="s">"C4324621"</span>
+<span class="n">diseases</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">PTSD</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">OUD</span><span class="si">}</span><span class="s">'</span>
+
+<span class="k">if</span> <span class="n">api_key</span><span class="p">:</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="n">update</span><span class="p">({</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer %s"</span> <span class="o">%</span> <span class="n">api_key</span><span class="p">})</span> 
+    <span class="n">gda_response</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">api_host</span><span class="si">}</span><span class="s">/gda/disease/</span><span class="si">{</span><span class="n">diseases</span><span class="si">}</span><span class="s">'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">'source'</span><span class="p">:</span><span class="s">'ALL'</span><span class="p">})</span>
+<span class="k">if</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+
+</code></pre></div></div>
+
+<p>I imported the JSON array into MongoDB so I queries could reference both data sets.</p>
+
+<p>We can now compute the fraction of targets for a drug of interest that lie in the intersection of OUD- and PTSD-associated genes.</p>
+
+<p>To compute path length I use cytospace on the interactome.</p>
 
 </section>
 

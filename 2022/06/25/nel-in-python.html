@@ -265,14 +265,18 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">25 Jun 2022 (Last Modified 25 Jun 2022)</p>
+  <p class="post--date">25 Jun 2022 (Last Modified 26 Jun 2022)</p>
 <br>
     
   <p></p>
 <h2>Named Entity Linking in Python</h2>
-   <h4 id="named-entity-linking-in-python">Named Entity Linking in Python.</h4>
+   <p>To link mentions in a corpus with what they signify one has to:</p>
+<ol>
+  <li>recognize those mentions as named entities (Named Entity Recognition)</li>
+  <li>map those named entities to a standardized identifiers (Named Entity Linking).</li>
+</ol>
 
-<p>To link mentions in a corpus with what they signify one has to (1) recognize those entities as named mentions and (2) map them to a listing of concepts. In my <a href="/dnp/">project</a> on understanding DNP toxicity I this named entity linking will help me separate effects mentioned online by using a knowledge base to adjucate each effect as biologically plausible or not.</p>
+<p>In my <a href="/dnp/">project</a> on understanding DNP toxicity I this named entity linking will help me separate effects mentioned online by using a knowledge base to adjucate each effect as biologically plausible or not.</p>
 
 <p>My initial attempt failed miserably so now I’m following <a href="https://github.com/explosion/projects/tree/v3/tutorials/nel_emerson" target="_blank">SpaCy’s v3 NEL tutorial</a>.</p>
 
@@ -291,11 +295,18 @@ Thanks to Ali, we have 2 NERs to chose from, a statistically-based one and a rul
 </li>
     </ol>
   </li>
-  <li>
-</li>
+  <li>Both <code class="language-plaintext highlighter-rouge">all</code> and <code class="language-plaintext highlighter-rouge">training</code> use:
+    <ol>
+      <li>
+<code class="language-plaintext highlighter-rouge">kb</code>  - creates the <a href="#knowledge-base">knowledge base</a> and writes it to file</li>
+      <li><code class="language-plaintext highlighter-rouge">corpus</code></li>
+      <li><code class="language-plaintext highlighter-rouge">train</code></li>
+      <li><code class="language-plaintext highlighter-rouge">evaluate</code></li>
+    </ol>
+  </li>
 </ol>
 
-<p>We need X annotated corpora, one two train the NER, 
+<p>We need 2 annotated corpora, one two train the NER, 
 Manually annotated with Prodigy.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
@@ -304,6 +315,24 @@ Manually annotated with Prodigy.</p>
 </span><span class="k">print</span><span class="p">(</span><span class="n">nlp</span><span class="p">.</span><span class="n">pipe_names</span><span class="p">)</span>
 
 </code></pre></div></div>
+
+<h4 id="knowledge-base">Knowledge Base</h4>
+<p>SpaCy’s Knowledge Base is formatted as follows</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#QID,identifier,description</span>
+<span class="s2">"Q312545"</span>,<span class="s2">"Roy Stanley Emerson"</span>,<span class="s2">"Australian tennis player"</span>
+<span class="s2">"Q48226"</span>,<span class="s2">"Ralph Waldo Emerson"</span>,<span class="s2">"American philosopher, essayist, and poet"</span>
+<span class="s2">"Q215952"</span>,<span class="s2">"Emerson Ferreira da Rosa"</span>,<span class="s2">"Brazilian footballer"</span>
+</code></pre></div></div>
+
+<p>Ours is formatted as follows.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ENTITY,TERMS,STANDRADISED MAPPING TERM,GROUP
+Myalgia,Myalgia,Feeling Tired,Fatigue issue
+Fatigue,Fatigue,Feeling Tired,Fatigue issue
+Gassed,Fatigue,Feeling Tired,Fatigue issue
+Exhausted,Fatigue,Feeling Tired,Fatigue issue
+</code></pre></div></div>
+
+<p>“identifier” in SpaCy’s schema corresponds to “entity” in ours.</p>
 
 <h4 id="training-the-entity-linker">Training the Entity Linker.</h4>
 <p>The SpaCy example trains on Wikidata. We use our online forum DNP corpus.</p>
