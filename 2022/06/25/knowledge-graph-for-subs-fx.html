@@ -6,8 +6,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Creating a Knowledge Graph to Link Substances and Effects</title>
-  <meta name="description" content="NEL in Python">
+  <title>Computing Plausibility of Substance-Effect Asociations Described Online</title>
+  <meta name="description" content="Computing Plausibility">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
 <!-- <link rel="stylesheet" href="./css/main.css">  -->  <!-- This makes style show up on GitHub Pages --> 
 <link rel="stylesheet" href="/css/main.css">
@@ -140,8 +140,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Creating a Knowledge Graph to Link Substances and Effects</title>
-  <meta name="description" content="NEL in Python">
+  <title>Computing Plausibility of Substance-Effect Asociations Described Online</title>
+  <meta name="description" content="Computing Plausibility">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
 <!-- <link rel="stylesheet" href="./css/main.css">  -->  <!-- This makes style show up on GitHub Pages --> 
 <link rel="stylesheet" href="/css/main.css">
@@ -265,30 +265,23 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">25 Jun 2022 (Last Modified 27 Jun 2022)</p>
+  <p class="post--date">25 Jun 2022 (Last Modified 30 Jun 2022)</p>
 <br>
     
   <p></p>
-<h2>Creating a Knowledge Graph to Link Substances and Effects</h2>
-   <p>I think one way to compute plausibility is as path length on a knowledge graph. Let’s consider the following example of ranking a set of substance-effect associations by plausibility.</p>
+<h2>Computing Plausibility of Substance-Effect Asociations Described Online</h2>
+   <h4 id="todo">TODO:</h4>
+<ol>
+  <li>Read <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4589117/">Applying Bradford-Hill in the Modern Era</a>
+</li>
+  <li>Make Clickable Map for <a href="#the-computation">Computation</a>.</li>
+</ol>
 
-<p>The goal is to create a graph like the following</p>
+<p>To identify which substance-effect associations mentioned online can be used to generate hypotheses it is immportant to demonstrate that the association is <em>specific</em> and <em>plausible</em>. I use these terms as they are used in the <a href="/2022/04/10/bradford-hill-criteria.html" target="_blank">Bradford-Hill Criteria</a>.</p>
 
-<pre><code class="language-mermaid">
-	graph 
-	subgraph Path Length = 3
-	A[Substance] --&gt; B --&gt; C --&gt; D[Effect]
-	end 
+<p>The more specific the association between two tokens, A and B, the more often B occurs whenever A occurs and doesn’t occur unless A occurs. In a limited domain of discourse, <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">tf-idf</a> does well in identifying the specificity of association after correcting for baseline rates (<strong>citation needed</strong>). The main difference between tf-idf and dimension reduction on a covariance matrix is the <em>idf</em> component. Tf-idf weights each entry by the number of documents the token appears in. This provides a more context-relevant scaling than subtracting a measure of central tendency from the tf term at the expense of making it impossible to compare absolute tf-idf scores across corpora.</p>
 
-	subgraph Path Length = 2
-	AA[Substance] --&gt; BB[B] --&gt; DD[Effect]
-	end 
-
-</code></pre>
-
-<p>We infer that a path with a shorter length is more biologically plausible than a path with a longer length because the shorter path involves fewer intermediaries and so fewer dependencies on other signal transduction cascades or cellular processes. Biological plausibility is one of the <a href="/2022/04/10/bradford-hill-criteria.html" target="_blank">Bradford-Hill Criteria</a>. (<strong>TODO: Read <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4589117/">Applying Bradford-Hill in the Modern Era</a></strong>)</p>
-
-<p>Our corpus lists substance and effects. We assemble a graph by linking (substance, target), (target, target), and (target, effect) pairs. Here <em>target</em> means any biochemical intermediary, such as the target receptor or a carrier protein.</p>
+<p>The more plausible an association between two tokens, A and B, are, the more the association between A and B can be explained in terms of accepted knowledge (<em>e.g.</em>, things one would find in a knowlwedge base). Right off the bat we can anticipate that all computational of plausibility are preliminary because the knowledge base is incomplete, at least until the <a href="https://www.physics.princeton.edu/ph115/LQ.pdf">last question</a> is answered. Said another way, computations of plausibility are necessarily limited by the open world assumption. In this notebook, I discuss computing plausibility in terms of fractional overlap of gene targets. See <a href="#alternative-approaches-to-computing-plausibility">Alternative Approaches</a> for approaches that use additional information, like network structure, that provide more information but are also less available.</p>
 
 <p>We start with the following resources:</p>
 
@@ -329,14 +322,18 @@
   </tbody>
 </table>
 
-<p>I obtained the XML dump of DrugBank (current as of March 2022) from the maintainers od DrugBank, licensed for academic use. I converted the XML to a JSON array using <a href="https://pypi.org/project/xmltodict/">xmltodict</a> and then imported the array into a MongoDB server. Even though I had the DrugBank XSD, I found MongoDB faster and more intuitive for the data set.</p>
+<h4 id="the-computation">The Computation</h4>
+<p>I obtained the XML dump of DrugBank (current as of March 2022) from DrugBank, licensed for academic use. I converted the XML to a JSON array using <a href="https://pypi.org/project/xmltodict/">xmltodict</a> and then imported the array into a MongoDB server. Even though DrugBank provides an XSD, I found MongoDB faster and more intuitive than XPath.</p>
 
-<p>I obtained the genes that were targets of the drugs with the following query (example is for methadone):</p>
+<p>I obtained the genes that were direct targets of methadone with the following query (example is for methadone):</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> db.drugs.aggregate<span class="o">([{</span><span class="nv">$match</span>:<span class="o">{</span><span class="s2">"name"</span>:<span class="s2">"Methadone"</span><span class="o">}}</span>,<span class="o">{</span><span class="nv">$project</span>:<span class="o">{</span>_id:0,<span class="s2">"name"</span>:<span class="s2">"</span><span class="nv">$targets</span><span class="s2">.target.name"</span>,<span class="s2">"gene-name"</span>:<span class="s2">"</span><span class="nv">$targets</span><span class="s2">.target.polypeptide.gene-name"</span><span class="o">}}])</span>
 
 
- <span class="s2">"{"</span>name<span class="s2">" : [ "</span>Mu-type opioid receptor<span class="s2">", "</span>NMDA receptor<span class="s2">", "</span>Delta-type opioid receptor<span class="s2">", "</span>5-hydroxytryptamine receptor 3A<span class="s2">", "</span>Neuronal acetylcholine receptor subunit alpha-7<span class="s2">", "</span>Neuronal acetylcholine receptor subunit alpha-3<span class="s2">", "</span>Neuronal acetylcholine receptor subunit alpha-4<span class="s2">", "</span>Neuronal acetylcholine receptor subunit beta-2<span class="s2">" ], "</span>gene-name<span class="s2">" : [ "</span>OPRM1<span class="s2">", [ "</span>GRIN1<span class="s2">", "</span>GRIN2A<span class="s2">", "</span>GRIN2B<span class="s2">", "</span>GRIN2C<span class="s2">", "</span>GRIN2D<span class="s2">", "</span>GRIN3A<span class="s2">", "</span>GRIN3B<span class="s2">" ], "</span>OPRD1<span class="s2">", "</span>HTR3A<span class="s2">", "</span>CHRNA7<span class="s2">", "</span>CHRNA3<span class="s2">", "</span>CHRNA4<span class="s2">", "</span>CHRNB2<span class="s2">" ] }
-</span></code></pre></div></div>
+ <span class="c"># "{"name" : [ "Mu-type opioid receptor", "NMDA receptor", "Delta-type opioid receptor", "5-hydroxytryptamine receptor 3A", "Neuronal acetylcholine receptor subunit alpha-7", "Neuronal acetylcholine receptor subunit alpha-3", "Neuronal acetylcholine receptor subunit alpha-4", "Neuronal acetylcholine receptor subunit beta-2" ], "gene-name" : [ "OPRM1", [ "GRIN1", "GRIN2A", "GRIN2B", "GRIN2C", "GRIN2D", "GRIN3A", "GRIN3B" ], "OPRD1", "HTR3A", "CHRNA7", "CHRNA3", "CHRNA4", "CHRNB2" ] }</span>
+
+
+<span class="c"># Not sure why a nested list was returned. </span>
+</code></pre></div></div>
 
 <p>DisGeNet provides a <a href="https://www.disgenet.org/api/">REST API</a>. I queried the API for PTSD (CUI:C0038436) and OUD (CUI:C4324621), which returned 441 genes.</p>
 
@@ -354,11 +351,61 @@
 
 </code></pre></div></div>
 
-<p>I imported the JSON array into MongoDB so I queries could reference both data sets.</p>
+<p>I imported the JSON array into MongoDB so queries could reference both data sets. 
+We can now compute the fraction of targets for a drug of interest that lie in the intersection of OUD- and PTSD-associated genes.</p>
 
-<p>We can now compute the fraction of targets for a drug of interest that lie in the intersection of OUD- and PTSD-associated genes.</p>
+<p>An alternative approach would be to export the gene names for each condition to a text file. This worked for PTSD and OUD. In bash, one can compute the intersection as <code class="language-plaintext highlighter-rouge">sort OUD.txt PTSD.txt | uniq -d</code> if we treat gene expression as a categorical variable.</p>
 
-<p>To compute path length I use cytospace on the interactome.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sort </span>OUD.txt PTSD.txt | <span class="nb">uniq</span> <span class="nt">-d</span>
+<span class="c"># BCHE, BDNF, C1QL1, CRH, GAL, HCRT, IL10, IL6, MET, OPRM1, PSS</span>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Condition</td>
+      <td>Genes</td>
+    </tr>
+    <tr>
+      <td>Methadone</td>
+      <td>OPRM1, GRIN1, GRIN2A, GRIN2B, GRIN2C, GRIN2D, GRIN3A, GRIN3B, OPRD1, HTR3A, CHRNA7, CHRNA3, CHRNA4, CHRNB2</td>
+    </tr>
+    <tr>
+      <td>PTSD &amp; OUD</td>
+      <td>BCHE, BDNF, C1QL1, CRH, GAL, HCRT, IL10, IL6, MET, OPRM1, PSS</td>
+    </tr>
+    <tr>
+      <td>PTSD &amp; OUD &amp; Methadone</td>
+      <td>OPRM1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>My interpretation is that there is only one intersection because the Methadone row contains genes of direct targets, but the PTSD &amp; OUD row contains genes for intracellular components. To add genes for intracellular components for (<em>i.e.,</em> downstream effectors of) the direct targets of Methadone. Luckily, <a href="https://keggscape.readthedocs.io/en/latest/drugtarget.html" target="_blank">this post</a> describes exactly how to do that.</p>
+
+<p>First, download the ids of all targets.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-Lfv</span> <span class="nt">-o</span> filename.zip <span class="nt">-u</span> <span class="nv">$username</span>:<span class="nv">$password</span> https://go.drugbank.com/releases/5-1-9/downloads/target-all-polypeptide-ids
+</code></pre></div></div>
+
+<h4 id="alternative-approaches-to-computing-plausibility">Alternative Approaches to Computing Plausibility</h4>
+
+<p>The goal is to create a graph like the following</p>
+
+<pre><code class="language-mermaid">
+	graph 
+	subgraph Path Length = 3
+	A[Substance] --&gt; B --&gt; C --&gt; D[Effect]
+	end 
+
+	subgraph Path Length = 2
+	AA[Substance] --&gt; BB[B] --&gt; DD[Effect]
+	end 
+
+</code></pre>
+
+<p>We infer that a path with a shorter length is more biologically plausible than a path with a longer length because the shorter path involves fewer intermediaries and so fewer dependencies on other signal transduction cascades or cellular processes.</p>
+
+<p>Our corpus lists substance and effects. We assemble a graph by linking (substance, target), (target, target), and (target, effect) pairs. Here <em>target</em> means any biochemical intermediary, such as the target receptor or a carrier protein.</p>
 
 </section>
 
