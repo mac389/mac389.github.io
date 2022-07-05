@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
 <!-- <link rel="stylesheet" href="./css/main.css">  -->  <!-- This makes style show up on GitHub Pages --> 
 <link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" type="text/css" href="/css/kekule.css%20">
+<!-- <link rel="stylesheet" type="text/css" href="/css/kekule.css " /> -->
 <link rel="canonical" href="mac389.github.io/2022/06/25/knowledge-graph-for-subs-fx.html">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -145,7 +145,7 @@
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
 <!-- <link rel="stylesheet" href="./css/main.css">  -->  <!-- This makes style show up on GitHub Pages --> 
 <link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" type="text/css" href="/css/kekule.css%20">
+<!-- <link rel="stylesheet" type="text/css" href="/css/kekule.css " /> -->
 <link rel="canonical" href="mac389.github.io/2022/06/25/knowledge-graph-for-subs-fx.html">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -322,6 +322,46 @@
   </tbody>
 </table>
 
+<h4 id="overview">Overview</h4>
+
+<pre><code class="language-mermaid">flowchart TD
+	subgraph Statistic[Similarity of Gene Profile]
+		direction LR
+        A[Drugs froms Social Media&lt;br&gt;In Drug Bank with Known Targets] --&gt; B[Genes of Drug Targets]
+		B --&gt; C[Co-expressed Genes] &amp; D[First Neighbors of Drug]
+		C &amp; D --&gt; E[Expanded Gene Set]
+        E --&gt; F[&lt;p align='left'&gt;Jaccard Similarity Between Expanded Gene Set&lt;br&gt; and Genes Differentially Expressed in PTSD, OUD, or Both]
+	end
+    subgraph Significance[Calculation of Significance]
+        direction LR
+       a[Drugs in DrugaBank with Known Targets]
+       a --&gt; b[Calculate Jaccard Similarity for Their Expanded Gene Sets]
+       b --&gt; c[Create Empirical Probability Density Function]
+       b --&gt; d["&lt;p align='left'&gt;Identify Median Jaccard Similarity for Currently Approved PTSD, OUD Therapeutics: &lt;li align='left'&gt;ROC Curve  &lt;li align='left'&gt;(Is there a Deault Network?)"]
+    end
+
+    Statistic --&gt; Significance
+</code></pre>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">(+) Controls</th>
+      <th style="text-align: center">(-) Controls</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Methadone <br> Yes</td>
+      <td style="text-align: center">Aspirin</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="the-computation">The Computation</h4>
 <p>I obtained the XML dump of DrugBank (current as of March 2022) from DrugBank, licensed for academic use. I converted the XML to a JSON array using <a href="https://pypi.org/project/xmltodict/">xmltodict</a> and then imported the array into a MongoDB server. Even though DrugBank provides an XSD, I found MongoDB faster and more intuitive than XPath.</p>
 
@@ -334,6 +374,10 @@
 
 <span class="c"># Not sure why a nested list was returned. </span>
 </code></pre></div></div>
+
+<p>Let’s use <a href="https://maayanlab.cloud/Enrichr/">Enrichr</a> (<a href="https://maayanlab.cloud/Enrichr/help#api">API</a>) to identify the 100 most commonly co-exressed genes. For methadone this created a set of 1400 genes, of which 994 were unique and has 2 genes overlapping, OPRM1, which we knew and GAL, a gene that encodes for galanin and galanin-map associated peptide. Indeed <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6597226/">this article</a> suggest that heteromers between the receptor for galanin and the opioid receptors may attenuate the addictive potential of methadone. <a href="https://pubmed.ncbi.nlm.nih.gov/34023414/">This paper</a> suggests that galanin modulates stress reactions.  The idea</p>
+
+<p>Then we ask KEGG what human pathways those genes are implicated in</p>
 
 <p>DisGeNet provides a <a href="https://www.disgenet.org/api/">REST API</a>. I queried the API for PTSD (CUI:C0038436) and OUD (CUI:C4324621), which returned 441 genes.</p>
 
@@ -384,7 +428,69 @@ We can now compute the fraction of targets for a drug of interest that lie in th
 <p>My interpretation is that there is only one intersection because the Methadone row contains genes of direct targets, but the PTSD &amp; OUD row contains genes for intracellular components. To add genes for intracellular components for (<em>i.e.,</em> downstream effectors of) the direct targets of Methadone. Luckily, <a href="https://keggscape.readthedocs.io/en/latest/drugtarget.html" target="_blank">this post</a> describes exactly how to do that.</p>
 
 <p>First, download the ids of all targets.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-Lfv</span> <span class="nt">-o</span> filename.zip <span class="nt">-u</span> <span class="nv">$username</span>:<span class="nv">$password</span> https://go.drugbank.com/releases/5-1-9/downloads/target-all-polypeptide-ids
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-Lfv</span> <span class="nt">-o</span> filename.zip <span class="nt">-u</span> <span class="nv">$username</span>:<span class="nv">$password</span> https://go.drugbank.com/releases/5-1-9/downloads/target-all-polypeptide-ids <span class="nt">-vs</span> <span class="o">&gt;</span> ./external/drugbank_targets .txt 2&gt;&amp;1
+
+wget http://rest.kegg.jp/conv/eco/uniprot 
+<span class="nb">mv </span>uniprot ./external uniprot kegg_uniprot_ids.tsv
+</code></pre></div></div>
+<p>My file structure now looks like.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+tree <span class="nt">-d</span> 
+<span class="nb">.</span>
+├── Area 51
+└── external
+</code></pre></div></div>
+<p>A peak at the files:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#we are in the external subdirectory of data/</span>
+<span class="nb">head</span> <span class="nt">-n</span> 3 drug-bank-target-ids.csv | csvlook | less <span class="nt">-S</span> <span class="c">#has very long columns</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Gene Name</th>
+      <th>GenBank Protein ID</th>
+      <th>GenBank Gene ID</th>
+      <th>UniProt ID</th>
+      <th>Uniprot Title</th>
+      <th>PDB ID</th>
+      <th>GeneCar</th>
+      <th>…</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Peptidoglycan synthase FtsI</td>
+      <td>ftsI</td>
+      <td>1,574,687</td>
+      <td>L42023</td>
+      <td>P45059</td>
+      <td>FTSI_HAEIN</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Histidine decarboxylase</td>
+      <td>HDC</td>
+      <td>32,109</td>
+      <td>X54297</td>
+      <td>P19113</td>
+      <td>DCHS_HUMAN</td>
+      <td>4E1O</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">head</span> <span class="nt">-n</span> 2 kegg_uniprot_ids.tsv 
+up:P0AD86	eco:b0001
+up:P00561	eco:b0002
 </code></pre></div></div>
 
 <h4 id="alternative-approaches-to-computing-plausibility">Alternative Approaches to Computing Plausibility</h4>
