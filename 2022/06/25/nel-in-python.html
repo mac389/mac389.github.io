@@ -281,59 +281,46 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">25 Jun 2022 (Last Modified 26 Jun 2022)</p>
+  <p class="post--date">25 Jun 2022 (Last Modified 23 Dec 2022)</p>
 <br>
     
   <p></p>
 <h2>Named Entity Linking in Python</h2>
-   <p>To link mentions in a corpus with what they signify one has to:</p>
+   <h4 id="introduction">Introduction.</h4>
+<p>Named entity <em>linking</em> links mentions in a corpus with what they signify. One has to:</p>
 <ol>
-  <li>recognize those mentions as named entities (Named Entity Recognition)</li>
-  <li>map those named entities to a standardized identifiers (Named Entity Linking).</li>
+  <li>recognize those mentions as named entities (named entity <em>recognition</em>)</li>
+  <li>map those named entities to a standardized identifiers (named entity <em>linking</em>).</li>
 </ol>
 
-<p>In my <a href="/dnp/">project</a> on understanding DNP toxicity I this named entity linking will help me separate effects mentioned online by using a knowledge base to adjucate each effect as biologically plausible or not.</p>
+<p>In my <a href="/dnp/">project on understanding DNP toxicity</a> I use NE<strong>L</strong> (distinguishing it from NE<strong>R</strong>) to understand social media postings in terms of biomedical knowledge. I view NE<strong>L</strong> as a step along the path converting strings of characters in posts to statements with which one can perform the logical operations such as  inference, deduction, or abstraction.</p>
 
-<p>My initial attempt failed miserably so now I’m following <a href="https://github.com/explosion/projects/tree/v3/tutorials/nel_emerson" target="_blank">SpaCy’s v3 NEL tutorial</a>.</p>
-
-<p>To link entities, one has to first be able to recognize them. 
-Thanks to Ali, we have 2 NERs to chose from, a statistically-based one and a rule-based one, both based on his curation of 600 posts from 5 online forums (manuscript under review). We’ll make the code public once the manuscript is published.</p>
-
-<p>SpaCy defines two workflows, <code class="language-plaintext highlighter-rouge">all</code> and <code class="language-plaintext highlighter-rouge">training</code>. <code class="language-plaintext highlighter-rouge">all</code> downloads the external assets then runs all the steps in <code class="language-plaintext highlighter-rouge">training</code>. Following their <a href="https://github.com/explosion/projects/blob/v3/tutorials/nel_emerson/project.yml" target="_blank">YML</a>:</p>
-<ol>
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction.</a></li>
+  <li><a href="#table-of-contents" id="markdown-toc-table-of-contents">Table of Contents</a></li>
   <li>
-<code class="language-plaintext highlighter-rouge">all</code> invokes <code class="language-plaintext highlighter-rouge">setup</code> and <code class="language-plaintext highlighter-rouge">download</code>.
-    <ol>
-      <li>
-<code class="language-plaintext highlighter-rouge">setup</code> installs the package requirements, which currently only requires <code class="language-plaintext highlighter-rouge">google-cloud-storage.</code> We’ll ignore that dependency because we’ll use local storage instead.</li>
-      <li>
-<code class="language-plaintext highlighter-rouge">download</code> installs a model with pre-trained vectors and an NLP pipeline with an NER component. The full pipeline is <code class="language-plaintext highlighter-rouge">["sentencizer","entity_ruler","ner","entity_linker"]</code>
-</li>
-    </ol>
+<a href="#background" id="markdown-toc-background">Background</a>    <ul>
+      <li><a href="#unique-identifiers" id="markdown-toc-unique-identifiers">Unique Identifiers.</a></li>
+    </ul>
   </li>
-  <li>Both <code class="language-plaintext highlighter-rouge">all</code> and <code class="language-plaintext highlighter-rouge">training</code> use:
-    <ol>
-      <li>
-<code class="language-plaintext highlighter-rouge">kb</code>  - creates the <a href="#knowledge-base">knowledge base</a> and writes it to file</li>
-      <li><code class="language-plaintext highlighter-rouge">corpus</code></li>
-      <li><code class="language-plaintext highlighter-rouge">train</code></li>
-      <li><code class="language-plaintext highlighter-rouge">evaluate</code></li>
-    </ol>
-  </li>
-</ol>
+  <li><a href="#knowledge-base" id="markdown-toc-knowledge-base">Knowledge Base</a></li>
+  <li><a href="#training-the-entity-linker" id="markdown-toc-training-the-entity-linker">Training the Entity Linker.</a></li>
+</ul>
 
-<p>We need 2 annotated corpora, one two train the NER, 
-Manually annotated with Prodigy.</p>
+<h4 id="background">Background</h4>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">'..'</span><span class="p">,</span><span class="s">'data'</span><span class="p">,</span><span class="s">'nel-training'</span><span class="p">,</span><span class="s">'model-last'</span><span class="p">))</span>
-<span class="c1">#Should name the models better
-</span><span class="k">print</span><span class="p">(</span><span class="n">nlp</span><span class="p">.</span><span class="n">pipe_names</span><span class="p">)</span>
+<p>I’m following <a href="https://github.com/explosion/projects/tree/v3/tutorials/nel_emerson" target="_blank">SpaCy’s v3 NEL tutorial</a>.</p>
 
-</code></pre></div></div>
+<p>We have a NER module, <code class="language-plaintext highlighter-rouge">ner</code> we trained on about 4k posts, tested on 1k, updated the model and validated it on another 1k (manuscript/preprint under preparation). <code class="language-plaintext highlighter-rouge">ner</code> recognizes substances and symptoms<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<h5 id="unique-identifiers">Unique Identifiers.</h5>
+<p>An important feature of NEL is mapping all mentions of an entity to the standardized representation of that entity. For example, <em>test</em> and <em>testosterone</em> should both be mapped to a universal representation of the concept of testosterone. SpaCy’s example uses Wikipedia identifiers. This is not a generalizable approach, but it does work to demonstrate SpaCy’s approach to NEL. We use IRIs (Internationalized Resource Identifier)</p>
 
 <h4 id="knowledge-base">Knowledge Base</h4>
-<p>SpaCy’s Knowledge Base is formatted as follows</p>
+
+<p>See <a href="/2022/12/23/creating-a-knowledge-base-for-nel-in-python.html">here</a> for a fuller description of creating the knowledge base. 
+SpaCy’s Knowledge Base is formatted as follows</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#QID,identifier,description</span>
 <span class="s2">"Q312545"</span>,<span class="s2">"Roy Stanley Emerson"</span>,<span class="s2">"Australian tennis player"</span>
 <span class="s2">"Q48226"</span>,<span class="s2">"Ralph Waldo Emerson"</span>,<span class="s2">"American philosopher, essayist, and poet"</span>
@@ -353,48 +340,13 @@ Exhausted,Fatigue,Feeling Tired,Fatigue issue
 <h4 id="training-the-entity-linker">Training the Entity Linker.</h4>
 <p>The SpaCy example trains on Wikidata. We use our online forum DNP corpus.</p>
 
-<p>Following SpaCy’s workflow we, then, define our own workflows.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Workflow</th>
-      <th>Steps</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Start</code></td>
-      <td>
-<code class="language-plaintext highlighter-rouge">Setup</code> → <code class="language-plaintext highlighter-rouge">Download</code>
-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Preprocess</code></td>
-      <td>
-<code class="language-plaintext highlighter-rouge">Corpus</code> → <code class="language-plaintext highlighter-rouge">Training Data</code> or <code class="language-plaintext highlighter-rouge">Testing Data</code>
-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Stat Model Training</code></td>
-      <td>
-<code class="language-plaintext highlighter-rouge">Training Data</code> → <code class="language-plaintext highlighter-rouge">Tokinization</code> → <code class="language-plaintext highlighter-rouge">Annotation</code> → <code class="language-plaintext highlighter-rouge">Train Model</code> → <code class="language-plaintext highlighter-rouge">NER</code>
-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Stat Model Process</code></td>
-      <td>
-<code class="language-plaintext highlighter-rouge">Testing Data</code> → <code class="language-plaintext highlighter-rouge">NER</code> → <code class="language-plaintext highlighter-rouge">Entities Doc</code>
-</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Rule Model Process</code></td>
-      <td>
-<code class="language-plaintext highlighter-rouge">Testing Data</code> → <code class="language-plaintext highlighter-rouge">NER</code> → <code class="language-plaintext highlighter-rouge">Entities Doc</code>
-</td>
-    </tr>
-  </tbody>
-</table>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><code class="language-plaintext highlighter-rouge">ner</code> currently is better at recognizing substances and symptoms associated with bodybuilding and DNP use. This predilection reflects its training. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
 
 </section>
 

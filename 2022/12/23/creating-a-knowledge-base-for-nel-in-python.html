@@ -6,13 +6,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dark Academia</title>
-  <meta name="description" content="Dark Academia">
+  <title>Creating a Knowledge Base for NEL in Python</title>
+  <meta name="description" content="NEL in Python">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
 <!-- <link rel="stylesheet" href="./css/main.css">  -->  <!-- This makes style show up on GitHub Pages --> 
 <link rel="stylesheet" href="/css/main.css">
 <!-- <link rel="stylesheet" type="text/css" href="/css/kekule.css " /> -->
-<link rel="canonical" href="mac389.github.io/2022/12/17/dark-academia.html">
+<link rel="canonical" href="mac389.github.io/2022/12/23/creating-a-knowledge-base-for-nel-in-python.html">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
@@ -33,6 +33,7 @@
 </script>
 
 
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 
@@ -148,13 +149,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dark Academia</title>
-  <meta name="description" content="Dark Academia">
+  <title>Creating a Knowledge Base for NEL in Python</title>
+  <meta name="description" content="NEL in Python">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
 <!-- <link rel="stylesheet" href="./css/main.css">  -->  <!-- This makes style show up on GitHub Pages --> 
 <link rel="stylesheet" href="/css/main.css">
 <!-- <link rel="stylesheet" type="text/css" href="/css/kekule.css " /> -->
-<link rel="canonical" href="mac389.github.io/2022/12/17/dark-academia.html">
+<link rel="canonical" href="mac389.github.io/2022/12/23/creating-a-knowledge-base-for-nel-in-python.html">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
@@ -281,33 +282,70 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">17 Dec 2022 (Last Modified 17 Dec 2022)</p>
+  <p class="post--date">23 Dec 2022 (Last Modified 23 Dec 2022)</p>
 <br>
     
   <p></p>
-<h2>Dark Academia</h2>
-   <blockquote>
-  <p>TODO (themes I’m still writing out)</p>
-  <ol>
-    <li>With democratization of the knowledge of humanities, degrees become virtue signaling. Comparing with mathematics provides an alternative where the collegiate atmosphere can benefit from everyone starting off at a higher liver [computational studies? literature beyond writing? or is this grafting something foreign?]</li>
-    <li>Edit for clarity</li>
-    <li>Conclude with aesthetics for its own sake and perhaps literature has a debasing influence, but Donna Tartt said that. Returning to philology, read the book.</li>
-  </ol>
-</blockquote>
+<h2>Creating a Knowledge Base for NEL in Python</h2>
+   <h4 id="table-of-contents">Table of Contents</h4>
+<ul id="markdown-toc">
+  <li><a href="#table-of-contents" id="markdown-toc-table-of-contents">Table of Contents</a></li>
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#mathematical-formulation" id="markdown-toc-mathematical-formulation">Mathematical Formulation</a></li>
+  <li><a href="#construction-of-descriptions" id="markdown-toc-construction-of-descriptions">Construction of Descriptions</a></li>
+</ul>
 
-<p>The Dark Academia aesthetic rose to prominence in Winter 2022. This coincided with my first reading of Donna Tartt’s <a href="https://www.amazon.com/Secret-History-Donna-Tartt/dp/1400031702">The Secret History</a>, a seminal work in the associated literary genre. That book has inspired many conceptual trailers (<a href="https://www.youtube.com/watch?v=JxsUgwUjNuo">my favorite</a>, <a href="https://www.youtube.com/watch?v=RgytZFnOFtk&t=17s">good music, slow cinematogrraphy</a>). My searching led YouTube to recommend many good playlists (<a href="https://www.youtube.com/watch?v=Pp9nhKgEy7o&ab_channel=Hexen">classical and moody</a>, <a href="https://www.youtube.com/watch?v=K8ePcy7Z4Ek&ab_channel=Hexen">classical and reflective</a>, <a href="https://www.youtube.com/watch?v=sTfF9HaF_Zs&ab_channel=Hexen">classical and melancholy</a>, <a href="https://www.youtube.com/watch?v=WJ8h2IBpSvE&ab_channel=anni">atmospheric</a>).</p>
+<h4 id="introduction">Introduction</h4>
+<p>For named entity recognition in SpaCy, the knowledge base is the thing to which entities in a specific text are linked. SpaCy assumes a format</p>
 
-<p><a href="https://www.youtube.com/watch?v=_inuS6Kcwq4">The Take</a> related how dark academia can be more than a resurgence of interest in buying vintage clothes – remember Macklemore’s <a href="https://www.youtube.com/watch?v=QK8mJJJvaes">Thrift Shop</a>?– but related to a desire to reclaim an academic space college students had to vacate because of COVID-19. I would add that these students have also reacted to irrational exuberance given to technical education (code camps anyone?) and derision in academia given in the liberal arts to anything apprroaching philology rather then polemicization. Loving Ancient Greek on its own terms embraces something of intellectual beauty and denies that it must be worth something on an accountant’ spreadsheet. I think today’s college youth see the hypocrisy of college administrations who charge more for less and themselves either betrayed their ideals to become functionaries or are “management professionals” who moved classes onto Zoom. Why not, then, spice up Zoom with some good lighting, fashion, and music?</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#QID,identifier,description</span>
+<span class="s2">"Q312545"</span>,<span class="s2">"Roy Stanley Emerson"</span>,<span class="s2">"Australian tennis player"</span>
+<span class="s2">"Q48226"</span>,<span class="s2">"Ralph Waldo Emerson"</span>,<span class="s2">"American philosopher, essayist, and poet"</span>
+<span class="s2">"Q215952"</span>,<span class="s2">"Emerson Ferreira da Rosa"</span>,<span class="s2">"Brazilian footballer"</span>
+</code></pre></div></div>
 
-<p>Two threads to examine further.</p>
+<h4 id="mathematical-formulation">Mathematical Formulation</h4>
 
-<h4 id="think-of-the-word-nostalgia">Think of the word nostalgia.</h4>
-<p>Nostalgia (pain for home) has its canonical incarnation in Homer’s Odyssey. Oddysseus longs to return to something close to the Ithaca he left 10 years ago cajoled into fighting the Trojan war with Agamemnon. He remembers the Ithaca he left because he was there. Some describe the dark academia aesthetic as nostalgic. I think <em>aspirational</em> is a more accurate modifier. <a href="https://www.youtube.com/watch?v=9OS46W4l8so&ab_channel=R.C.Waldun">Danger of Romanticization</a></p>
+<p>Let $\textrm{proj}_s{w} $ denote the embedding (projection) of a word $w$ into space $s$.</p>
 
-<h4 id="where-is-mathematics">Where is mathematics?</h4>
-<p>Darkness in the sense of partially illuminated is central to this aesthetic. Science laboratories are out because they take place in fully lit rooms, and, to boot, with no candles strewn about nor flowing flammable clothing. I’ve read Rudin’s <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjWiaL_6oH8AhXVx8gKHTDaAPYYABAHGgJxdQ&ohost=www.google.com&cid=CAESa-D2I5U3nuBmNM5h-HgF6ddJelE3-cfpHfNtEUUjoKqiXe5Ej4TbKAfoj68uGIcpuTaijBxu7Po7kfzbOPt9lbCZsmT2TLi9wo9Dx7yYtbTGCTKyCotGcpw7VfVQNsa4RwyzdEPsByE_3iYm&sig=AOD64_3-_b55nbnvs5R1QWhTYXvekN10Lw&ctype=5&q=&ved=2ahUKEwj2tpj_6oH8AhW-qXIEHTtkB1cQ5bgDKAB6BAgFEAg&adurl=">Principles of Mathematical Analysis</a> in partially lit rooms, just as I have read Madame Bovary.</p>
+<p>Let $t$ denote a token and denote the tokens that describe an entity, $ e_i \in \left\{e\right\}$ by $ \left\{t\right\}^\left\{e_i\right\}$.</p>
 
-<p>For mathematics and humanities, the Internet has democratized knowledge.</p>
+<p>SpaCy will suggest that entities $\left\{e_i\right\}$ should be linked with $w$ if $|\textrm{proj}_s{w} - \bar{\textrm{proj}_s{t_i}}| &lt; \epsilon $.</p>
+
+<p>The bar denotes the average. The summation is implied over all $\left\{t_j\right\}$</p>
+
+<h4 id="construction-of-descriptions">Construction of Descriptions</h4>
+<p>As the <a href="#mathematical-formulation">mathermatical formulation</a> the performance of the <code class="language-plaintext highlighter-rouge">ner</code> module hinges on</p>
+<ol>
+  <li>constructing adequate descriptions.</li>
+  <li>being able to fully embed those descriptions</li>
+</ol>
+
+<p>The word <em>descriptions</em> is ambiguous. For SpaCy, it means synyonyms and context in the form of associated tokens. It does not mean anything approaching a definition, concordance, or etymology of that term.</p>
+
+<p>Our entry for DNP might be thus</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#tab-separated values</span>
+<span class="c">#id 	alias	description</span>
+ n	DNP			DNP, 2,4-dinitrophenol, weight loss agent, uncoupler of oxidative phosphorylation, phenolic, fat burner, fatburner ...	
+ n  2,4-DNP     ditto
+ n  2,4-dinitrophenol	ditto
+</code></pre></div></div>
+
+<p>Each alias for an entity contains the same description. 
+Each description begins with an enumeration of all aliases and then provides synonyms and closely related words.</p>
+
+<p>We assemble our preliminary list by creating a tsv file with two columns an index, and all the sign and symptoms from our curated data sets.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nv">ENTITIES</span><span class="o">=</span>./data/kb/dnp.entities.draft.tsv
+<span class="nb">touch</span> <span class="k">${</span><span class="nv">ENTITIES</span><span class="k">}</span>
+
+<span class="k">for </span>file <span class="k">in</span> ./data/bb.corpus.deduplicated.cleaned.reconciled.ner.<span class="k">*</span>.jsonl
+<span class="k">do
+	</span><span class="nb">echo</span> <span class="nv">$file</span>
+	jq <span class="nt">-r</span> <span class="s1">'.spans[].text | select( . != null)'</span> <span class="nv">$file</span> <span class="o">&gt;&gt;</span> <span class="k">${</span><span class="nv">ENTITIES</span><span class="k">}</span>
+<span class="k">done</span> 
+
+</code></pre></div></div>
 
 
 </section>
