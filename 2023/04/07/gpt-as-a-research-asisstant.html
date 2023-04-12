@@ -6,13 +6,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Creating a Knowledge Base for NEL in Python</title>
-  <meta name="description" content="NEL in Python">
+  <title>GPT as a Research Assistant</title>
+  <meta name="description" content="NER in Python">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
 <!-- <link rel="stylesheet" href="./css/main.css">  -->  <!-- This makes style show up on GitHub Pages --> 
 <link rel="stylesheet" href="/css/main.css">
 <!-- <link rel="stylesheet" type="text/css" href="/css/kekule.css " /> -->
-<link rel="canonical" href="mac389.github.io/2022/12/23/creating-a-knowledge-base-for-nel-in-python.html">
+<link rel="canonical" href="mac389.github.io/2023/04/07/gpt-as-a-research-asisstant.html">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
@@ -33,7 +33,6 @@
 </script>
 
 
-<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 
@@ -167,13 +166,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Creating a Knowledge Base for NEL in Python</title>
-  <meta name="description" content="NEL in Python">
+  <title>GPT as a Research Assistant</title>
+  <meta name="description" content="NER in Python">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
 <!-- <link rel="stylesheet" href="./css/main.css">  -->  <!-- This makes style show up on GitHub Pages --> 
 <link rel="stylesheet" href="/css/main.css">
 <!-- <link rel="stylesheet" type="text/css" href="/css/kekule.css " /> -->
-<link rel="canonical" href="mac389.github.io/2022/12/23/creating-a-knowledge-base-for-nel-in-python.html">
+<link rel="canonical" href="mac389.github.io/2023/04/07/gpt-as-a-research-asisstant.html">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
@@ -318,71 +317,20 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">23 Dec 2022 (Last Modified 23 Dec 2022)</p>
+  <p class="post--date">07 Apr 2023 (Last Modified 07 Apr 2023)</p>
 <br>
     
   <p></p>
-<h2>Creating a Knowledge Base for NEL in Python</h2>
-   <h4 id="table-of-contents">Table of Contents</h4>
-<ul id="markdown-toc">
-  <li><a href="#table-of-contents" id="markdown-toc-table-of-contents">Table of Contents</a></li>
-  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
-  <li><a href="#mathematical-formulation" id="markdown-toc-mathematical-formulation">Mathematical Formulation</a></li>
-  <li><a href="#construction-of-descriptions" id="markdown-toc-construction-of-descriptions">Construction of Descriptions</a></li>
+<h2>GPT as a Research Assistant</h2>
+   <!---
+    I should post a link to this page in the comments for his ChatGPT video.
+	--->
+
+<p>Andy Stapleton posted a <a href="https://www.youtube.com/watch?v=2936_Y80nUk&ab_channel=AndyStapleton">YouTube video</a> about how ChatGPT can be a good digital research assistant. Here, I react to that post and his immediately <a href="https://www.youtube.com/watch?v=3d6c-8LGX8k&ab_channel=AndyStapleton">previous post</a> on boosting your research productivity. Andy nicely lays out how</p>
+
+<ul>
+  <li>Litmap, Penelope.AI, Writefull</li>
 </ul>
-
-<h4 id="introduction">Introduction</h4>
-<p>For named entity recognition in SpaCy, the knowledge base is the thing to which entities in a specific text are linked. SpaCy assumes a format</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#QID,identifier,description</span>
-<span class="s2">"Q312545"</span>,<span class="s2">"Roy Stanley Emerson"</span>,<span class="s2">"Australian tennis player"</span>
-<span class="s2">"Q48226"</span>,<span class="s2">"Ralph Waldo Emerson"</span>,<span class="s2">"American philosopher, essayist, and poet"</span>
-<span class="s2">"Q215952"</span>,<span class="s2">"Emerson Ferreira da Rosa"</span>,<span class="s2">"Brazilian footballer"</span>
-</code></pre></div></div>
-
-<h4 id="mathematical-formulation">Mathematical Formulation</h4>
-
-<p>Let $\textrm{proj}_s{w} $ denote the embedding (projection) of a word $w$ into space $s$.</p>
-
-<p>Let $t$ denote a token and denote the tokens that describe an entity, $ e_i \in \left\{e\right\}$ by $ \left\{t\right\}^\left\{e_i\right\}$.</p>
-
-<p>SpaCy will suggest that entities $\left\{e_i\right\}$ should be linked with $w$ if $|\textrm{proj}_s{w} - \bar{\textrm{proj}_s{t_i}}| &lt; \epsilon $.</p>
-
-<p>The bar denotes the average. The summation is implied over all $\left\{t_j\right\}$</p>
-
-<h4 id="construction-of-descriptions">Construction of Descriptions</h4>
-<p>As the <a href="#mathematical-formulation">mathermatical formulation</a> the performance of the <code class="language-plaintext highlighter-rouge">ner</code> module hinges on</p>
-<ol>
-  <li>constructing adequate descriptions.</li>
-  <li>being able to fully embed those descriptions</li>
-</ol>
-
-<p>The word <em>descriptions</em> is ambiguous. For SpaCy, it means synyonyms and context in the form of associated tokens. It does not mean anything approaching a definition, concordance, or etymology of that term.</p>
-
-<p>Our entry for DNP might be thus</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#tab-separated values</span>
-<span class="c">#id 	alias	description</span>
- n	DNP			DNP, 2,4-dinitrophenol, weight loss agent, uncoupler of oxidative phosphorylation, phenolic, fat burner, fatburner ...	
- n  2,4-DNP     ditto
- n  2,4-dinitrophenol	ditto
-</code></pre></div></div>
-
-<p>Each alias for an entity contains the same description. 
-Each description begins with an enumeration of all aliases and then provides synonyms and closely related words.</p>
-
-<p>We assemble our preliminary list by creating a tsv file with two columns an index, and all the sign and symptoms from our curated data sets.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nv">ENTITIES</span><span class="o">=</span>./data/kb/dnp.entities.draft.tsv
-<span class="nb">touch</span> <span class="k">${</span><span class="nv">ENTITIES</span><span class="k">}</span>
-
-<span class="k">for </span>file <span class="k">in</span> ./data/bb.corpus.deduplicated.cleaned.reconciled.ner.<span class="k">*</span>.jsonl
-<span class="k">do
-	</span><span class="nb">echo</span> <span class="nv">$file</span>
-	jq <span class="nt">-r</span> <span class="s1">'.spans[].text | select( . != null)'</span> <span class="nv">$file</span> <span class="o">&gt;&gt;</span> <span class="k">${</span><span class="nv">ENTITIES</span><span class="k">}</span>
-<span class="k">done</span> 
-
-</code></pre></div></div>
-
 
 </section>
 
