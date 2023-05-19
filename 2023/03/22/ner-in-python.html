@@ -317,15 +317,17 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">22 Mar 2023 (Last Modified 23 Mar 2023)</p>
+  <p class="post--date">22 Mar 2023 (Last Modified 23 Apr 2023)</p>
 <br>
     
   <p></p>
 <h2>Named Entity Recognition in Python</h2>
    <h4 id="introduction">Introduction.</h4>
-<p>Named Entity Recognition (NER) refers to the process of mapping from groups of characters to known entities in the real word, for example recognizing that the sequence of characters <em>ball</em> refers to the round object that bounces. NER is linked with named entity linking (NEL) where the recognized entity is mapped onto a unique identifier.</p>
+
+<p>Named Entity Recognition (NER) refers to mapping groups of characters to known entities in the real word, for example recognizing that the sequence of characters <em>ball</em> refers to the round object that bounces. NER is linked with named entity linking (NEL) where the recognized entity is mapped onto a unique identifier.</p>
 
 <h4 id="literature-review">Literature Review</h4>
+
 <p>Biomedical NER is challenging. Biomedical texts have compound words and large out-of-vocabulary sizes. Except for RNN-based models whose F1 scores are around 0.60, models useing word embeddings (GloVe, Word2Vec) have F1 scores between 0.7 and 0.75 <a class="citation" href="#song2018comparison">(Song et al., 2018)</a>. An ensemble model can achieved an F1 score of 0.93 on biomedical texts, but not validation for social media has been reported <a class="citation" href="#sung2022bern2">(Sung et al., 2022)</a>.</p>
 
 <p>Including character level features can increase the generalizability of word-level embeddings. Indeed, adding a bidirectional LTSM improves state-of-the-art biomedical NER systems based on word embeddings improved the F1 score from .70 to .75 <a class="citation" href="#gridach2017character">(Gridach, 2017)</a>. This increase is modest. Most biomedical NER systems that rely on word embeddings have F1 scores between 0.70 and 0.75.</p>
@@ -333,6 +335,7 @@
 <p>Character level features frequently vary in morphology even while preserving phonology, for example carfenta<em>nil</em> but fenta<em>nyl</em> <a class="citation" href="#kim2022your">(Kim &amp; Kang, 2022)</a>.</p>
 
 <h4 id="related-notebooks">Related Notebooks</h4>
+
 <ol>
   <li><a href="/2022/06/25/nel-in-python.html">Named Entity <strong>Linking</strong> in Python</a></li>
 </ol>

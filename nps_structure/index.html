@@ -6,13 +6,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Onboarding</title>
-  <meta name="description" content="Onboarding">
+  <title>Structural Analysis of Novel Psychoactive Substances</title>
+  <meta name="description" content="Structural Analysis of Novel Psychoactive Substances">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
 <!-- <link rel="stylesheet" href="./css/main.css">  -->  <!-- This makes style show up on GitHub Pages --> 
 <link rel="stylesheet" href="/css/main.css">
 <!-- <link rel="stylesheet" type="text/css" href="/css/kekule.css " /> -->
-<link rel="canonical" href="mac389.github.io/onboarding/">
+<link rel="canonical" href="mac389.github.io/nps_structure/">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
@@ -161,65 +161,7 @@
     <div class="container-fluid">
       <div class="row">
         <div id="textid" class="col-sm-12">
-  <!-- > TODO: Add funding description page. -->
-
-<p>This page outlines the skills I think one needs to be productive in my lab. My choices reflect my research focus (computational linguistics and applied mathematics) and training (PhD in computational neuroscience and MD specializing in toxicology). You don’t have to know everything here. Someone focusing on linguistics doesn’t need to know about <a href="https://en.wikipedia.org/wiki/Hilbert_space">Hilbert</a> or <a href="https://en.wikipedia.org/wiki/Banach_space">Banach</a> spaces. Whichever parts are most relevant to your project, <strong>mastery comes from directed learning and focused persistent practice</strong>.</p>
-
-<h4 id="my-overall-philosphy">My Overall Philosphy.</h4>
-<p>science educates humanity, in the original meaning of the word <em>educates</em>. the pursuit of science is a rewarding calling with purpose and intellectual fulfillment. the business of science is destructive, feeding and empowering a scientifically illiterate administrative class. administrative parasitism is not a uniquely modern concern nor is science’s reliance on someone else to make the money<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. galileo lauded his patrons at the beginning of his books, usually for about 40-50 pages. To succeed in modern science one needs luck, grit, talent, intellectual honesty, and realpolitick, in that order.</p>
-
-<p>I strive to create a lab where people join because they are interested and inspired in joining me on a mutual voyage of discovery. I expect those working with me not to misrepresent their talents or interests to get a spot nor to phone anything in. (<em>Phoning in</em> is 90’s argot that means to do a poor job because you didn’t really try. Perhaps in the era of the smart phone everyone is phoning in.)  This expectation comes partly because I think interesting things happen when smart creative people are given the time to be freely productive and partly because I don’t have the bandwidth or inclination to micromanage.</p>
-
-<h4 id="table-of-contents">Table of Contents</h4>
-<ul id="markdown-toc">
-  <li><a href="#my-overall-philosphy" id="markdown-toc-my-overall-philosphy">My Overall Philosphy.</a></li>
-  <li><a href="#table-of-contents" id="markdown-toc-table-of-contents">Table of Contents</a></li>
-  <li><a href="#fundamentals-everyone-should-know" id="markdown-toc-fundamentals-everyone-should-know">Fundamentals Everyone Should Know</a></li>
-  <li><a href="#for-computational-linguists" id="markdown-toc-for-computational-linguists">For Computational Linguists</a></li>
-  <li><a href="#for-mathematicians" id="markdown-toc-for-mathematicians">For Mathematicians</a></li>
-  <li><a href="#agent-based-modeling" id="markdown-toc-agent-based-modeling"><strong>Agent-Based Modeling</strong></a></li>
-</ul>
-
-<h4 id="fundamentals-everyone-should-know">Fundamentals Everyone Should Know</h4>
-<ol>
-  <li>Facility with Python, Prolog, LiSP, Julia, or Haskell. In at least one of these languages you must be able to load a data file, do some analysis, and write the results to a graph or table.</li>
-  <li>Facility with Markdown (for describing issues on GitHub and drafting manuscripts.)</li>
-  <li>How to write a scientific paper [for MS and above].</li>
-  <li>How to write a 250-word abstract [for college students and above].</li>
-  <li>
-<a href="https://www.biosciencewriters.com/NIH-Grant-Applications-The-Anatomy-of-a-Specific-Aims-Page.aspx">Anatomy of a Specific Aims Page</a>. The Specific Aims page is the crystallization of your proposal, similar to but far more detailed and precise than an executive summary. All grant applications, whether to private foundations or the NIH, DoD, or NSF, hinge on the Specific Aims page.</li>
-  <li>
-<a href="https://github.com/">GitHub</a>. I use GitHub to organize and share code.</li>
-  <li>
-<a href="https://missing.csail.mit.edu/">Missing Semester</a>. This MIT course teaches you the day-to-day tools you need to do computational science, for example how to move and rename masses of files, quickly edit files with vim, or make a build system.</li>
-  <li>
-<a href="https://www.google.com/search?q=Latex+tutorials+Overlea&amp;oq=Latex+tutorials+Overlea&amp;aqs=chrome..69i57j0i22i30l3.7276j0j4&amp;sourceid=chrome&amp;ie=UTF-8">LaTeX</a>. LaTeX makes beautiful preprints and technical papers. I use Beamer for almost all my presentations. I write as many of my grants in LaTeX as possible. IEEE conferences accept TeX submissions. Biomedical journals sometimes do.</li>
-</ol>
-
-<h4 id="for-computational-linguists">For Computational Linguists</h4>
-<p>My focus is on representing biomedical knowledge in a computable format and on developing tools that use those representation to contextualize (and especially assess the plausibility) of knowledge expressed in unstructured text.</p>
-
-<p><strong>Knowledge Representation</strong></p>
-<ol>
-  <li>
-<a href="https://raw.githubusercontent.com/BFO-ontology/BFO/v2.0/BFO2-Reference.docx">Basic Formal Ontology</a>. BFO is a framework for creating first order logic predicates that, when taken together, express a consistent picture about a “portion of reality”. It’s a commonly used standard.</li>
-  <li>
-<a href="https://homes.cs.washington.edu/~pedrod/papers/mlj05.pdf">Markov Logic Networks</a>. MLNs express uncertainty and are thus more expressive than BFO. It is an <strong>area of ongoing interest to join a BFO-compliant ontology and MLN schema</strong>.</li>
-  <li>
-<a href="https://spacy.io/">SpaCy</a> and <a href="https://prodi.gy/">Prodigy</a>. They are our NLP backbone.</li>
-</ol>
-
-<h4 id="for-mathematicians">For Mathematicians</h4>
-<p><strong>Spatial Statistics</strong></p>
-
-<h2 id="agent-based-modeling"><strong>Agent-Based Modeling</strong></h2>
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p>Science relying on commerical success, possibly with a government intermediary, is an issue in economies where capitalists horde money, and, hence, means to accomplish things in that type of economy. That isn’t the only way to do things. It <em>is</em> the way in the US. To do science in the US, we must acknowledge the rules of the game. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
-    </li>
-  </ol>
-</div>
+  <p>Thank you for visiting my EAPCCT poster.</p>
 
 </div>
 
