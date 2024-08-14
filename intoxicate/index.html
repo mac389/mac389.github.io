@@ -34,7 +34,6 @@
   gtag('config', 'UA-15405704-2');
   ga('send', 'pageview');
 </script> 
-<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 
@@ -78,19 +77,7 @@
               </li>
                 
               <li>
-                <a href="/hds">Herbal &amp; Dietary Supplements</a>
-              </li>
-                
-              <li>
                 <a href="/morphosyntax">Morphosyntax</a>
-              </li>
-                
-              <li>
-                <a href="/geo-opioid">Geographic Variation of Opioid Usage</a>
-              </li>
-                
-              <li>
-                <a href="clinical_research">Clinical Research</a>
               </li>
                 
               <li>
@@ -106,6 +93,14 @@
               
           <li class="active">
             <a href="/intoxicate">INTOXICATE</a>
+          </li>
+              
+          <li class="">
+            <a href="/jarvis">Jarvis</a>
+          </li>
+              
+          <li class="">
+            <a href="/ekg">EKGs</a>
           </li>
               
           <li class="">
@@ -170,314 +165,6 @@
 
 <p><a class="citation" href="#brandenburg2017need">(Brandenburg et al., 2017)</a> Developed INTOXICATE to determine which poisoned patients need admission to the ICU/Stepdown unit. Below is the model. SBPS refers to systolic blood pressure. EMV refers to the Glasgow Coma Scale (eye, motor, verbal).</p>
 
-<p>$$
-\textrm{risk} = \begin{bmatrix} -1.75 \\ -0.91398 \\ 0.25399 \\ 0.061925 \\ 0.162626 \\ -0.265 \\ -1.22151 \\ 0.325561 \\ 0.038357 \\ 0.014 \\ -0.02035 \\ -0.164725 \\ 1.527795 \\ 1.423788 \\ 0.983364 \\ 1.289260 \\  \end{bmatrix} \cdot
-\begin{bmatrix} 1 \\ \textrm{alcohol} \\ \textrm{analgesic}\\ \textrm{antidepressant}\\ \textrm{street drug}\\ \textrm{sedative}\\ \textrm{poison}\\ \textrm{other}\\ \textrm{Age}\\ \textrm{Pulse}\\ \textrm{SBP}\\ \textrm{EMV}\\ \textrm{Respiratory insufficiency}\\ \textrm{Cirrhosis}\\ \textrm{Dysrhythmia}\\ \textrm{Second reason of ICU admission}\\ \end{bmatrix}
-$$</p>
-
-<div class="container">
-  <h4>Encoding of Categorical Variables</h4>
-  <h4>Conversion of Numerical Variables into Categories</h4>
-  <div class="row">
-
-    <div class="col-md-3">
-      <table>
-<thead>
-<th style="text-align: right">Intoxicant</th>
-<th style="text-align: center">  </th>
-<th style="text-align: center">Value</th>
-</thead>
-<tbody>
-
-<tr> 
-  <td style="text-align: right">Alcohol</td> 
-  <td>  </td>
-  <td style="text-align: center">1</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">Analgesic</td> 
-  <td>  </td>
-  <td style="text-align: center">2</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">Antidepressant</td> 
-  <td>  </td>
-  <td style="text-align: center">3</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">Street Drugs</td> 
-  <td>  </td>
-  <td style="text-align: center">4</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">Sedatives</td> 
-  <td>  </td>
-  <td style="text-align: center">5</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">CO, As, CN</td> 
-  <td>  </td>
-  <td style="text-align: center">6</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">Toxins NOS</td> 
-  <td>  </td>
-  <td style="text-align: center">7</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">Polysubstance</td> 
-  <td>  </td>
-  <td style="text-align: center">8</td>
-</tr>
-
-</tbody>
-</table>
-    </div>
-
-    <div class="col-md-3">
-      <table>
-<thead>
-<th style="text-align: right">Age Group</th>
-<th style="text-align: center">  </th>
-<th style="text-align: center">Value</th>
-</thead>
-<tbody>
-
-<tr> 
-  <td style="text-align: right">&lt;25</td> 
-  <td>  </td>
-  <td style="text-align: center">0</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">25-35</td> 
-  <td>  </td>
-  <td style="text-align: center">2</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">35-45</td> 
-  <td>  </td>
-  <td style="text-align: center">4</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">45-55</td> 
-  <td>  </td>
-  <td style="text-align: center">6</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">55-65</td> 
-  <td>  </td>
-  <td style="text-align: center">8</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">$\geq$ 65</td> 
-  <td>  </td>
-  <td style="text-align: center">10</td>
-</tr>
-
-</tbody>
-</table>
-    </div>
-
-    <div class="col-md-3">
-      <table>
-<thead>
-<th style="text-align: right">SBP</th>
-<th style="text-align: center">  </th>
-<th style="text-align: center">Value</th>
-</thead>
-<tbody>
-
-<tr> 
-  <td style="text-align: right">$\geq$ 140</td> 
-  <td>  </td>
-  <td style="text-align: center">-3</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">130-140</td> 
-  <td>  </td>
-  <td style="text-align: center">-1</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">120-130</td> 
-  <td>  </td>
-  <td style="text-align: center">0</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">110-120</td> 
-  <td>  </td>
-  <td style="text-align: center">1</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">100-110</td> 
-  <td>  </td>
-  <td style="text-align: center">2</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">&lt; 100</td> 
-  <td>  </td>
-  <td style="text-align: center">4</td>
-</tr>
-
-</tbody>
-</table>
-
-    </div>
-  </div>
-  <p><br></p>
-  <div class="row">
-    <div class="col-md-3">
-      <table>
-<thead>
-<th style="text-align: right">Pulse</th>
-<th style="text-align: center">  </th>
-<th style="text-align: center">Value</th>
-</thead>
-<tbody>
-
-<tr> 
-  <td style="text-align: right">$&lt;75$</td> 
-  <td>  </td>
-  <td style="text-align: center">0</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">$75-85$</td> 
-  <td>  </td>
-  <td style="text-align: center">1</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">$85-95$</td> 
-  <td>  </td>
-  <td style="text-align: center">2</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">$95-105$</td> 
-  <td>  </td>
-  <td style="text-align: center">3</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">$\geq 105$</td> 
-  <td>  </td>
-  <td style="text-align: center">4</td>
-</tr>
-
-</tbody>
-</table>
-    </div>
-
-    <div class="col-md-3">
-      <table>
-<thead>
-<th style="text-align: right">GCS</th>
-<th style="text-align: center">  </th>
-<th style="text-align: center">Value</th>
-</thead>
-<tbody>
-
-<tr> 
-  <td style="text-align: right">$\geq 14$</td> 
-  <td>  </td>
-  <td style="text-align: center">0</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">9-14</td> 
-  <td>  </td>
-  <td style="text-align: center">3</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">6-9</td> 
-  <td>  </td>
-  <td style="text-align: center">6</td>
-</tr>
-
-<tr> 
-  <td style="text-align: right">$\leq 6$</td> 
-  <td>  </td>
-  <td style="text-align: center">9</td>
-</tr>
-
-</tbody>
-</table>
-    </div>
-
-  </div>
-</div>
-
-<p>There is before bort.</p>
-<div id="ab76430c-f580-4589-8c3d-2ab6118e967d" data-root-id="p1001" style="display: contents"></div>
-
-<script type="text/javascript">
-  (function () {
-    const fn = function () {
-      Bokeh.safely(function () {
-        (function (root) {
-          function embed_document(root) {
-            const docs_json =
-              '{"4d7ddbfc-6d62-4630-bae7-763faa67bd26":{"version":"3.4.0","title":"Bokeh Application","roots":[{"type":"object","name":"CheckboxGroup","id":"p1035","attributes":{"js_property_callbacks":{"type":"map","entries":[["change:active",[{"type":"object","name":"CustomJS","id":"p1036","attributes":{"code":"\\n    console.log(&#x27;checkbox_group: active=&#x27; + this.active, this.toString())\\n"}}]]]},"labels":["Option 1","Option 2","Option 3"],"active":[0,1]}}]}}';
-            const render_items = [
-              {
-                docid: "4d7ddbfc-6d62-4630-bae7-763faa67bd26",
-                roots: { p1035: "aa3db349-3614-4e53-bd2d-7d2e25d887a8" },
-                root_ids: ["p1035"],
-              },
-            ];
-            root.Bokeh.embed.embed_items(docs_json, render_items);
-          }
-          if (root.Bokeh !== undefined) {
-            embed_document(root);
-          } else {
-            let attempts = 0;
-            const timer = setInterval(
-              function (root) {
-                if (root.Bokeh !== undefined) {
-                  clearInterval(timer);
-                  embed_document(root);
-                } else {
-                  attempts++;
-                  if (attempts > 100) {
-                    clearInterval(timer);
-                    console.log(
-                      "Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing",
-                    );
-                  }
-                }
-              },
-              10,
-              root,
-            );
-          }
-        })(window);
-      });
-    };
-    if (document.readyState != "loading") fn();
-    else document.addEventListener("DOMContentLoaded", fn);
-  })();
-</script>
-
-<div id="aa3db349-3614-4e53-bd2d-7d2e25d887a8" data-root-id="p1035" style="display: contents"></div>
-
 <p>And after bort.</p>
 
 <h4 id="references">References</h4>
@@ -485,18 +172,17 @@ $$</p>
 <ol class="bibliography"><li><span id="brandenburg2017need">1.Brandenburg, R. <i>et al.</i> The need for ICU admission in intoxicated patients: a prediction model. <i>Clinical toxicology</i> <b>55</b>, 4–11 (2017).</span></li></ol>
 
 </div>
+
 <div id="datesid" class="col-sm-4">
 <div class="well">
-  <h4>Due Dates</h4>
+  <h4>Dates</h4>
 
   
-  <a href="https://www.nyacep.org/">NYACEP</a>, (<b>01 Apr 2024</b>)<br>
+  <a href="https://www.nyacep.org/">NYACEP</a>, (<b>09 Jul 2024</b>)<br>
   
   <a href="https://weillcornell.az1.qualtrics.com/jfe/form/SV_0BQxbWaE7iTh1wq">WCM EM Conference</a>, (<b>15 Apr 2024</b>)<br>
   
-  <a href="https://www.clintox.org/nacct">NACCT</a>, (<b>05 May 2024</b>)<br>
-  
-  <a href="https://hicss.hawaii.edu/">HICSS</a>, (<b>15 Jun 2024</b>)<br>
+  <a href="https://www.clintox.org/nacct">NACCT</a>, (<b>22 Sep 2024</b>)<br>
   
 </div>
 </div>
