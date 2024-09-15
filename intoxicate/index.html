@@ -11,15 +11,11 @@
   </title>
   <meta name="description" content="Chary Lab -- Research">
   <link rel="stylesheet" href="mac389.github.io/css/main.css">
-  <!-- <link rel="stylesheet" href="./css/main.css">  -->
-  <!-- This makes style show up on GitHub Pages -->
-  <!-- <link rel="stylesheet" type="text/css" href="/css/kekule.css " /> -->
   <link rel="canonical" href="mac389.github.io/intoxicate/">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
   <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
 
   
@@ -48,67 +44,111 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+    </div>
 
-      <div class="collapse navbar-collapse" id="navbar-collapse-1 menu">
-        <ul class="nav navbar-nav navbar-right">
-              
-          <li class="active">
-            <a href="/">Chary Lab @ Weill Cornell</a>
-          </li>
-              
-          <li class="">
-            <a href="/team">Team</a>
-          </li>
-              
-          <li class="">
-            <a href="/publications">Publications</a>
-          </li>
-              
-          <li class="dropdown ">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Research <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-               
-              <li>
-                <a href="/research">Contribution to Science</a>
-              </li>
-                
-              <li>
-                <a href="/dnp">2,4-dinitrophenol</a>
-              </li>
-                
-              <li>
-                <a href="/morphosyntax">Morphosyntax</a>
-              </li>
-                
-              <li>
-                <a href="/lesser_older_projects">Lesser or Older Projects</a>
-              </li>
-                
-              <li>
-                <a href="/onboarding">Onboarding</a>
-              </li>
-               
-            </ul>
-          </li>
-              
-          <li class="active">
-            <a href="/intoxicate">INTOXICATE</a>
-          </li>
-              
-          <li class="">
-            <a href="/jarvis">Jarvis</a>
-          </li>
-              
-          <li class="">
-            <a href="/ekg">EKGs</a>
-          </li>
-              
-          <li class="">
-            <a href="/notebooks">Notebooks</a>
-          </li>
-           
-        </ul>
-      </div>
+    <!-- Move the navbar-collapse div outside of the navbar-header div -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+        
+        
+        <li class="active">
+          <a href="/">Chary Lab @ Weill Cornell</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/team">Team</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/publications">Publications</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="dropdown ">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Research <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            <li>
+              <a href="/research">Contribution to Science</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/dnp">2,4-dinitrophenol</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/morphosyntax">Morphosyntax</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/lesser_older_projects">Lesser or Older Projects</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/onboarding">Onboarding</a>
+            </li>
+            
+            
+          </ul>
+        </li>
+        
+        
+        
+        
+        
+        <li class="active">
+          <a href="/intoxicate">INTOXICATE</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/jarvis">Jarvis</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/ekg">EKGs</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/notebooks">Notebooks</a>
+        </li>
+        
+        
+      </ul>
     </div>
   </div>
 </nav>
@@ -116,75 +156,93 @@
 
     <div class="container-fluid">
       <div class="row">
-        
-  <script src="../js/custom/d3.custom.js" type="module"></script>
+        <div id="textid" class="col-sm-12">
+  <blockquote>
+  <p>Thank you for coming to our presentation at NACCT 2024. <a href="../pdfs/NACCT.2024.poster.pdf" target="\_blank">Link</a> to presentation. More info below.</p>
+</blockquote>
 
+<h4 id="intoxicate">INTOXICATE</h4>
 
-<div id="homeid" class="col-sm-8">
-  <h1>INTOXICATE</h1>
+<p>Which Poisoned Patients Need Admission to the ICU/Stepdown Unit?</p>
 
-  
-<link href="https://cdn.pydata.org/bokeh/release/bokeh-3.3.4.min.css" rel="stylesheet" type="text/css">
-<script src="https://cdn.pydata.org/bokeh/release/bokeh-3.3.4.min.js"></script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script>
-    mermaid.initialize({
-        startOnLoad: true,
-        theme: 'default', // Use the default theme as a base
-        themeCSS: `
-            .language-mermaid {
-                background-color: transparent !important;
-                font-family: 'Arial', sans-serif; /* Change font family */
-            }
-            .language-mermaid text {
-                font-size: 14px; /* Change font size */
-            }
-        `,
-    });
-</script>
+<h4 id="background">Background</h4>
+<p><a class="citation" href="#brandenburg2017need">Brandenburg et al. (2017)</a> developed INTOXICATE to predict which poisoned patients will require pressors or mechanical ventilation in the first 24 hours after presentation to hospital. The predictive model was derived from a retrospective cohort of 9,286 patients admitted to ICUs in the Netherlands and externally validated in a retrospective cohort of 1,654 poisoned patients admitted to the ICUs across Europe <a class="citation" href="#zwaag2024intoxicate">(Zwaag et al., 2024)</a> . In the external validation, INTOXICATE had a sensitivity of 0.96 and specificity of 0.18, negative predictive value of 0.91, positive predictive value of 0.32, and AUC ROC of 0.69 (95% CI 0.64-0.73)<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
 
+<p><u><b>Our goal</b></u> was to determine the performance of INTOXICATE in the US healthcare system. We conducted a retrospective cohort study of poisoned patients in one academic medical system from 2023 to 2024. One significant difference between our methodology and the external validation is that our study population was patients presenting to the emergency department for whom Toxicology was consulted, not patients admitted to the ICU. Another difference is that they used vital signs obtained within the first hour of arrival to the ICU, whereas we used vital signs obtained within the first hour of arrival to the emergency department<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. We chose the ED because we felt INTOXICATE would have larger impact in preventing rather than rapidly downgrading ICU admissions<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>.</p>
 
-<h4 id="which-poisoned-patients-need-the-icu">Which Poisoned Patients Need the ICU?</h4>
+<p><u><b>Our findings</b></u> were that, in a population of 112 poisoned patients in the ED, INTOXICATE had a sensitivity of 100% (95% CI 63.1-100%), specificity of 59.1% (95% CI 48.5-69.2%), positive predictive value of 17.4% (95% CI 14.2-21.2%), and negative predictive value of 100% (95% CI 93.5-100%). The table below comparees the performance of INTOXICATE in the external validation and in our study.</p>
 
-<p><strong>Background.</strong></p>
+<table class="table table-bordered table-hover table-condensed table-sm">
+  <thead>
+    <tr>
+      <th style="text-align: right">Metric</th>
+      <th style="text-align: center">External Validation</th>
+      <th style="text-align: center">Our Study</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">Sensitivity</td>
+      <td style="text-align: center">0.96</td>
+      <td style="text-align: center">1.00</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">Specificity</td>
+      <td style="text-align: center">0.18</td>
+      <td style="text-align: center">0.59 (0.49-0.69)</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">Positive Predictive Value</td>
+      <td style="text-align: center">0.32</td>
+      <td style="text-align: center">0.17 (0.14-0.21)</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">Negative Predictive Value</td>
+      <td style="text-align: center">0.91</td>
+      <td style="text-align: center">1.00</td>
+    </tr>
+  </tbody>
+</table>
 
+<p><u><b>Our conclusions</b></u> are that INTOXICATE has a higher specificity in the poisoned patient in the (American) ED compared to the poisoned patient in the (European) ICU because the lack of vital sign abnormalities earlier on in the clinical course suggests a less severe ingestion. The lower positive predictive value may reflect the lower discriminative value of patient demographics and prior medical history which INTOXICATE heavily weights.</p>
+
+<p><b><u>Our next steps</u></b> are to:</p>
 <ol>
-  <li>Fraction of poisoned patients each year admitted to ICU/Stepdown</li>
-  <li>Physiology of poisoning means that scoring systems meant to determine general illness like APACHE may not work.</li>
-  <li>X previously developed INTOXICATE with <em>methods</em> that had <em>results</em>.</li>
+  <li>Increase the specificity of INTOXICATE by incorporating additional variables that are more predictive of the need for ICU admission in the US healthcare system,</li>
+  <li>Increase the positive predictive value of INTOXICATE by determining the patient population for whom INTOXICATE is most predictive.</li>
+  <li>Prospectively validate INTOXICATE in the US healthcare system.</li>
 </ol>
 
-<p><strong>Project Roadmap</strong></p>
+<p>Ultimately, we think that INTOXICATE could be useful as part of a suite of clinical decision tools to help guide the disposition of poisoned patients in the ED.</p>
 
-<pre><code class="language-mermaid">graph LR
-    A[Replicate Study in US] --&gt; B[Refine Predictors] &amp; C[Extend to Childrens]
-    B --&gt; D[Prospectively Validate]
-    B --&gt; E[Prospectively Validate]
-</code></pre>
+<h4 id="related-notebooks">Related Notebooks</h4>
+<ul>
+  <li><a href="/2024/09/15/computable-phenotypes.html">Computable Phenotypes</a></li>
+</ul>
 
-<p><a class="citation" href="#brandenburg2017need">(Brandenburg et al., 2017)</a> Developed INTOXICATE to determine which poisoned patients need admission to the ICU/Stepdown unit. Below is the model. SBPS refers to systolic blood pressure. EMV refers to the Glasgow Coma Scale (eye, motor, verbal).</p>
+<h4 id="works-cited">Works Cited</h4>
 
-<p>And after bort.</p>
+<ol class="bibliography">
+<li><span id="brandenburg2017need">1.Brandenburg, R. <i>et al.</i> The need for ICU admission in intoxicated patients: a prediction model. <i>Clinical toxicology</i> <b>55</b>, 4–11 (2017).</span></li>
+<li><span id="zwaag2024intoxicate">2.Zwaag, S. M. <i>et al.</i> The INTOXICATE study: Methodology, experience and preliminary results of a prospective cohort study. (2024).</span></li>
+</ol>
 
-<h4 id="references">References</h4>
+<h4 id="footnotes">Footnotes</h4>
 
-<ol class="bibliography"><li><span id="brandenburg2017need">1.Brandenburg, R. <i>et al.</i> The need for ICU admission in intoxicated patients: a prediction model. <i>Clinical toxicology</i> <b>55</b>, 4–11 (2017).</span></li></ol>
-
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>These findings were presented as preliminary data at EAPCCT 2023. <a href="https://www.researchsquare.com/article/rs-4622968/v1" target="\_blank">Preprint just released</a>. The final results are pending publication. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>A vital sign that is persistently abnormal despite resuscitation in the emergency department may be more predictive of the need for ICU admission than a vital sign that is abnormal on arrival to the ICU but normalizes with resuscitation. There may also be differences in the care provided in Emergency Departments in the US compared to the Netherlands or the EU. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>Especially with the prevalence of boarding in the ED while waiting for an ICU bed. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
 </div>
 
-<div id="datesid" class="col-sm-4">
-<div class="well">
-  <h4>Dates</h4>
-
-  
-  <a href="https://www.nyacep.org/">NYACEP</a>, (<b>09 Jul 2024</b>)<br>
-  
-  <a href="https://weillcornell.az1.qualtrics.com/jfe/form/SV_0BQxbWaE7iTh1wq">WCM EM Conference</a>, (<b>15 Apr 2024</b>)<br>
-  
-  <a href="https://www.clintox.org/nacct">NACCT</a>, (<b>22 Sep 2024</b>)<br>
-  
-</div>
 </div>
 
       </div>
