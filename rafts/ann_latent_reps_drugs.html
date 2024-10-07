@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Latent Representations of Chemical Activity
+  </title>
+  <meta name="description" content="Latent Representations of Chemical Activity">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/ann_latent_reps_drugs">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
+
+  
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Move the navbar-collapse div outside of the navbar-header div -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+        
+        
+        <li class="active">
+          <a href="/">Chary Lab @ Weill Cornell</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/team">Team</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/publications">Publications</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="dropdown ">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Research <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            <li>
+              <a href="/research">Contribution to Science</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/dnp">2,4-dinitrophenol</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/morphosyntax">Morphosyntax</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/lesser_older_projects">Lesser or Older Projects</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/onboarding">Onboarding</a>
+            </li>
+            
+            
+          </ul>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/intoxicate">INTOXICATE</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/jarvis">Jarvis</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/ekg">EKGs</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/notebooks">Notebooks</a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <div id="textid" class="col-sm-12">
+  <h4 id="overall-goal">Overall Goal</h4>
+<p>Determine whether the intermediate representations of convolutional neural networks identify molecular motifs whose importance was not previously appreciated.</p>
+
+<h4 id="background">Background.</h4>
+
+<p><a class="citation" href="#hirohara2018convolutional">(Hirohara et al., 2018)</a> demonstrated that a convolutional neural network trained on the <a href="https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system">SMILES</a> representation of a molecule</p>
+<ol>
+  <li>could classify that molecule as toxic or not</li>
+  <li>developed a latent representation (“fingerprint”) of toxicity</li>
+</ol>
+
+<ul>
+  <li>Neural Networks</li>
+  <li>Latent representaions.</li>
+  <li><a href="/2020/04/16/visualization-of-latent-chemical-spaces.html">Visualizing Latent Representations</a></li>
+  <li>Social Media as a Data Source.</li>
+</ul>
+
+<h4 id="approach">Approach</h4>
+
+<ol>
+  <li><a href="#specific-aim-1"><strong>Specific Aim 1: Extract Names, 2-Dimensional Structures, and Effects from Social Media of Novel Psychoactive Substances</strong></a></li>
+  <li><a href="specific-aim-2"><strong>Specific Aim 2: Train a Convoluational Neural Network to Classify Substancts as Belonging to 1 of 5 Classes of Novel Psychoactive Substances</strong></a></li>
+  <li><a href="specific-aim-3"><strong>Specific AIm 3: Assess how (2) classifies and represents (1)</strong></a></li>
+</ol>
+
+<h4 id="specific-aim-1">Specific Aim 1</h4>
+
+<ul>
+  <li>We developed a custom named entity recognizer using the Python plugin SpaCy.  <strong>How train, test, validate it?</strong>
+</li>
+</ul>
+
+<h4 id="specific-aim-2">Specific Aim 2</h4>
+
+<ul>
+  <li>We extended Hirohara et al. <strong>How test and validate it? How introspect latent representations?</strong>
+    <ul class="task-list">
+      <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled checked>Ported from Chainer (name?) to Keras.</li>
+      <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled checked>Developed visualization module</li>
+      <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled>Reproduced their published results</li>
+    </ul>
+  </li>
+</ul>
+
+<p>To train the CNN, I developed a library of chemical substances (<a href="/2020/05/30/creating-a-library-of-chemical-structures.html">Extended Discussion</a>)</p>
+
+<p><strong>Creation of Library</strong><br></p>
+
+<h4 id="specific-aim-3">Specific Aim 3</h4>
+
+<ul>
+  <li>We did this. <strong>How validate it?</strong>
+</li>
+</ul>
+
+<h4 id="bibliography">Bibliography</h4>
+<ol class="bibliography"><li><span id="hirohara2018convolutional">1.Hirohara, M., Saito, Y., Koda, Y., Sato, K. &amp; Sakakibara, Y. Convolutional neural network based on SMILES representation of compounds for detecting chemical motif. <i>BMC bioinformatics</i> <b>19</b>, 83–94 (2018).</span></li></ol>
+
+</div>
+
+      </div>
+    </div>
+
+    <div id="footer" class="panel">
+  <div class="panel-footer">
+	<div class="container-fluid">
+	  <div class="row">
+		<div class="col-sm-4">
+			
+		  <p>© 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="http://localhost:4000/aboutwebsite.html">copy and modify this template for your own research group.</a></p>
+              <p>We are part of the <a href="https://emed.weill.cornell.edu/">Department of Emergency Medicine</a> at <a href="https://weill.cornell.edu/">Weill Cornell Medical College</a>.</p>
+		   <p>  </p>
+<p>
+            		  
+            
+		</p>
+</div>
+		<div class="col-sm-4">
+		  Funding:
+		  <ul> 
+         <li> Loan Repayment Program from National Institute of Drug Abuse 
+         </li>
+<li> American College of Medical Toxicology
+     </li>
+</ul>
+		</div>
+		<!-- <div class="col-sm-4"> put contact information here  -->
+		</div> 
+	  </div>
+	</div>
+  </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+
+  <script src="https://unpkg.com/mermaid@8.9.3/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(function () {
+    mermaid.initialize({
+      startOnLoad:true,
+      theme: "default",
+    });
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
+</script>
+
+
+  </body>
+
+</html>

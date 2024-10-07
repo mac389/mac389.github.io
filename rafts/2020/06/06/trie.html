@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Trie
+  </title>
+  <meta name="description" content="data structure for autocomplete">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2020/06/06/trie.html">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
+
+  
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Move the navbar-collapse div outside of the navbar-header div -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+        
+        
+        <li class="active">
+          <a href="/">Chary Lab @ Weill Cornell</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/team">Team</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/publications">Publications</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="dropdown ">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Research <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            <li>
+              <a href="/research">Contribution to Science</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/dnp">2,4-dinitrophenol</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/morphosyntax">Morphosyntax</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/lesser_older_projects">Lesser or Older Projects</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/onboarding">Onboarding</a>
+            </li>
+            
+            
+          </ul>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/intoxicate">INTOXICATE</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/jarvis">Jarvis</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/ekg">EKGs</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/notebooks">Notebooks</a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <h3 id="trie-data-structure">Trie Data Structure.</h3>
+
+<p><strong>Context</strong> 
+FlashText (<a href="https://github.com/vi3k6i5/flashtext">GitHub</a>, <a href="https://arxiv.org/pdf/1711.00046.pdf">algorithm</a>) uses tries to identify strings faster than regular expressions. The authors of FlashText chose a trie over regular expressions so that the time needed for to locate or replace a keyword did not increase with the size of the document. I think FlashText could be useful for keyword retrieval in Psychic Llama, the identification of KOLs, or my investigation of DNP doses mentioned online.</p>
+
+<p><strong>Introduction</strong></p>
+
+<p>A trie is a tree whose nodes store letters. One can re_trie_ve tokens from the <em>trie</em> by traversing a certain path. A word made of <em>n</em> letters is represented by a trie of depth <em>n</em>. Each level has all the letters needed to represent the tokens of interest. This, as an aside, makes tries a natural source for text for autocompletes.</p>
+
+<p>(I first thought each node would need 26 children, but I then realized that not all letter combinations are possible.) The user, moreover, is likely to be intereted in a subset of all possible combinations of letters.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class TrieNode(object):
+   def __init__(self, symbol=None, alphabet_length=26):
+      self.symbol= symbol
+      self.children = [None]*alphabet_length
+      //Implicit coding of {0:A, 1:B,...}
+</code></pre></div></div>
+
+<p>We can also add a counter to identify frequently used nodes.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>self.counter = 0
+</code></pre></div></div>
+
+<p>The root of a trie contains references to its chlidren. It is otherwise empty.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root = TrieNode(value = "")
+</code></pre></div></div>
+
+<p>We add a node to a trie by starting at the root, and successively adding characters that do not appear in a branch.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   def add(root, token):
+      node = root // set current node to root 
+   	   for symbol in token:
+   	       found = False //Cannot find anything in root. It has empty value.
+   	       for child in node.children:
+   	           while not found:
+	   	           if child.symbol == symbol:
+   		           	child.counter += 1
+   	   		        	node = child
+   	   		//Sequence does not exist in trie
+   	   		if not found:
+   	   			  new_node = TrieNode(symbol=symbol)
+   	   		     node.children.append(new_node)
+   	   		     node = new_node
+   	           
+</code></pre></div></div>
+
+<p>We traverse the trie (retrieve a string) by:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def find(root, prefix):
+    node = root
+    if not root.children: #Cannot traverse an empty trie
+    	return (False,0)
+    for symbol in prefix:
+    	found = False
+    	for child in node.children:
+    		while not found:
+	    		if child.symbol == symbol:
+   			 		found = True
+    				node = child
+    	if not found:
+    		return (False,0)
+    			
+</code></pre></div></div>
+
+<p><strong>Production Notes</strong></p>
+
+<ol>
+  <li>Link to (description of?) Psychic Llama</li>
+  <li>Link to (description of?) creation of KOL software</li>
+  <li>Link to DNP project</li>
+</ol>
+
+      </div>
+    </div>
+
+    <div id="footer" class="panel">
+  <div class="panel-footer">
+	<div class="container-fluid">
+	  <div class="row">
+		<div class="col-sm-4">
+			
+		  <p>© 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="http://localhost:4000/aboutwebsite.html">copy and modify this template for your own research group.</a></p>
+              <p>We are part of the <a href="https://emed.weill.cornell.edu/">Department of Emergency Medicine</a> at <a href="https://weill.cornell.edu/">Weill Cornell Medical College</a>.</p>
+		   <p>  </p>
+<p>
+            		  
+            
+		</p>
+</div>
+		<div class="col-sm-4">
+		  Funding:
+		  <ul> 
+         <li> Loan Repayment Program from National Institute of Drug Abuse 
+         </li>
+<li> American College of Medical Toxicology
+     </li>
+</ul>
+		</div>
+		<!-- <div class="col-sm-4"> put contact information here  -->
+		</div> 
+	  </div>
+	</div>
+  </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+
+  <script src="https://unpkg.com/mermaid@8.9.3/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(function () {
+    mermaid.initialize({
+      startOnLoad:true,
+      theme: "default",
+    });
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
+</script>
+
+
+  </body>
+
+</html>
