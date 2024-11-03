@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Named Entity Linking in Python
+  </title>
+  <meta name="description" content="NEL in Python">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2022/06/25/nel-in-python.html">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
+
+  
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Move the navbar-collapse div outside of the navbar-header div -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+        
+        
+        <li class="active">
+          <a href="/">Chary Lab @ Weill Cornell</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/team">Team</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/publications">Publications</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="dropdown ">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Research <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            <li>
+              <a href="/research">Contribution to Science</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/dnp">2,4-dinitrophenol</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/morphosyntax">Morphosyntax</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/lesser_older_projects">Lesser or Older Projects</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/onboarding">Onboarding</a>
+            </li>
+            
+            
+          </ul>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/intoxicate">INTOXICATE</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/jarvis">Jarvis</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/ekg">EKGs</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/notebooks">Notebooks</a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <style>ol.bibliography li { list-style: none }</style>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Named Entity Linking in Python
+  </title>
+  <meta name="description" content="NEL in Python">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2022/06/25/nel-in-python.html">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
+
+  
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+
+ 
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Move the navbar-collapse div outside of the navbar-header div -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+        
+        
+        <li class="active">
+          <a href="/">Chary Lab @ Weill Cornell</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/team">Team</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/publications">Publications</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="dropdown ">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Research <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            <li>
+              <a href="/research">Contribution to Science</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/dnp">2,4-dinitrophenol</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/morphosyntax">Morphosyntax</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/lesser_older_projects">Lesser or Older Projects</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/onboarding">Onboarding</a>
+            </li>
+            
+            
+          </ul>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/intoxicate">INTOXICATE</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/jarvis">Jarvis</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/ekg">EKGs</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/notebooks">Notebooks</a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<section class="post--content">
+  <br><br><br>
+  <p class="post--date">25 Jun 2022 (Last Modified 23 Dec 2022)</p>
+<br>
+    
+  <p></p>
+<h2>Named Entity Linking in Python</h2>
+   <h4 id="introduction">Introduction.</h4>
+<p>Named entity <em>linking</em> links mentions in a corpus with what they signify. One has to:</p>
+<ol>
+  <li>recognize those mentions as named entities (named entity <em>recognition</em>)</li>
+  <li>map those named entities to a standardized identifiers (named entity <em>linking</em>).</li>
+</ol>
+
+<p>In my <a href="/dnp/">project on understanding DNP toxicity</a> I use NE<strong>L</strong> (distinguishing it from NE<strong>R</strong>) to understand social media postings in terms of biomedical knowledge. I view NE<strong>L</strong> as a step along the path converting strings of characters in posts to statements with which one can perform the logical operations such as  inference, deduction, or abstraction.</p>
+
+<h4 id="table-of-contents">Table of Contents</h4>
+<ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction.</a></li>
+  <li><a href="#table-of-contents" id="markdown-toc-table-of-contents">Table of Contents</a></li>
+  <li>
+<a href="#background" id="markdown-toc-background">Background</a>    <ul>
+      <li><a href="#unique-identifiers" id="markdown-toc-unique-identifiers">Unique Identifiers.</a></li>
+    </ul>
+  </li>
+  <li><a href="#knowledge-base" id="markdown-toc-knowledge-base">Knowledge Base</a></li>
+  <li><a href="#training-the-entity-linker" id="markdown-toc-training-the-entity-linker">Training the Entity Linker.</a></li>
+</ul>
+
+<h4 id="background">Background</h4>
+
+<p>I’m following <a href="https://github.com/explosion/projects/tree/v3/tutorials/nel_emerson" target="_blank">SpaCy’s v3 NEL tutorial</a>.</p>
+
+<p>We have a NER module, <code class="language-plaintext highlighter-rouge">ner</code> we trained on about 4k posts, tested on 1k, updated the model and validated it on another 1k (manuscript/preprint under preparation). <code class="language-plaintext highlighter-rouge">ner</code> recognizes substances and symptoms<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<h5 id="unique-identifiers">Unique Identifiers.</h5>
+<p>An important feature of NEL is mapping all mentions of an entity to the standardized representation of that entity. For example, <em>test</em> and <em>testosterone</em> should both be mapped to a universal representation of the concept of testosterone. SpaCy’s example uses Wikipedia identifiers. This is not a generalizable approach, but it does work to demonstrate SpaCy’s approach to NEL. We use IRIs (Internationalized Resource Identifier)</p>
+
+<h4 id="knowledge-base">Knowledge Base</h4>
+
+<p>See <a href="/2022/12/23/creating-a-knowledge-base-for-nel-in-python.html">here</a> for a fuller description of creating the knowledge base. 
+SpaCy’s Knowledge Base is formatted as follows</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#QID,identifier,description</span>
+<span class="s2">"Q312545"</span>,<span class="s2">"Roy Stanley Emerson"</span>,<span class="s2">"Australian tennis player"</span>
+<span class="s2">"Q48226"</span>,<span class="s2">"Ralph Waldo Emerson"</span>,<span class="s2">"American philosopher, essayist, and poet"</span>
+<span class="s2">"Q215952"</span>,<span class="s2">"Emerson Ferreira da Rosa"</span>,<span class="s2">"Brazilian footballer"</span>
+</code></pre></div></div>
+
+<p>Ours is formatted as follows.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ENTITY,TERMS,STANDRADISED MAPPING TERM,GROUP
+Myalgia,Myalgia,Feeling Tired,Fatigue issue
+Fatigue,Fatigue,Feeling Tired,Fatigue issue
+Gassed,Fatigue,Feeling Tired,Fatigue issue
+Exhausted,Fatigue,Feeling Tired,Fatigue issue
+</code></pre></div></div>
+
+<p>“identifier” in SpaCy’s schema corresponds to “entity” in ours.</p>
+
+<h4 id="training-the-entity-linker">Training the Entity Linker.</h4>
+<p>The SpaCy example trains on Wikidata. We use our online forum DNP corpus.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><code class="language-plaintext highlighter-rouge">ner</code> currently is better at recognizing substances and symptoms associated with bodybuilding and DNP use. This predilection reflects its training. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+</section>
+
+
+      </div>
+    </div>
+
+    <div id="footer" class="panel">
+  <div class="panel-footer">
+	<div class="container-fluid">
+	  <div class="row">
+		<div class="col-sm-4">
+			
+		  <p>© 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="http://localhost:4000/aboutwebsite.html">copy and modify this template for your own research group.</a></p>
+              <p>We are part of the <a href="https://emed.weill.cornell.edu/">Department of Emergency Medicine</a> at <a href="https://weill.cornell.edu/">Weill Cornell Medical College</a>.</p>
+		   <p>  </p>
+<p>
+            		  
+            
+		</p>
+</div>
+		<div class="col-sm-4">
+		  Funding:
+		  <ul> 
+         <li> Loan Repayment Program from National Institute of Drug Abuse 
+         </li>
+<li> American College of Medical Toxicology
+     </li>
+</ul>
+		</div>
+		<!-- <div class="col-sm-4"> put contact information here  -->
+		</div> 
+	  </div>
+	</div>
+  </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+
+  <script src="https://unpkg.com/mermaid@8.9.3/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(function () {
+    mermaid.initialize({
+      startOnLoad:true,
+      theme: "default",
+    });
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
+</script>
+
+
+  </body>
+
+</html>

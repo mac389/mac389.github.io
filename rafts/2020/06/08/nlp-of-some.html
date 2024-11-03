@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Natural Language Processing of Social Media
+  </title>
+  <meta name="description" content="Natural Language Processing can help us perform syndromic surveillance with social media">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2020/06/08/nlp-of-some.html">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
+
+  
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Move the navbar-collapse div outside of the navbar-header div -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+        
+        
+        <li class="active">
+          <a href="/">Chary Lab @ Weill Cornell</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/team">Team</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/publications">Publications</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="dropdown ">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Research <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            <li>
+              <a href="/research">Contribution to Science</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/dnp">2,4-dinitrophenol</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/morphosyntax">Morphosyntax</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/lesser_older_projects">Lesser or Older Projects</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/onboarding">Onboarding</a>
+            </li>
+            
+            
+          </ul>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/intoxicate">INTOXICATE</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/jarvis">Jarvis</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/ekg">EKGs</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/notebooks">Notebooks</a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <style>ol.bibliography li { list-style: none }</style>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Natural Language Processing of Social Media
+  </title>
+  <meta name="description" content="Natural Language Processing can help us perform syndromic surveillance with social media">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2020/06/08/nlp-of-some.html">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
+
+  
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+
+ 
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Move the navbar-collapse div outside of the navbar-header div -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+        
+        
+        <li class="active">
+          <a href="/">Chary Lab @ Weill Cornell</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/team">Team</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/publications">Publications</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="dropdown ">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Research <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            <li>
+              <a href="/research">Contribution to Science</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/dnp">2,4-dinitrophenol</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/morphosyntax">Morphosyntax</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/lesser_older_projects">Lesser or Older Projects</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/onboarding">Onboarding</a>
+            </li>
+            
+            
+          </ul>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/intoxicate">INTOXICATE</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/jarvis">Jarvis</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/ekg">EKGs</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/notebooks">Notebooks</a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<section class="post--content">
+  <br><br><br>
+  <p class="post--date">08 Jun 2020 (Last Modified 08 Jun 2020)</p>
+<br>
+    
+  <p></p>
+<h2>Natural Language Processing of Social Media</h2>
+   <p>Natural Language Processing To Extract Health Information from Social Media</p>
+
+<p>The analysis of text from Social Media may overcome the limitations of traditional means of public health epidemiology. Surveys are slow and so may not provide timely information. They are also expensive, which limits their scope introducing sampling bias.</p>
+
+<p>The analysis of text from Social Media has its own issues. The data contain considerable noise, use nonstandard orthography and semantics and are too large for manual curation.</p>
+
+<p>Spanish Language</p>
+
+<ol>
+  <li>
+<a href="https://preprints.jmir.org/preprint/14199">Leis et al (2019)</a> noted that those who explicitly stated they had depression tweeted more at night than those who did not explicitly state (or didn’t have) and preferred verbs to nouns.</li>
+  <li>
+<a href="https://www.pnas.org/content/115/44/11203.short">Eichstaedt et al (2018)</a> found that a topic analysis of Facebook posts could predict depression 3 months before those users sought care and were formally diagnosed.</li>
+</ol>
+
+<p>Both of these papers inferred semantics from frequency. The ubiquity of polysemy and slang online make it hard for me to believe that the model in (1) could be applied to other data without re-tuning. In fact, (2) could not replicate the importance of diurnal variation that (1) found. The topics that (2) uncovered had make medical sense, referring to depressed mood, feelings of agitation or desolation, somatic complaints, and medical discussions. But, I feel the authors of (2) got lucky. LDA rarely gives such nice topics.</p>
+
+<p><em>TODO: Discuss each of these papers more</em></p>
+
+<p>Word emeddings provide an alternative topic modeling or deriving semantics from syntax.</p>
+
+<ol>
+  <li>
+<a href="https://aaai.org/ocs/index.php/WS/AAAIW18/paper/viewPDFInterstitial/17178/15617">Feng et al. (2018)</a> used a combination RNN/CNN to identify features from Twitter text that related to personal health experiences. They compared three common methods of word embedding (word2vec, fastText, WordRank). Adding RNNs allowed them to identify <em>sequenctial semantics</em>, that is to consider phrases instead of isolated token.</li>
+</ol>
+
+<h3 id="to-read">To Read</h3>
+<ul>
+  <li><a href="https://medium.com/@aneesha/beyond-bag-of-words-using-pytextrank-to-find-phrases-and-summarize-text-f736fa3773c5">Beyond bag of words: Using PyTextRank to find Phrases and Summarize text</a></li>
+  <li><a href="https://kavita-ganesan.com/easily-access-pre-trained-word-embeddings-with-gensim/?relatedposts_hit=1&relatedposts_origin=1229&relatedposts_position=0#.XYlqBJNKjxW">Pre-trained Word Embeddings with Gensim</a></li>
+  <li><a href="https://pdfs.semanticscholar.org/24c2/3289b487fed733d1f2f49b78cbc091f5d253.pdf">Tracking temporal evolution in word meaning</a></li>
+  <li><a href="https://markroxor.github.io/gensim/static/notebooks/online_w2v_tutorial.html">Word2Vec tutorial</a></li>
+  <li><a href="https://machinelearningmastery.com/develop-word-embeddings-python-gensim/">How to Develop Word Embeddings with Gensim</a></li>
+  <li><a href="./nlp-of-some.md">NLP of social media, for mental illness</a></li>
+  <li><a href="https://towardsdatascience.com/transfer-learning-in-nlp-fecc59f546e4">Transfer learning in NLP</a></li>
+</ul>
+
+
+</section>
+
+
+      </div>
+    </div>
+
+    <div id="footer" class="panel">
+  <div class="panel-footer">
+	<div class="container-fluid">
+	  <div class="row">
+		<div class="col-sm-4">
+			
+		  <p>© 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="http://localhost:4000/aboutwebsite.html">copy and modify this template for your own research group.</a></p>
+              <p>We are part of the <a href="https://emed.weill.cornell.edu/">Department of Emergency Medicine</a> at <a href="https://weill.cornell.edu/">Weill Cornell Medical College</a>.</p>
+		   <p>  </p>
+<p>
+            		  
+            
+		</p>
+</div>
+		<div class="col-sm-4">
+		  Funding:
+		  <ul> 
+         <li> Loan Repayment Program from National Institute of Drug Abuse 
+         </li>
+<li> American College of Medical Toxicology
+     </li>
+</ul>
+		</div>
+		<!-- <div class="col-sm-4"> put contact information here  -->
+		</div> 
+	  </div>
+	</div>
+  </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+
+  <script src="https://unpkg.com/mermaid@8.9.3/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(function () {
+    mermaid.initialize({
+      startOnLoad:true,
+      theme: "default",
+    });
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
+</script>
+
+
+  </body>
+
+</html>

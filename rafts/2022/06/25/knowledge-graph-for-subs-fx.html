@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Computing Plausibility of Substance-Effect Asociations Described Online
+  </title>
+  <meta name="description" content="Computing Plausibility">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2022/06/25/knowledge-graph-for-subs-fx.html">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
+
+  
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Move the navbar-collapse div outside of the navbar-header div -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+        
+        
+        <li class="active">
+          <a href="/">Chary Lab @ Weill Cornell</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/team">Team</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/publications">Publications</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="dropdown ">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Research <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            <li>
+              <a href="/research">Contribution to Science</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/dnp">2,4-dinitrophenol</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/morphosyntax">Morphosyntax</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/lesser_older_projects">Lesser or Older Projects</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/onboarding">Onboarding</a>
+            </li>
+            
+            
+          </ul>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/intoxicate">INTOXICATE</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/jarvis">Jarvis</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/ekg">EKGs</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/notebooks">Notebooks</a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <style>ol.bibliography li { list-style: none }</style>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Computing Plausibility of Substance-Effect Asociations Described Online
+  </title>
+  <meta name="description" content="Computing Plausibility">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2022/06/25/knowledge-graph-for-subs-fx.html">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <meta name="google-site-verification" content="3MYPLcVtIrIJAq-zUX83Yq9dvsLEhvtcq3ea8GktHTs">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15405704-2"></script>
+
+  
+
+  <link rel="stylesheet" href="/css/main.css">
+  
+
+ 
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Move the navbar-collapse div outside of the navbar-header div -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        
+        
+        
+        <li class="active">
+          <a href="/">Chary Lab @ Weill Cornell</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/team">Team</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/publications">Publications</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="dropdown ">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Research <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            <li>
+              <a href="/research">Contribution to Science</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/dnp">2,4-dinitrophenol</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/morphosyntax">Morphosyntax</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/lesser_older_projects">Lesser or Older Projects</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="/onboarding">Onboarding</a>
+            </li>
+            
+            
+          </ul>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/intoxicate">INTOXICATE</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/jarvis">Jarvis</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/ekg">EKGs</a>
+        </li>
+        
+        
+        
+        
+        
+        <li class="">
+          <a href="/notebooks">Notebooks</a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<section class="post--content">
+  <br><br><br>
+  <p class="post--date">25 Jun 2022 (Last Modified 30 Jun 2022)</p>
+<br>
+    
+  <p></p>
+<h2>Computing Plausibility of Substance-Effect Asociations Described Online</h2>
+   <h4 id="todo">TODO:</h4>
+<ol>
+  <li>Read <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4589117/">Applying Bradford-Hill in the Modern Era</a>
+</li>
+  <li>Make Clickable Map for <a href="#the-computation">Computation</a>.</li>
+  <li>Read <a href="https://www.nature.com/articles/s41525-022-00290-4">the druggable schizophrenia genome</a>
+</li>
+  <li>
+</li>
+</ol>
+
+<p>To identify which substance-effect associations mentioned online can be used to generate hypotheses it is immportant to demonstrate that the association is <em>specific</em> and <em>plausible</em>. I use these terms as they are used in the <a href="/2022/04/10/bradford-hill-criteria.html" target="_blank">Bradford-Hill Criteria</a>.</p>
+
+<p>The more specific the association between two tokens, A and B, the more often B occurs whenever A occurs and doesn’t occur unless A occurs. In a limited domain of discourse, <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">tf-idf</a> does well in identifying the specificity of association after correcting for baseline rates (<strong>citation needed</strong>). The main difference between tf-idf and dimension reduction on a covariance matrix is the <em>idf</em> component. Tf-idf weights each entry by the number of documents the token appears in. This provides a more context-relevant scaling than subtracting a measure of central tendency from the tf term at the expense of making it impossible to compare absolute tf-idf scores across corpora.</p>
+
+<p>The more plausible an association between two tokens, A and B, are, the more the association between A and B can be explained in terms of accepted knowledge (<em>e.g.</em>, things one would find in a knowlwedge base). Right off the bat we can anticipate that all computational of plausibility are preliminary because the knowledge base is incomplete, at least until the <a href="https://www.physics.princeton.edu/ph115/LQ.pdf">last question</a> is answered. Said another way, computations of plausibility are necessarily limited by the open world assumption. In this notebook, I discuss computing plausibility in terms of fractional overlap of gene targets. See <a href="#alternative-approaches-to-computing-plausibility">Alternative Approaches</a> for approaches that use additional information, like network structure, that provide more information but are also less available.</p>
+
+<p>We start with the following resources:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Role</th>
+      <th>(n)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://www.genome.jp/kegg/">KEGG</a></td>
+      <td>Map Substance to Signal Transduction Cascade</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://go.drugbank.com/">DrugBank</a></td>
+      <td>Maps Substances to Biochemical Targets</td>
+      <td>14,594</td>
+    </tr>
+    <tr>
+      <td><a href="http://geneontology.org/">GO</a></td>
+      <td>Map Biocheimcal Intermediary to Effect</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://www.disgenet.org/home/">DisGeNet</a></td>
+      <td>Maps Gene Target to Clinical Phenotype</td>
+      <td>441 (for OUD or PTSD)</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="overview">Overview</h4>
+
+<pre><code class="language-mermaid">flowchart TD
+	subgraph Statistic[Similarity of Gene Profile]
+		direction LR
+        A[Drugs froms Social Media&lt;br&gt;In Drug Bank with Known Targets] --&gt; B[Genes of Drug Targets]
+		B --&gt; C[Co-expressed Genes] &amp; D[First Neighbors of Drug]
+		C &amp; D --&gt; E[Expanded Gene Set]
+        E --&gt; F[&lt;p align='left'&gt;Jaccard Similarity Between Expanded Gene Set&lt;br&gt; and Genes Differentially Expressed in PTSD, OUD, or Both]
+	end
+    subgraph Significance[Calculation of Significance]
+        direction LR
+       a[Drugs in DrugaBank with Known Targets]
+       a --&gt; b[Calculate Jaccard Similarity for Their Expanded Gene Sets]
+       b --&gt; c[Create Empirical Probability Density Function]
+       b --&gt; d["&lt;p align='left'&gt;Identify Median Jaccard Similarity for Currently Approved PTSD, OUD Therapeutics: &lt;li align='left'&gt;ROC Curve  &lt;li align='left'&gt;(Is there a Deault Network?)"]
+    end
+
+    Statistic --&gt; Significance
+</code></pre>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">(+) Controls</th>
+      <th style="text-align: center">(-) Controls</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Methadone <br> Yes</td>
+      <td style="text-align: center">Aspirin</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="the-computation">The Computation</h4>
+<p>I obtained the XML dump of DrugBank (current as of March 2022) from DrugBank, licensed for academic use. I converted the XML to a JSON array using <a href="https://pypi.org/project/xmltodict/">xmltodict</a> and then imported the array into a MongoDB server. Even though DrugBank provides an XSD, I found MongoDB faster and more intuitive than XPath.</p>
+
+<p>I obtained the genes that were direct targets of methadone with the following query (example is for methadone):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> db.drugs.aggregate<span class="o">([{</span><span class="nv">$match</span>:<span class="o">{</span><span class="s2">"name"</span>:<span class="s2">"Methadone"</span><span class="o">}}</span>,<span class="o">{</span><span class="nv">$project</span>:<span class="o">{</span>_id:0,<span class="s2">"name"</span>:<span class="s2">"</span><span class="nv">$targets</span><span class="s2">.target.name"</span>,<span class="s2">"gene-name"</span>:<span class="s2">"</span><span class="nv">$targets</span><span class="s2">.target.polypeptide.gene-name"</span><span class="o">}}])</span>
+
+
+ <span class="c"># "{"name" : [ "Mu-type opioid receptor", "NMDA receptor", "Delta-type opioid receptor", "5-hydroxytryptamine receptor 3A", "Neuronal acetylcholine receptor subunit alpha-7", "Neuronal acetylcholine receptor subunit alpha-3", "Neuronal acetylcholine receptor subunit alpha-4", "Neuronal acetylcholine receptor subunit beta-2" ], "gene-name" : [ "OPRM1", [ "GRIN1", "GRIN2A", "GRIN2B", "GRIN2C", "GRIN2D", "GRIN3A", "GRIN3B" ], "OPRD1", "HTR3A", "CHRNA7", "CHRNA3", "CHRNA4", "CHRNB2" ] }</span>
+
+
+<span class="c"># Not sure why a nested list was returned. </span>
+</code></pre></div></div>
+
+<p>Let’s use <a href="https://maayanlab.cloud/Enrichr/">Enrichr</a> (<a href="https://maayanlab.cloud/Enrichr/help#api">API</a>) to identify the 100 most commonly co-exressed genes. For methadone this created a set of 1400 genes, of which 994 were unique and has 2 genes overlapping, OPRM1, which we knew and GAL, a gene that encodes for galanin and galanin-map associated peptide. Indeed <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6597226/">this article</a> suggest that heteromers between the receptor for galanin and the opioid receptors may attenuate the addictive potential of methadone. <a href="https://pubmed.ncbi.nlm.nih.gov/34023414/">This paper</a> suggests that galanin modulates stress reactions.  The idea</p>
+
+<p>Then we ask KEGG what human pathways those genes are implicated in</p>
+
+<p>DisGeNet provides a <a href="https://www.disgenet.org/api/">REST API</a>. I queried the API for PTSD (CUI:C0038436) and OUD (CUI:C4324621), which returned 441 genes.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#import requests
+</span><span class="n">PTSD</span> <span class="o">=</span> <span class="sh">"</span><span class="s">C0038436</span><span class="sh">"</span>
+<span class="n">OUD</span> <span class="o">=</span> <span class="sh">"</span><span class="s">C4324621</span><span class="sh">"</span>
+<span class="n">diseases</span> <span class="o">=</span> <span class="sa">f</span><span class="sh">'</span><span class="si">{</span><span class="n">PTSD</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">OUD</span><span class="si">}</span><span class="sh">'</span>
+
+<span class="k">if</span> <span class="n">api_key</span><span class="p">:</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="nf">update</span><span class="p">({</span><span class="sh">"</span><span class="s">Authorization</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Bearer %s</span><span class="sh">"</span> <span class="o">%</span> <span class="n">api_key</span><span class="p">})</span> 
+    <span class="n">gda_response</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="si">{</span><span class="n">api_host</span><span class="si">}</span><span class="s">/gda/disease/</span><span class="si">{</span><span class="n">diseases</span><span class="si">}</span><span class="sh">'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="sh">'</span><span class="s">source</span><span class="sh">'</span><span class="p">:</span><span class="sh">'</span><span class="s">ALL</span><span class="sh">'</span><span class="p">})</span>
+<span class="k">if</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">s</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+
+
+</code></pre></div></div>
+
+<p>I imported the JSON array into MongoDB so queries could reference both data sets. 
+We can now compute the fraction of targets for a drug of interest that lie in the intersection of OUD- and PTSD-associated genes.</p>
+
+<p>An alternative approach would be to export the gene names for each condition to a text file. This worked for PTSD and OUD. In bash, one can compute the intersection as <code class="language-plaintext highlighter-rouge">sort OUD.txt PTSD.txt | uniq -d</code> if we treat gene expression as a categorical variable.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sort </span>OUD.txt PTSD.txt | <span class="nb">uniq</span> <span class="nt">-d</span>
+<span class="c"># BCHE, BDNF, C1QL1, CRH, GAL, HCRT, IL10, IL6, MET, OPRM1, PSS</span>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Condition</td>
+      <td>Genes</td>
+    </tr>
+    <tr>
+      <td>Methadone</td>
+      <td>OPRM1, GRIN1, GRIN2A, GRIN2B, GRIN2C, GRIN2D, GRIN3A, GRIN3B, OPRD1, HTR3A, CHRNA7, CHRNA3, CHRNA4, CHRNB2</td>
+    </tr>
+    <tr>
+      <td>PTSD &amp; OUD</td>
+      <td>BCHE, BDNF, C1QL1, CRH, GAL, HCRT, IL10, IL6, MET, OPRM1, PSS</td>
+    </tr>
+    <tr>
+      <td>PTSD &amp; OUD &amp; Methadone</td>
+      <td>OPRM1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>My interpretation is that there is only one intersection because the Methadone row contains genes of direct targets, but the PTSD &amp; OUD row contains genes for intracellular components. To add genes for intracellular components for (<em>i.e.,</em> downstream effectors of) the direct targets of Methadone. Luckily, <a href="https://keggscape.readthedocs.io/en/latest/drugtarget.html" target="_blank">this post</a> describes exactly how to do that.</p>
+
+<p>First, download the ids of all targets.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-Lfv</span> <span class="nt">-o</span> filename.zip <span class="nt">-u</span> <span class="nv">$username</span>:<span class="nv">$password</span> https://go.drugbank.com/releases/5-1-9/downloads/target-all-polypeptide-ids <span class="nt">-vs</span> <span class="o">&gt;</span> ./external/drugbank_targets .txt 2&gt;&amp;1
+
+wget http://rest.kegg.jp/conv/eco/uniprot 
+<span class="nb">mv </span>uniprot ./external uniprot kegg_uniprot_ids.tsv
+</code></pre></div></div>
+<p>My file structure now looks like.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+tree <span class="nt">-d</span> 
+<span class="nb">.</span>
+├── Area 51
+└── external
+</code></pre></div></div>
+<p>A peak at the files:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#we are in the external subdirectory of data/</span>
+<span class="nb">head</span> <span class="nt">-n</span> 3 drug-bank-target-ids.csv | csvlook | less <span class="nt">-S</span> <span class="c">#has very long columns</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Gene Name</th>
+      <th>GenBank Protein ID</th>
+      <th>GenBank Gene ID</th>
+      <th>UniProt ID</th>
+      <th>Uniprot Title</th>
+      <th>PDB ID</th>
+      <th>GeneCar</th>
+      <th>…</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Peptidoglycan synthase FtsI</td>
+      <td>ftsI</td>
+      <td>1,574,687</td>
+      <td>L42023</td>
+      <td>P45059</td>
+      <td>FTSI_HAEIN</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Histidine decarboxylase</td>
+      <td>HDC</td>
+      <td>32,109</td>
+      <td>X54297</td>
+      <td>P19113</td>
+      <td>DCHS_HUMAN</td>
+      <td>4E1O</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">head</span> <span class="nt">-n</span> 2 kegg_uniprot_ids.tsv 
+up:P0AD86	eco:b0001
+up:P00561	eco:b0002
+</code></pre></div></div>
+
+<h4 id="alternative-approaches-to-computing-plausibility">Alternative Approaches to Computing Plausibility</h4>
+
+<p>The goal is to create a graph like the following</p>
+
+<pre><code class="language-mermaid">
+	graph 
+	subgraph Path Length = 3
+	A[Substance] --&gt; B --&gt; C --&gt; D[Effect]
+	end 
+
+	subgraph Path Length = 2
+	AA[Substance] --&gt; BB[B] --&gt; DD[Effect]
+	end 
+
+</code></pre>
+
+<p>We infer that a path with a shorter length is more biologically plausible than a path with a longer length because the shorter path involves fewer intermediaries and so fewer dependencies on other signal transduction cascades or cellular processes.</p>
+
+<p>Our corpus lists substance and effects. We assemble a graph by linking (substance, target), (target, target), and (target, effect) pairs. Here <em>target</em> means any biochemical intermediary, such as the target receptor or a carrier protein.</p>
+
+</section>
+
+
+      </div>
+    </div>
+
+    <div id="footer" class="panel">
+  <div class="panel-footer">
+	<div class="container-fluid">
+	  <div class="row">
+		<div class="col-sm-4">
+			
+		  <p>© 2020 Chary Lab. Site made with <a href="https://jekyllrb.com">Jekyll</a>;  <a href="http://localhost:4000/aboutwebsite.html">copy and modify this template for your own research group.</a></p>
+              <p>We are part of the <a href="https://emed.weill.cornell.edu/">Department of Emergency Medicine</a> at <a href="https://weill.cornell.edu/">Weill Cornell Medical College</a>.</p>
+		   <p>  </p>
+<p>
+            		  
+            
+		</p>
+</div>
+		<div class="col-sm-4">
+		  Funding:
+		  <ul> 
+         <li> Loan Repayment Program from National Institute of Drug Abuse 
+         </li>
+<li> American College of Medical Toxicology
+     </li>
+</ul>
+		</div>
+		<!-- <div class="col-sm-4"> put contact information here  -->
+		</div> 
+	  </div>
+	</div>
+  </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+
+  <script src="https://unpkg.com/mermaid@8.9.3/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(function () {
+    mermaid.initialize({
+      startOnLoad:true,
+      theme: "default",
+    });
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
+</script>
+
+
+  </body>
+
+</html>
