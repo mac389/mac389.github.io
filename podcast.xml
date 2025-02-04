@@ -26,7 +26,7 @@ xmlns:atom="http://www.w3.org/2005/Atom">
     <guid>https://mac389.github.io/podcasts/2022-12-15-mistletoe/</guid>
     <itunes:image href="https://mac389.github.io" />
     <enclosure url="https://mac389.github.io"
-    type="audio/mpeg" length="10000000" />
+    type="audio/mpeg" length="30" />
     <itunes:duration>30</itunes:duration>
   </item>     
   <item>
@@ -40,21 +40,7 @@ xmlns:atom="http://www.w3.org/2005/Atom">
     <guid>https://mac389.github.io/podcasts/2025-01-30-charcoal/</guid>
     <itunes:image href="https://mac389.github.io" />
     <enclosure url="https://mac389.github.io"
-    type="audio/mpeg" length="10000000" />
+    type="audio/mpeg" length="300" />
     <itunes:duration>300</itunes:duration>
-  </item>   
-  <item>
-    <title>Podcast</title>
-    <itunes:author></itunes:author>
-    <itunes:summary></itunes:summary>
-    <description>
-      <![CDATA[]]>
-</description>
-    <pubDate>Tue, 04 Feb 2025 09:32:15 -0500</pubDate>
-    <guid>https://mac389.github.io/podcast.xml</guid>
-    <itunes:image href="https://mac389.github.io" />
-    <enclosure url="https://mac389.github.io"
-    type="audio/mpeg" length="10000000" />
-    <itunes:duration></itunes:duration>
-  </item> </channel>
+  </item>   </channel>
 </rss>
