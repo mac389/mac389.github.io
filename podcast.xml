@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- _layouts/podcast_feed.xml -->
+<rss version="2.0"
+xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+  <title>Your Podcast Title</title>
+  <link>https://mac389.github.io/podcasts/</link>
+  <description>A detailed description of your podcast.</description>
+  <language>en</language>
+  <itunes:author>Your Name or Podcast Host</itunes:author>
+  <itunes:summary>Put summary here</itunes:summary>
+  <atom:link href="mac389.github.io/podcast.xml" rel="self"
+  type="application/rss+xml" />
+  <itunes:image href="mac389.github.io/images/dummy.png" />
+  <itunes:category text="Health &amp; Fitness" />
+  <itunes:explicit>false</itunes:explicit>  
+  <item>
+    <title>Mistletoe Toxicity (Episode 1)</title>
+    <itunes:author>Michael Chary</itunes:author>
+    <itunes:summary></itunes:summary>
+    <description>
+      <![CDATA[]]>
+</description>
+    <pubDate>Thu, 15 Dec 2022 00:00:00 -0500</pubDate>
+    <guid>mac389.github.io/podcasts/2022-12-15-mistletoe.html</guid>
+    <itunes:image href="mac389.github.io" />
+    <enclosure url="mac389.github.io"
+    type="audio/mpeg" length="10000000" />
+    <itunes:duration>30.0</itunes:duration>
+  </item>     
+  <item>
+    <title>Activated Charcoal</title>
+    <itunes:author>Michael Chary</itunes:author>
+    <itunes:summary></itunes:summary>
+    <description>
+      <![CDATA[]]>
+</description>
+    <pubDate>Tue, 30 Jan 2024 00:00:00 -0500</pubDate>
+    <guid>mac389.github.io/podcasts/2025-01-30-charcoal.html</guid>
+    <itunes:image href="mac389.github.io" />
+    <enclosure url="mac389.github.io"
+    type="audio/mpeg" length="10000000" />
+    <itunes:duration>300.0</itunes:duration>
+  </item>   
+  <item>
+    <title>Podcast</title>
+    <itunes:author></itunes:author>
+    <itunes:summary></itunes:summary>
+    <description>
+      <![CDATA[]]>
+</description>
+    <pubDate>Mon, 03 Feb 2025 17:21:06 -0500</pubDate>
+    <guid>mac389.github.io/podcast.xml</guid>
+    <itunes:image href="mac389.github.io" />
+    <enclosure url="mac389.github.io"
+    type="audio/mpeg" length="10000000" />
+    <itunes:duration></itunes:duration>
+  </item> </channel>
+</rss>
