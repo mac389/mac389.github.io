@@ -10,10 +10,10 @@ xmlns:atom="http://www.w3.org/2005/Atom">
   <language>en</language>
   <itunes:author>Your Name or Podcast Host</itunes:author>
   <itunes:summary>Put summary here</itunes:summary>
-  <atom:link href="mac389.github.io/podcast.xml" rel="self"
+  <atom:link href='/podcast.xml' rel="self"
   type="application/rss+xml" />
-  <itunes:image href="mac389.github.io/images/dummy.png" />
-  <itunes:category text="Health &amp; Fitness" />
+  <itunes:image href="/images/dummy.png" />
+  <itunes:category text="Health &amp;amp; Fitness" />
   <itunes:explicit>false</itunes:explicit>  
   <item>
     <title>Mistletoe Toxicity (Episode 1)</title>
@@ -23,11 +23,11 @@ xmlns:atom="http://www.w3.org/2005/Atom">
       <![CDATA[]]>
 </description>
     <pubDate>Thu, 15 Dec 2022 00:00:00 -0500</pubDate>
-    <guid>mac389.github.io/podcasts/2022-12-15-mistletoe.html</guid>
-    <itunes:image href="mac389.github.io" />
-    <enclosure url="mac389.github.io"
+    <guid>/podcasts/2022-12-15-mistletoe/</guid>
+    <itunes:image href="" />
+    <enclosure url=""
     type="audio/mpeg" length="10000000" />
-    <itunes:duration>30.0</itunes:duration>
+    <itunes:duration>30</itunes:duration>
   </item>     
   <item>
     <title>Activated Charcoal</title>
@@ -37,11 +37,11 @@ xmlns:atom="http://www.w3.org/2005/Atom">
       <![CDATA[]]>
 </description>
     <pubDate>Tue, 30 Jan 2024 00:00:00 -0500</pubDate>
-    <guid>mac389.github.io/podcasts/2025-01-30-charcoal.html</guid>
-    <itunes:image href="mac389.github.io" />
-    <enclosure url="mac389.github.io"
+    <guid>/podcasts/2025-01-30-charcoal/</guid>
+    <itunes:image href="" />
+    <enclosure url=""
     type="audio/mpeg" length="10000000" />
-    <itunes:duration>300.0</itunes:duration>
+    <itunes:duration>300</itunes:duration>
   </item>   
   <item>
     <title>Podcast</title>
@@ -50,10 +50,10 @@ xmlns:atom="http://www.w3.org/2005/Atom">
     <description>
       <![CDATA[]]>
 </description>
-    <pubDate>Mon, 03 Feb 2025 17:21:06 -0500</pubDate>
-    <guid>mac389.github.io/podcast.xml</guid>
-    <itunes:image href="mac389.github.io" />
-    <enclosure url="mac389.github.io"
+    <pubDate>Mon, 03 Feb 2025 20:35:58 -0500</pubDate>
+    <guid>/podcast.xml</guid>
+    <itunes:image href="" />
+    <enclosure url=""
     type="audio/mpeg" length="10000000" />
     <itunes:duration></itunes:duration>
   </item> </channel>
