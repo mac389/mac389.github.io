@@ -4,11 +4,11 @@
 xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
 xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  <title>Your Podcast Title</title>
+  <title>Toxicology; Metabolized</title>
   <link>https://mac389.github.io/podcasts/</link>
-  <description>A detailed description of your podcast.</description>
+  <description>A podcast about the helpful and harmful effects of drugs, plants, and any chemicallly active substance.</description>
   <language>en</language>
-  <itunes:author>Your Name or Podcast Host</itunes:author>
+  <itunes:author>Michael Chary</itunes:author>
   <itunes:summary>Put summary here</itunes:summary>
   <atom:link href='https://mac389.github.io/podcast.xml' rel="self"
   type="application/rss+xml" />
