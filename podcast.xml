@@ -23,9 +23,9 @@ xmlns:atom="http://www.w3.org/2005/Atom">
       <![CDATA[]]>
 </description>
     <pubDate>Thu, 15 Dec 2022 00:00:00 -0500</pubDate>
-    <guid>https://mac389.github.io/podcasts/2022-12-15-mistletoe/</guid>
+    <guid>Mistletoe Toxicity (Episode 1)</guid>
     <itunes:image href="https://mac389.github.io" />
-    <enclosure url="https://mac389.github.io"
+    <enclosure url="https://mac389.github.io/sounds/O_Tannenbaum.m4a"
     type="audio/mpeg" length="30" />
     <itunes:duration>30</itunes:duration>
   </item>     
@@ -37,9 +37,9 @@ xmlns:atom="http://www.w3.org/2005/Atom">
       <![CDATA[]]>
 </description>
     <pubDate>Tue, 30 Jan 2024 00:00:00 -0500</pubDate>
-    <guid>https://mac389.github.io/podcasts/2025-01-30-charcoal/</guid>
+    <guid>Activated Charcoal</guid>
     <itunes:image href="https://mac389.github.io" />
-    <enclosure url="https://mac389.github.io"
+    <enclosure url="https://mac389.github.io/sounds/O_Tannenbaum.m4a"
     type="audio/mpeg" length="300" />
     <itunes:duration>300</itunes:duration>
   </item>   </channel>
