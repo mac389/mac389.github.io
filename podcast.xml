@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- _layouts/podcast_feed.xml -->
+<rss version="2.0"
+xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+  <title>Toxicology; Metabolized</title>
+  <link>https://mac389.github.io/podcasts/</link>
+  <description>A podcast about the helpful and harmful effects of drugs, plants, and any chemicallly active substance.</description>
+  <language>en</language>
+  <itunes:author>Michael Chary</itunes:author>
+  <itunes:summary>Put summary here</itunes:summary>
+  <atom:link href='mac389.github.io/podcast.xml' rel="self"
+  type="application/rss+xml" />
+  <itunes:image href="mac389.github.io/images/dummy.png" />
+  <itunes:category text="Health &amp;amp; Fitness" />
+  <itunes:explicit>false</itunes:explicit>  
+  <item>
+    <title>Mistletoe Toxicity (Episode 1)</title>
+    <itunes:author>Michael Chary</itunes:author>
+    <itunes:summary></itunes:summary>
+    <itunes:description>
+      <![CDATA[]]>
+</itunes:description>
+    <pubDate>Thu, 15 Dec 2022 00:00:00 -0500</pubDate>
+    <guid>Mistletoe Toxicity (Episode 1)</guid>
+    <itunes:image href="mac389.github.io" />
+    <enclosure url="mac389.github.io/sounds/O_Tannenbaum.m4a"
+    type="audio/mpeg" length="30" />
+    <itunes:duration>30</itunes:duration>
+  </item>     
+  <item>
+    <title>Activated Charcoal</title>
+    <itunes:author>Michael Chary</itunes:author>
+    <itunes:summary></itunes:summary>
+    <itunes:description>
+      <![CDATA[]]>
+</itunes:description>
+    <pubDate>Tue, 30 Jan 2024 00:00:00 -0500</pubDate>
+    <guid>Activated Charcoal</guid>
+    <itunes:image href="mac389.github.io" />
+    <enclosure url="mac389.github.io/sounds/O_Tannenbaum.m4a"
+    type="audio/mpeg" length="300" />
+    <itunes:duration>300</itunes:duration>
+  </item>   </channel>
+</rss>
