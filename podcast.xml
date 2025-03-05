@@ -20,11 +20,13 @@ xmlns:atom="http://www.w3.org/2005/Atom">
     <title>Mistletoe Toxicity (Episode 1)</title>
     <itunes:author>Michael Chary</itunes:author>
     <itunes:summary></itunes:summary>
-    <description><![CDATA[<ol>
+    <itunes:description>
+      <![CDATA[<ol>
   <li>BLUF: </li>
   <li>There are two types of mistletoe, American and European. </li>
   <li>Toxic vs Harmful</li>
-</ol><br>Notes for this episode: https://mac389.github.io/podcasts/2022-12-15-mistletoe/<br>My Research Webpage: https://mac389.github.io]]><description>
+</ol><br>Notes for this episode: https://mac389.github.io/podcasts/2022-12-15-mistletoe/<br>My Research Webpage: https://mac389.github.io]]>
+</itunes:description>
     <pubDate>Thu, 15 Dec 2022 00:00:00 -0500</pubDate>
     <guid>a8432c18-5e55-b005-3fc3-df3b2adbd478</guid>
     <itunes:image href="https://mac389.github.io" />
@@ -36,7 +38,8 @@ xmlns:atom="http://www.w3.org/2005/Atom">
     <title>Activated Charcoal</title>
     <itunes:author>Michael Chary</itunes:author>
     <itunes:summary></itunes:summary>
-    <description><![CDATA[<ol>
+    <itunes:description>
+      <![CDATA[<ol>
   <li>Activated charcoal decreases absorption from the GI tract. </li>
   <li>Activated charcoal is the most commonly used method of GI decontamination. </li>
   <li>Ways _not_ to prevent absorption. </li>
@@ -45,7 +48,8 @@ xmlns:atom="http://www.w3.org/2005/Atom">
   <li>Methods</li>
   <li>References </li>
   <li>Footnotes </li>
-</ol><br>Notes for this episode: https://mac389.github.io/podcasts/2025-01-30-charcoal/<br>My Research Webpage: https://mac389.github.io]]><description>
+</ol><br>Notes for this episode: https://mac389.github.io/podcasts/2025-01-30-charcoal/<br>My Research Webpage: https://mac389.github.io]]>
+</itunes:description>
     <pubDate>Tue, 30 Jan 2024 00:00:00 -0500</pubDate>
     <guid>e0006397-b280-cc1a-36a5-b56ea160dc80</guid>
     <itunes:image href="https://mac389.github.io" />
@@ -57,7 +61,8 @@ xmlns:atom="http://www.w3.org/2005/Atom">
     <title>Hawaii Jet Fuel</title>
     <itunes:author>Michael Chary</itunes:author>
     <itunes:summary></itunes:summary>
-    <description><![CDATA[<ol>
+    <itunes:description>
+      <![CDATA[<ol>
   <li>Hydrocarbon toxicity</li>
   <li>Dermal</li>
   <li>Sensitizers</li>
@@ -65,7 +70,8 @@ xmlns:atom="http://www.w3.org/2005/Atom">
   <li>JP-5, JP-8, JET A</li>
   <li>Dose</li>
   <li>Risk communication </li>
-</ol><br>Notes for this episode: https://mac389.github.io/podcasts/2025-02-17-hawaii-jet-fuel/<br>My Research Webpage: https://mac389.github.io]]><description>
+</ol><br>Notes for this episode: https://mac389.github.io/podcasts/2025-02-17-hawaii-jet-fuel/<br>My Research Webpage: https://mac389.github.io]]>
+</itunes:description>
     <pubDate>Mon, 17 Feb 2025 00:00:00 -0500</pubDate>
     <guid>a946ef21-44c2-a11a-1d78-0ec4ab723b60</guid>
     <itunes:image href="https://mac389.github.io" />
@@ -77,11 +83,13 @@ xmlns:atom="http://www.w3.org/2005/Atom">
     <title>Toxicology in the US</title>
     <itunes:author>Michael Chary</itunes:author>
     <itunes:summary></itunes:summary>
-    <description><![CDATA[<ol>
+    <itunes:description>
+      <![CDATA[<ol>
   <li>Toxicology in the US</li>
   <li>Medical Toxicology</li>
   <li>Poison Control</li>
-</ol><br>Notes for this episode: https://mac389.github.io/podcasts/2025-02-20-toxicology-in-the-us/<br>My Research Webpage: https://mac389.github.io]]><description>
+</ol><br>Notes for this episode: https://mac389.github.io/podcasts/2025-02-20-toxicology-in-the-us/<br>My Research Webpage: https://mac389.github.io]]>
+</itunes:description>
     <pubDate>Mon, 17 Feb 2025 00:00:00 -0500</pubDate>
     <guid>5ed2d52c-3741-8753-a078-fbd6eb3efc79</guid>
     <itunes:image href="https://mac389.github.io" />
