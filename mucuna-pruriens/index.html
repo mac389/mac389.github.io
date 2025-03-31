@@ -295,7 +295,7 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">07 Jan 2025 (Last Modified 29 Mar 2025)</p>
+  <p class="post--date">07 Mar 2025 (Last Modified 31 Mar 2025)</p>
 <br>
     
   <p></p>
@@ -310,18 +310,43 @@
 
 <ul>
   <li>Parkinson’s Disease results from loss of dopamine-producing neurons. The main treatment is levodopa (L-DOPA).</li>
-  <li>Approximately 60% of patients with mild or moderate Parkinson’s use herbal and dietary supplements (HDS) including Mucuna pruriens (MP), which contains 2-40% L-DOPA1.</li>
+  <li>Approximately 60% of patients with mild or moderate Parkinson’s use herbal and dietary supplements (HDS) including Mucuna pruriens (MP), which contains 2-40% L-DOPA<a class="citation" href="#wolfrath2006use"><span style="vertical-align: super">1</span></a>.</li>
   <li>HDS use may interfere with physician treatment.</li>
   <li>Patients rarely disclose HDS use to physicians but frequently discuss HDS use for other conditions in online forums.</li>
   <li>We have shown online forums as a valid source of information on substance usage2,3.</li>
   <li>Analysis of discussions in online forums may  identify reasons for HDS use and non-adherence to standard therapy</li>
 </ul>
 
+<p>The <em>overall goall</em> of this study is to:</p>
+
+<ul>
+  <li>Is Macuna pruriens perceived as more effective or tolerable than pharmaceutical L-DOPA?</li>
+  <li>What circumstances that lead people to use MP-containing supplements?</li>
+</ul>
+
 <h3 id="methods">Methods</h3>
 
+<p><strong>Data Acquisition</strong>. Author MC wrote custom software in R and Python to extract all comments and posts from the subreddit r/Parkinson’s from the start of the subreddit to January 2025. The software is available on GitHub at LINK.</p>
+
+<p><strong>Data Preprocessing</strong>. We manually standardized comments, replacing brand names with generic names, expanded abbreviations, and corrected misspellings. We counted multiple identical posts by one user as one comment.</p>
+
+<p><strong>Data Analysis</strong>. 
+Perception.  We manually labelled each comment for (1) mentioning MP, (2) mentioning L-DOPA, (3) if the experience was positive, negative, neither, or both.</p>
+
+<p><strong>Thematic Analysis</strong>. We conducted two rounds of qualitative analysis to identify themes in the post and then group post and comments by theme.</p>
 <h3 id="results">Results</h3>
 
+<pre><code class="language-mermaid">graph TD
+  A[Data Acquisition] --&gt; B[Data Preprocessing]
+  B --&gt; C[Data Analysis]
+  C --&gt; D[Perception]
+  C --&gt; E[Thematic Analysis]
+</code></pre>
 <h3 id="conclusions">Conclusions</h3>
+
+<h3 id="references">References</h3>
+
+<ol class="bibliography"><li><span id="wolfrath2006use">1.Wolfrath, S. C. <i>et al.</i> Use of nutritional supplements in Parkinson’s disease patients. <i>Movement Disorders: Official Journal of the Movement Disorder Society</i> <b>21</b>, 1098–1101 (2006).</span></li></ol>
 
 </section>
 
