@@ -325,6 +325,13 @@
   <li>Analysis of discussions in online forums may  identify reasons for HDS use and non-adherence to standard therapy</li>
 </ul>
 
+<p>The <em>overall goall</em> of this study is to:</p>
+
+<ul>
+  <li>Is Macuna pruriens perceived as more effective or tolerable than pharmaceutical L-DOPA?</li>
+  <li>What circumstances that lead people to use MP-containing supplements?</li>
+</ul>
+
 <h3 id="methods">Methods</h3>
 <pre><code class="language-mermaid">
    graph TD
@@ -343,8 +350,22 @@ Perception.  We manually labelled each comment for (1) mentioning MP, (2) mentio
 
 <p><em>Thematic Analysis.</em> We conducted two rounds of qualitative analysis to identify themes in the post and then group post and comments by theme.</p>
 
+<p><strong>Data Acquisition</strong>. Author MC wrote custom software in R and Python to extract all comments and posts from the subreddit r/Parkinson’s from the start of the subreddit to January 2025. The software is available on GitHub at LINK.</p>
+
+<p><strong>Data Preprocessing</strong>. We manually standardized comments, replacing brand names with generic names, expanded abbreviations, and corrected misspellings. We counted multiple identical posts by one user as one comment.</p>
+
+<p><strong>Data Analysis</strong>. 
+Perception.  We manually labelled each comment for (1) mentioning MP, (2) mentioning L-DOPA, (3) if the experience was positive, negative, neither, or both.</p>
+
+<p><strong>Thematic Analysis</strong>. We conducted two rounds of qualitative analysis to identify themes in the post and then group post and comments by theme.</p>
 <h3 id="results">Results</h3>
 
+<pre><code class="language-mermaid">graph TD
+  A[Data Acquisition] --&gt; B[Data Preprocessing]
+  B --&gt; C[Data Analysis]
+  C --&gt; D[Perception]
+  C --&gt; E[Thematic Analysis]
+</code></pre>
 <h3 id="conclusions">Conclusions</h3>
 <p>Users discuss the benefits, risks, and motivations for using MP in online forums.</p>
 
@@ -379,6 +400,10 @@ Perception.  We manually labelled each comment for (1) mentioning MP, (2) mentio
 <li><span id="wolfrath2006use">1.Wolfrath, S. C. <i>et al.</i> Use of nutritional supplements in Parkinson’s disease patients. <i>Movement Disorders: Official Journal of the Movement Disorder Society</i> <b>21</b>, 1098–1101 (2006).</span></li>
 <li><span id="cohen2022levodopa">2.Cohen, P. A., Avula, B., Katragunta, K. &amp; Khan, I. Levodopa content of Mucuna pruriens supplements in the NIH dietary supplement label database. <i>JAMA neurology</i> <b>79</b>, 1085–1086 (2022).</span></li>
 </ol>
+
+<h3 id="references">References</h3>
+
+<ol class="bibliography"><li><span id="wolfrath2006use">1.Wolfrath, S. C. <i>et al.</i> Use of nutritional supplements in Parkinson’s disease patients. <i>Movement Disorders: Official Journal of the Movement Disorder Society</i> <b>21</b>, 1098–1101 (2006).</span></li></ol>
 
 </section>
 
