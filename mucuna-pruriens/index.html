@@ -332,7 +332,7 @@
     B --&gt; D["Unique &amp; mentioning\n direct use of L-DOPA (n=688)"]
     C --&gt; E["Unique &amp; mentioning\n direct use of MP (n=25)"]
 </code></pre>
-<p><strong>Data Acquisition</strong>. Author MC wrote custom software in R and Python to extract all comments and posts from the subreddit r/Parkinson’s from the start of the subreddit to January 2025. The software is available on <a href="https://github.com/mac389/abortifacient_misinformation" target="_blank">GitHub</a>.</p>
+<p><strong>Data Acquisition</strong>. Author MC wrote custom software in R and Python to extract all comments and posts from the subreddit r/Parkinson’s from the start of the subreddit to January 2025. The software is available on <a href="https://github.com/mac389/abortifacient_misinformation" target="_blank">GitHub</a> (requires invitation).</p>
 
 <p><strong>Data Preprocessing</strong>. We manually standardized comments, replacing brand names with generic names, expanded abbreviations, and corrected misspellings. We counted multiple identical posts by one user as one comment.</p>
 
@@ -345,40 +345,63 @@ Perception.  We manually labelled each comment for (1) mentioning MP, (2) mentio
 
 <h3 id="results">Results</h3>
 
-<h3 id="conclusions">Conclusions</h3>
-<p>Users discuss the benefits, risks, and motivations for using MP in online forums.</p>
+<table>
+  <tr>
+    <th colspan="2">Fisher’s exact test<br>P=0.384&lt;/td&gt;</th>
+<th colspan="3">Sentiment&lt;/td&gt;
+&lt;/tr&gt;</th>
+</tr>
+<tr>
+    <td colspan="2">
+</td>
+    <td>Positive</td>
+    <td>Negative</td>
+    <td>Neither</td>
+  </tr>
+  <tr>
+    <td>Substance</td>
+    <td>MP</td>
+    <td>6</td>
+    <td>4</td>
+    <td>15</td>
+  </tr>
+  <tr>
+    <td>Substance</td>
+    <td>L-DOPA</td>
+    <td>258</td>
+    <td>85</td>
+    <td>345</td>
+&lt;/table&gt;
 
-<p>Users turn to Mucuna:</p>
-<ul>
-  <li>To self-diagnose or self-treat while waiting to see a Parkinson’s specialist</li>
-  <li>From dissatisfaction with pharmaceutical levodopa</li>
-  <li>To supplement their pharmaceutical regimens for better control of symptoms</li>
-</ul>
+### Conclusions 
+Users discuss the benefits, risks, and motivations for using MP in online forums.
 
-<p>The doses discussed of L-DOPA via MP are generally lower than L-DOPA via pharmaceuticals</p>
+Users turn to Mucuna:
+- To self-diagnose or self-treat while waiting to see a Parkinson’s specialist
+- From dissatisfaction with pharmaceutical levodopa
+- To supplement their pharmaceutical regimens for better control of symptoms 
 
-<p>Many comments discuss pharmacological properties and theoretical effects, not personal use</p>
+The doses discussed of L-DOPA via MP are generally lower than L-DOPA via pharmaceuticals
 
-<p><em>Next Steps</em>.</p>
-<ul>
-  <li>
-    <p>Prospective observational cohort with testing of samples, like <a class="citation" href="#cohen2022levodopa">(Cohen et al., 2022)</a>.
- but with assessment of effect using Unified Parkinson’s Disease Rating Scale.</p>
-  </li>
-  <li>
-    <p>Similar study across multiple forums</p>
-  </li>
-  <li>
-    <p>Analysis of other compounds in MP that may potentiate L-DOPA or have disease-modifying effects</p>
-  </li>
-</ul>
+Many comments discuss pharmacological properties and theoretical effects, not personal use
 
-<h3 id="references">References</h3>
+_Next Steps_.  
+- Prospective observational cohort with testing of samples, like <a class="citation" href="#cohen2022levodopa">(Cohen et al., 2022)</a>.
+ but with assessment of effect using Unified Parkinson's Disease Rating Scale.
+
+- Similar study across multiple forums
+
+- Analysis of other compounds in MP that may potentiate L-DOPA or have disease-modifying effects
+
+
+### References 
 
 <ol class="bibliography">
 <li><span id="wolfrath2006use">1.Wolfrath, S. C. <i>et al.</i> Use of nutritional supplements in Parkinson’s disease patients. <i>Movement Disorders: Official Journal of the Movement Disorder Society</i> <b>21</b>, 1098–1101 (2006).</span></li>
 <li><span id="cohen2022levodopa">2.Cohen, P. A., Avula, B., Katragunta, K. &amp; Khan, I. Levodopa content of Mucuna pruriens supplements in the NIH dietary supplement label database. <i>JAMA neurology</i> <b>79</b>, 1085–1086 (2022).</span></li>
 </ol>
+</tr>
+</table>
 
 </section>
 
