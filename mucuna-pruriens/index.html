@@ -295,7 +295,7 @@
 
 <section class="post--content">
   <br><br><br>
-  <p class="post--date">07 Jan 2025 (Last Modified 29 Mar 2025)</p>
+  <p class="post--date">07 Mar 2025 (Last Modified 31 Mar 2025)</p>
 <br>
     
   <p></p>
@@ -305,12 +305,20 @@
 </blockquote>
 
 <h3 id="tldr">TLDR</h3>
+<ul>
+  <li>
+    <p>Discussions on Reddit about Mucuna pruriens (MP) are mainly about its use for self-treatment of Parkinson’s Disease (PD) and self-diagnosis.</p>
+  </li>
+  <li>
+    <p>Infrequent discussion of side effects or interactions with other medications, but frequent mention of the lack of regulation of herbal and dietary supplements (HDS) leading to unreliable dosing.</p>
+  </li>
+</ul>
 
 <h3 id="introduction">Introduction</h3>
 
 <ul>
   <li>Parkinson’s Disease results from loss of dopamine-producing neurons. The main treatment is levodopa (L-DOPA).</li>
-  <li>Approximately 60% of patients with mild or moderate Parkinson’s use herbal and dietary supplements (HDS) including Mucuna pruriens (MP), which contains 2-40% L-DOPA1.</li>
+  <li>Approximately 60% of patients with mild or moderate Parkinson’s use herbal and dietary supplements (HDS) including Mucuna pruriens (MP), which contains 2-40% L-DOPA<a class="citation" href="#wolfrath2006use"><span style="vertical-align: super">1</span></a>.</li>
   <li>HDS use may interfere with physician treatment.</li>
   <li>Patients rarely disclose HDS use to physicians but frequently discuss HDS use for other conditions in online forums.</li>
   <li>We have shown online forums as a valid source of information on substance usage2,3.</li>
@@ -318,10 +326,59 @@
 </ul>
 
 <h3 id="methods">Methods</h3>
+<pre><code class="language-mermaid">
+   graph TD
+     A["Comments \n(n=13,612; 12,039 unique)"] --&gt; B["Mentioning L-DOPA (n=688)"] &amp; C["Mentioning MP (n=28)"]
+    B --&gt; D["Unique &amp; mentioning\n direct use of L-DOPA (n=688)"]
+    C --&gt; E["Unique &amp; mentioning\n direct use of MP (n=25)"]
+</code></pre>
+<p><strong>Data Acquisition</strong>. Author MC wrote custom software in R and Python to extract all comments and posts from the subreddit r/Parkinson’s from the start of the subreddit to January 2025. The software is available on <a href="https://github.com/mac389/abortifacient_misinformation" target="_blank">GitHub</a>.</p>
+
+<p><strong>Data Preprocessing</strong>. We manually standardized comments, replacing brand names with generic names, expanded abbreviations, and corrected misspellings. We counted multiple identical posts by one user as one comment.</p>
+
+<p><strong>Data Analysis</strong>. 
+Perception.  We manually labelled each comment for (1) mentioning MP, (2) mentioning L-DOPA, (3) if the experience was positive, negative, neither, or both.</p>
+
+<p><em>Perception.</em>  We manually labelled each comment for (1) mentioning MP, (2) mentioning L-DOPA, (3) if the experience was positive, negative, neither, or both.</p>
+
+<p><em>Thematic Analysis.</em> We conducted two rounds of qualitative analysis to identify themes in the post and then group post and comments by theme.</p>
 
 <h3 id="results">Results</h3>
 
 <h3 id="conclusions">Conclusions</h3>
+<p>Users discuss the benefits, risks, and motivations for using MP in online forums.</p>
+
+<p>Users turn to Mucuna:</p>
+<ul>
+  <li>To self-diagnose or self-treat while waiting to see a Parkinson’s specialist</li>
+  <li>From dissatisfaction with pharmaceutical levodopa</li>
+  <li>To supplement their pharmaceutical regimens for better control of symptoms</li>
+</ul>
+
+<p>The doses discussed of L-DOPA via MP are generally lower than L-DOPA via pharmaceuticals</p>
+
+<p>Many comments discuss pharmacological properties and theoretical effects, not personal use</p>
+
+<p><em>Next Steps</em>.</p>
+<ul>
+  <li>
+    <p>Prospective observational cohort with testing of samples, like <a class="citation" href="#cohen2022levodopa">(Cohen et al., 2022)</a>.
+ but with assessment of effect using Unified Parkinson’s Disease Rating Scale.</p>
+  </li>
+  <li>
+    <p>Similar study across multiple forums</p>
+  </li>
+  <li>
+    <p>Analysis of other compounds in MP that may potentiate L-DOPA or have disease-modifying effects</p>
+  </li>
+</ul>
+
+<h3 id="references">References</h3>
+
+<ol class="bibliography">
+<li><span id="wolfrath2006use">1.Wolfrath, S. C. <i>et al.</i> Use of nutritional supplements in Parkinson’s disease patients. <i>Movement Disorders: Official Journal of the Movement Disorder Society</i> <b>21</b>, 1098–1101 (2006).</span></li>
+<li><span id="cohen2022levodopa">2.Cohen, P. A., Avula, B., Katragunta, K. &amp; Khan, I. Levodopa content of Mucuna pruriens supplements in the NIH dietary supplement label database. <i>JAMA neurology</i> <b>79</b>, 1085–1086 (2022).</span></li>
+</ol>
 
 </section>
 
