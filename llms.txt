@@ -1,0 +1,29 @@
+# Michael Chary, MD, PhD
+
+Emergency physician, medical toxicologist, and researcher using computational methods to study substance use, poisoning, and healthcare systems.
+
+## Main Sections
+
+- [Home](https://mac389.github.io/)
+- [Research](https://mac389.github.io/research/)
+- [Publications](https://mac389.github.io/publications/)
+- [Projects](https://mac389.github.io/projects/)
+- [CV](https://mac389.github.io/cv/)
+
+## Key Topics
+
+- Medical Toxicology
+- Poisoning
+- Substance Use Disorders
+- Social Media Research
+- Clinical Decision Support
+- Digital Health
+- Emergency Medicine
+- Machine Learning in Healthcare
+
+## Important Resources
+
+- NIH-funded and SBIR-related work
+- Research publications
+- Conference presentations
+- Open-source projects

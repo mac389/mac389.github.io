@@ -1,0 +1,81 @@
+Location:
+  Death:
+    acuity_range:
+      max: 2
+      min: 1
+    allowable_transitions:
+    - Death
+    capacity: 9999
+    complexity_threshold: 1
+    treatment_effect: 0
+  ED:
+    acuity_range:
+      max: 0.7
+      min: 0.3
+    allowable_transitions:
+    - VUC
+    - Outpatient
+    - Home
+    - Hospital
+    capacity: 200
+    complexity_threshold: 1
+    treatment_effect: 0.2
+  Home:
+    acuity_range:
+      max: 0.3
+      min: 0.0
+    allowable_transitions:
+    - ED
+    - VUC
+    - Outpatient
+    - Home
+    capacity: 1000
+    complexity_threshold: 1
+    treatment_effect: 0
+  Hospital:
+    acuity_range:
+      max: 1.0
+      min: 0.7
+    allowable_transitions:
+    - VUC
+    - Outpatient
+    - Home
+    - Death
+    capacity: 1000
+    complexity_threshold: 1
+    treatment_effect: 0.5
+    boarding_penalty: 0.2
+  Outpatient:
+    acuity_range:
+      max: 0.4
+      min: 0
+    allowable_transitions:
+    - ED
+    - Home
+    - Hospital
+    capacity: 90
+    complexity_threshold: 0.7
+    treatment_effect: 0.1
+    boarding_penalty: 1
+  VUC:
+    acuity_range:
+      max: 0.5
+      min: 0.3
+    allowable_transitions:
+    - ED
+    - Outpatient
+    - Home
+    capacity: 5
+    complexity_threshold: 0.4
+    treatment_effect: 0.1
+simulation:
+  sweep:
+    - variable: "VUC.complexity_threshold"
+      values: [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+  n_replicates: 5 
+  patients_per_run: 6
+  savepath:
+    model_summary: model_summary
+    output_dir: ./data/simulation-results
+    patient_trace: patient_trace
+  steps_per_patient: 10
